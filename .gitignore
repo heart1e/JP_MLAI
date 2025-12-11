@@ -1,0 +1,71 @@
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python and notebooks
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+.venv/
+venv/
+env/
+ENV/
+.ipynb_checkpoints/
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# Tool caches and coverage
+.mypy_cache/
+.pytype/
+.pytest_cache/
+.cache/
+coverage*
+htmlcov/
+.tox/
+.dmypy.json
+.pyre/
+
+# Secrets and local configs
+.env
+.env.*
+
+# Data, models, and experiment artifacts
+data/
+datasets/
+raw/
+raw_data/
+processed/
+outputs/
+results/
+models/
+model_outputs/
+checkpoints/
+experiments/
+runs/
+wandb/
+mlruns/
+tensorboard/
+tb_logs/
+logs/
+tmp/
+temp/
+cache/
+
+# Large binary artifacts
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.pkl
+*.joblib
+*.onnx
+*.pb
+*.npy
+*.npz
