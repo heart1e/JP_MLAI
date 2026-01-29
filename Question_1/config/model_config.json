@@ -1,0 +1,108 @@
+{
+  "seed": 3,
+  "data_dir": "data/yfinance",
+  "target_freq": "yearly",
+  "bs_aliases": {
+    "Total Assets": [
+      "Total Assets",
+      "TotalAssets"
+    ],
+    "Total Liabilities": [
+      "Total Liab",
+      "Total Liabilities",
+      "Total Liabilities Net Minority Interest",
+      "TotalLiabilitiesNetMinorityInterest",
+      "TotalLiabilities"
+    ],
+    "Total Equity": [
+      "Total Stockholder Equity",
+      "Total Equity Gross Minority Interest",
+      "Stockholders Equity",
+      "TotalEquityGrossMinorityInterest",
+      "StockholdersEquity"
+    ],
+    "Accounts Receivable": [
+      "Accounts Receivable",
+      "AccountsReceivable"
+    ],
+    "Accounts Payable": [
+      "Accounts Payable",
+      "AccountsPayable"
+    ],
+    "Net PPE": [
+      "Net PPE",
+      "NetPPE"
+    ],
+    "Retained Earnings": [
+      "Retained Earnings",
+      "RetainedEarnings"
+    ],
+    "Inventory": [
+      "Inventory",
+      "Inventories"
+    ]
+  },
+  "special_tickers": {
+    "700": "0700.HK",
+    "1810": "1810.HK",
+    "9633": "9633.HK",
+    "9987": "9987.HK",
+    "9988": "9988.HK",
+    "BRK B": "BRK-B",
+    "NESN": "NESN.SW"
+  },
+  "tickers": [
+    "AAPL",
+    "GOOG",
+    "700",
+    "1810",
+    "IBM",
+    "TSLA",
+    "9633",
+    "9987",
+    "9988",
+    "IBKR",
+    "KO",
+    "MCD",
+    "EL",
+    "BRK B",
+    "NESN"
+  ],
+  "primary_ticker": "AAPL",
+  "target_bs": [
+    "Total Assets",
+    "Total Liabilities",
+    "Total Equity"
+  ],
+  "target_le": [
+    "Total Liabilities",
+    "Total Equity"
+  ],
+  "net_income_col": "Net Income",
+  "state_cols": [
+    "Accounts Receivable",
+    "Accounts Payable",
+    "Inventory",
+    "Net PPE",
+    "Total Liabilities",
+    "Total Equity",
+    "Retained Earnings"
+  ],
+  "fiscal_year_end_months": {
+    "AAPL": 9,
+    "GOOG": 12,
+    "700": 12,
+    "1810": 12,
+    "IBM": 12,
+    "TSLA": 12,
+    "9633": 12,
+    "9987": 12,
+    "9988": 3,
+    "IBKR": 12,
+    "KO": 12,
+    "MCD": 12,
+    "EL": 6,
+    "BRK B": 12,
+    "NESN": 12
+  }
+}
