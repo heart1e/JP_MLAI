@@ -1,0 +1,15 @@
+name: jp_mlai_q1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - numpy
+      - pandas
+      - matplotlib
+      - scikit-learn
+      - tensorflow
+      - tensorflow-probability
+      - yfinance
+      - jupyter
