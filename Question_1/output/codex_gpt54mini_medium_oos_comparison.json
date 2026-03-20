@@ -1,0 +1,70 @@
+{
+  "best_llm_weight": 1.0,
+  "weight_search_metric": "mean_normalized_mae_bs",
+  "test_comparison": [
+    {
+      "model": "Codex gpt-5.4-mini",
+      "mae_liab": 15294417000.0,
+      "mae_equity": 32146111900.0,
+      "mae_assets": 35550128900.0,
+      "rmse_liab": 25428881373.40866,
+      "rmse_equity": 89408560996.25146,
+      "rmse_assets": 79628828294.32663,
+      "normalized_mae_liab": 0.0473595113,
+      "normalized_mae_equity": 0.0473787374,
+      "normalized_mae_assets": 0.0692173512,
+      "identity_resid_mean": 0.0,
+      "mean_mae_bs": 27663552600.0,
+      "mean_rmse_bs": 64822090221.32892,
+      "mean_normalized_mae_bs": 0.0546518666
+    },
+    {
+      "model": "Ensemble tuned llm=1.00",
+      "mae_liab": 15294417000.0,
+      "mae_equity": 32146111900.0,
+      "mae_assets": 35550128900.0,
+      "rmse_liab": 25428881373.40866,
+      "rmse_equity": 89408560996.25146,
+      "rmse_assets": 79628828294.32663,
+      "normalized_mae_liab": 0.0473595113,
+      "normalized_mae_equity": 0.0473787374,
+      "normalized_mae_assets": 0.0692173512,
+      "identity_resid_mean": 0.0,
+      "mean_mae_bs": 27663552600.0,
+      "mean_rmse_bs": 64822090221.32892,
+      "mean_normalized_mae_bs": 0.0546518666
+    },
+    {
+      "model": "Ensemble 50/50",
+      "mae_liab": 76555040420.8,
+      "mae_equity": 145148118280.8,
+      "mae_assets": 215976250375.2,
+      "rmse_liab": 93229836324.78365,
+      "rmse_equity": 271270769416.88037,
+      "rmse_assets": 346129515538.4464,
+      "normalized_mae_liab": 1.6075203983,
+      "normalized_mae_equity": 0.8841274944,
+      "normalized_mae_assets": 2.4477163729,
+      "identity_resid_mean": 0.0,
+      "mean_mae_bs": 145893136358.93332,
+      "mean_rmse_bs": 236876707093.37012,
+      "mean_normalized_mae_bs": 1.6464547552
+    },
+    {
+      "model": "Part1",
+      "mae_liab": 151772423841.6,
+      "mae_equity": 261199924661.6,
+      "mae_assets": 399684171031.2,
+      "rmse_liab": 195616994482.3646,
+      "rmse_equity": 480734641174.42316,
+      "rmse_assets": 632889954311.6365,
+      "normalized_mae_liab": 3.2024345644,
+      "normalized_mae_equity": 1.7398707153,
+      "normalized_mae_assets": 4.8498358366,
+      "identity_resid_mean": 0.0,
+      "mean_mae_bs": 270885506511.46667,
+      "mean_rmse_bs": 436413863322.8081,
+      "mean_normalized_mae_bs": 3.2640470388
+    }
+  ]
+}

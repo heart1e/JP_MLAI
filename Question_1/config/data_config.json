@@ -1,0 +1,55 @@
+﻿{
+  "special_tickers": {
+    "700": "0700.HK",
+    "1810": "1810.HK",
+    "9633": "9633.HK",
+    "9987": "9987.HK",
+    "9988": "9988.HK",
+    "BRK B": "BRK-B",
+    "NESN": "NESN.SW"
+  },
+  "default_tickers": [
+    "AAPL",
+    "GOOG",
+    "700",
+    "1810",
+    "IBM",
+    "TSLA",
+    "9633",
+    "9987",
+    "9988",
+    "IBKR",
+    "KO",
+    "MCD",
+    "EL",
+    "BRK B",
+    "NESN"
+  ],
+  "yfinance_data_dir": "data/yfinance",
+  "yfinance_sleep_seconds": 0.5,
+  "sec_default_ticker_cik": {
+    "AAPL": "0000320193"
+  },
+  "sec_fields": {
+    "total_assets": ["Assets"],
+    "total_liabilities": ["Liabilities"],
+    "total_equity": [
+      "StockholdersEquity",
+      "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    ],
+    "total_revenue": [
+      "Revenues",
+      "SalesRevenueNet",
+      "RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "net_income": [
+      "NetIncomeLoss",
+      "NetIncomeLossAvailableToCommonStockholdersBasic"
+    ]
+  },
+  "sec_allowed_forms": ["10-K", "10-K/A", "20-F", "40-F"],
+  "sec_allowed_forms_quarterly": ["10-Q", "10-Q/A"],
+  "sec_years_default": 10,
+  "sec_data_dir": "data/sec/yearly",
+  "sec_data_dir_quarterly": "data/sec/quarterly"
+}

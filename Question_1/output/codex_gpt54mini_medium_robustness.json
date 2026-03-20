@@ -1,0 +1,54 @@
+{
+  "model": "gpt-5.4-mini",
+  "model_reasoning_effort": "medium",
+  "tool_version": "codex-cli 0.115.0-alpha.27",
+  "prompt_template": "Section 6.8 balance-sheet forecast prompt",
+  "sample_ticker": "AAPL",
+  "sample_date": "2025-09-30",
+  "runs": [
+    {
+      "run_id": 1,
+      "pred_total_liabilities": 297100000000.0,
+      "pred_total_equity": 67700000000.0,
+      "pred_total_assets": 364800000000.0
+    },
+    {
+      "run_id": 2,
+      "pred_total_liabilities": 303300000000.0,
+      "pred_total_equity": 64200000000.0,
+      "pred_total_assets": 367500000000.0
+    },
+    {
+      "run_id": 3,
+      "pred_total_liabilities": 306800000000.0,
+      "pred_total_equity": 60400000000.0,
+      "pred_total_assets": 367200000000.0
+    },
+    {
+      "run_id": 4,
+      "pred_total_liabilities": 312000000000.0,
+      "pred_total_equity": 65000000000.0,
+      "pred_total_assets": 377000000000.0
+    },
+    {
+      "run_id": 5,
+      "pred_total_liabilities": 307500000000.0,
+      "pred_total_equity": 70150000000.0,
+      "pred_total_assets": 377650000000.0
+    }
+  ],
+  "summary": {
+    "model": "gpt-5.4-mini",
+    "model_reasoning_effort": "medium",
+    "tool_version": "codex-cli 0.115.0-alpha.27",
+    "sample_ticker": "AAPL",
+    "sample_date": "2025-09-30",
+    "runs": 5,
+    "liab_mean": 305340000000.0,
+    "liab_std": 4964111199.399143,
+    "equity_mean": 65490000000.0,
+    "equity_std": 3298848283.871206,
+    "assets_mean": 370830000000.0,
+    "assets_std": 5389025886.002033
+  }
+}

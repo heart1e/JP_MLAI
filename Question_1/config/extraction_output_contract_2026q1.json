@@ -1,0 +1,45 @@
+{
+  "contract_version": "2026q1-v1",
+  "required_top_level_keys": [
+    "company",
+    "statement_year",
+    "units",
+    "source_pdf_url",
+    "source_pdf_path",
+    "statement_pages_pdf_1_based",
+    "extracted_values",
+    "metrics",
+    "assumptions"
+  ],
+  "required_statement_page_keys": [
+    "income_statement",
+    "balance_sheet",
+    "cash_flow_statement"
+  ],
+  "required_extracted_sections": [
+    "income_statement",
+    "balance_sheet",
+    "cash_flow_statement"
+  ],
+  "required_metric_keys": [
+    "net_income_musd",
+    "cost_to_income_ratio",
+    "quick_ratio",
+    "debt_to_equity_ratio",
+    "debt_to_assets_ratio",
+    "debt_to_capital_ratio",
+    "debt_to_ebitda_ratio",
+    "interest_coverage_ratio"
+  ],
+  "types": {
+    "company": "string",
+    "statement_year": "number",
+    "units": "string",
+    "source_pdf_url": "string",
+    "source_pdf_path": "string",
+    "statement_pages_pdf_1_based": "object",
+    "extracted_values": "object",
+    "metrics": "object",
+    "assumptions": "array"
+  }
+}

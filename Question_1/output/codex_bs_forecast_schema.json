@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "pred_total_liabilities_mn": {
+      "type": "number"
+    },
+    "pred_total_equity_mn": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "pred_total_liabilities_mn",
+    "pred_total_equity_mn"
+  ],
+  "additionalProperties": false
+}

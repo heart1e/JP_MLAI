@@ -1,0 +1,112 @@
+[
+  {
+    "row_key": "0700.HK|2023-12-31",
+    "ticker": "0700.HK",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 778429000000.0,
+    "pred_total_equity": 766228000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "1810.HK|2023-12-31",
+    "ticker": "1810.HK",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 127800000000.0,
+    "pred_total_equity": 145700000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "9987.HK|2023-12-31",
+    "ticker": "9987.HK",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 4175000000.0,
+    "pred_total_equity": 6400000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "AAPL|2024-09-30",
+    "ticker": "AAPL",
+    "date": "2024-09-30",
+    "pred_total_liabilities": 290900000000.0,
+    "pred_total_equity": 61511000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "EL|2024-06-30",
+    "ticker": "EL",
+    "date": "2024-06-30",
+    "pred_total_liabilities": 19758000000.0,
+    "pred_total_equity": 6460000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "IBM|2023-12-31",
+    "ticker": "IBM",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 101300000000.0,
+    "pred_total_equity": 21300000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "KO|2023-12-31",
+    "ticker": "KO",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 68200000000.0,
+    "pred_total_equity": 27200000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "MCD|2023-12-31",
+    "ticker": "MCD",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 52850000000.0,
+    "pred_total_equity": -5630000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "NESN.SW|2023-12-31",
+    "ticker": "NESN.SW",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 95900000000.0,
+    "pred_total_equity": 35400000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  },
+  {
+    "row_key": "TSLA|2023-12-31",
+    "ticker": "TSLA",
+    "date": "2023-12-31",
+    "pred_total_liabilities": 44200000000.0,
+    "pred_total_equity": 64900000000.0,
+    "examples_used": 1,
+    "model": "gpt-5.4-mini",
+    "reasoning": "medium",
+    "split": "val"
+  }
+]

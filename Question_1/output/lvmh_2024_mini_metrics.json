@@ -1,0 +1,58 @@
+{
+  "company": "LVMH Moet Hennessy Louis Vuitton SE",
+  "statement_year": 2024,
+  "units": "EUR millions unless ratio",
+  "source_pdf_url": "https://lvmh-com.cdn.prismic.io/lvmh-com/Z5kVBpbqstJ999KR_Financialdocuments-December31%2C2024.pdf",
+  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/lvmh_financial_documents_2024.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 24,
+    "balance_sheet": 26,
+    "cash_flow_statement": 28
+  },
+  "extracted_values": {
+    "income_statement": {
+      "revenue": 84683.0,
+      "cost_of_sales": -27918.0,
+      "marketing_selling_expenses": -31002.0,
+      "general_admin_expenses": -6220.0,
+      "operating_profit": 18907.0,
+      "cost_of_net_financial_debt": -442.0,
+      "interest_on_lease_liabilities": -510.0,
+      "net_profit_before_minority_interests": 12958.0,
+      "net_profit_group_share": 12550.0
+    },
+    "balance_sheet": {
+      "cash_and_cash_equivalents": 9631.0,
+      "trade_accounts_receivable": 4730.0,
+      "current_liabilities": 46207.0,
+      "total_assets": 149190.0,
+      "equity_total": 69287.0,
+      "short_term_borrowings": 10851.0,
+      "long_term_borrowings": 12091.0
+    },
+    "cash_flow_statement": {
+      "dep_amort_provisions_increase": 4568.0,
+      "depr_right_of_use_assets": 3228.0
+    }
+  },
+  "metrics": {
+    "net_income_musd": 12958.0,
+    "net_income_group_share_musd": 12550.0,
+    "cost_to_income_ratio": 0.769222,
+    "quick_ratio": 0.310797,
+    "debt_to_equity_ratio": 0.331116,
+    "debt_to_assets_ratio": 0.153777,
+    "debt_to_capital_ratio": 0.24875,
+    "debt_to_ebitda_ratio": 0.859154,
+    "interest_coverage_ratio": 19.860294,
+    "total_debt_musd": 22942.0,
+    "ebitda_proxy_musd": 26703.0
+  },
+  "assumptions": [
+    "Cost-to-income = (Cost of sales + Marketing and selling expenses + General and administrative expenses) / Revenue.",
+    "Quick assets = cash and cash equivalents + trade accounts receivable.",
+    "Total debt = short-term borrowings + long-term borrowings (borrowings only, lease liabilities excluded).",
+    "EBITDA proxy = operating profit + net increase in depreciation/amortization/provisions + depreciation of right-of-use assets.",
+    "Interest coverage = operating profit / (abs(cost of net financial debt) + abs(interest on lease liabilities))."
+  ]
+}

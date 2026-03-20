@@ -1,0 +1,51 @@
+{
+  "company": "JPMorgan Chase & Co.",
+  "statement_year": 2024,
+  "units": "USD millions unless ratio",
+  "source_pdf_url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2024.pdf",
+  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/jpm_annual_report_2024.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 206,
+    "balance_sheet": 208,
+    "cash_flow_statement": 210
+  },
+  "extracted_values": {
+    "income_statement": {
+      "total_net_revenue": 177556.0,
+      "interest_expense": 101350.0,
+      "total_noninterest_expense": 91797.0,
+      "income_before_tax": 75081.0,
+      "net_income": 58471.0
+    },
+    "balance_sheet": {
+      "cash_due_from_banks": 23372.0,
+      "deposits_with_banks": 445945.0,
+      "fed_funds_sold_and_resale": 286771.0,
+      "total_assets": 4002814.0,
+      "total_liabilities": 3658056.0,
+      "total_stockholders_equity": 344758.0
+    },
+    "cash_flow_statement": {
+      "depreciation_and_amortization": 7938.0
+    }
+  },
+  "metrics": {
+    "net_income_musd": 58471.0,
+    "cost_to_income_ratio": 0.517003,
+    "quick_ratio": 0.206691,
+    "debt_to_equity_ratio": 10.610504,
+    "debt_to_assets_ratio": 0.913871,
+    "debt_to_capital_ratio": 0.913871,
+    "debt_to_ebitda_ratio": 44.062877,
+    "interest_coverage_ratio": 0.740809,
+    "total_debt_musd": 3658056.0,
+    "ebitda_proxy_musd": 83019.0
+  },
+  "assumptions": [
+    "Bank format proxy: total liabilities is used as debt proxy.",
+    "Cost-to-income (bank efficiency proxy) = total noninterest expense / total net revenue.",
+    "Quick ratio proxy = (cash and due from banks + deposits with banks + federal funds sold/resale) / total liabilities.",
+    "EBITDA proxy = income before income tax expense + depreciation and amortization.",
+    "Interest coverage proxy = income before income tax expense / interest expense."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "company": "Alibaba Group Holding Limited",
+  "statement_year": 2024,
+  "units": "RMB millions unless ratio",
+  "source_pdf_url": "https://data.alibabagroup.com/ecms-files/1514443390/5788a02d-696c-412a-ad2a-386d19b21769/Alibaba%20Group%20Holding%20Limited%20Fiscal%20Year%202024%20Annual%20Report.pdf",
+  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/alibaba_fy2024_annual_report.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 254,
+    "balance_sheet": 256,
+    "cash_flow_statement": 261
+  },
+  "extracted_values": {
+    "income_statement": {
+      "total_revenue": 941168.0,
+      "cost_of_revenue": -586323.0,
+      "income_from_operations": 113350.0,
+      "interest_expense": -7947.0,
+      "net_income": 71332.0
+    },
+    "balance_sheet": {
+      "cash_and_cash_equivalents": 248125.0,
+      "short_term_investments": 262955.0,
+      "prepayments_receivables_other_assets_current_proxy": 143536.0,
+      "total_current_liabilities": 421507.0,
+      "total_assets": 1764829.0,
+      "total_liabilities": 652230.0,
+      "total_equity": 1101871.0,
+      "current_bank_borrowings": 12749.0,
+      "current_unsecured_senior_notes": 16252.0,
+      "non_current_bank_borrowings": 55686.0,
+      "non_current_unsecured_senior_notes": 86089.0
+    },
+    "cash_flow_statement": {
+      "depreciation_proxy": 26640.0,
+      "amortization_proxy": 2569.0
+    }
+  },
+  "metrics": {
+    "net_income_musd": 71332.0,
+    "cost_to_income_ratio": 0.622974,
+    "quick_ratio": 1.553037,
+    "debt_to_equity_ratio": 0.154987,
+    "debt_to_assets_ratio": 0.096766,
+    "debt_to_capital_ratio": 0.13419,
+    "debt_to_ebitda_ratio": 1.197932,
+    "interest_coverage_ratio": 14.263244,
+    "total_debt_musd": 170776.0,
+    "ebitda_proxy_musd": 142559.0
+  },
+  "assumptions": [
+    "Current receivable proxy uses prepayments/receivables/other assets line item in Alibaba report."
+  ]
+}

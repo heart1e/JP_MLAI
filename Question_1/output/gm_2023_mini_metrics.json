@@ -1,0 +1,60 @@
+{
+  "company": "General Motors Company",
+  "statement_year": 2023,
+  "units": "USD millions unless ratio",
+  "source_pdf_url": "https://investor.gm.com/static-files/1fff6f59-551f-4fe0-bca9-74bfc9a56aeb",
+  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/gm_annual_report_2023.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 61,
+    "balance_sheet": 62,
+    "cash_flow_statement": 63
+  },
+  "extracted_values": {
+    "income_statement": {
+      "total_net_sales_revenue": 171842.0,
+      "total_costs_expenses": 162544.0,
+      "operating_income": 9298.0,
+      "interest_expense_automotive": 911.0,
+      "income_tax_expense": 563.0,
+      "net_income": 9840.0,
+      "net_income_attributable_to_stockholders": 10127.0
+    },
+    "balance_sheet": {
+      "cash_and_cash_equivalents": 18853.0,
+      "marketable_debt_securities": 7613.0,
+      "accounts_notes_receivable": 12378.0,
+      "inventories": 16461.0,
+      "total_current_liabilities": 94445.0,
+      "total_assets": 273064.0,
+      "total_liabilities": 204757.0,
+      "total_equity": 68189.0,
+      "short_term_debt_automotive": 428.0,
+      "short_term_debt_gm_financial": 38540.0,
+      "long_term_debt_automotive": 15985.0,
+      "long_term_debt_gm_financial": 66788.0
+    },
+    "cash_flow_statement": {
+      "depr_impairment_operating_leases": 4904.0,
+      "depr_amort_impairment_property": 6984.0
+    }
+  },
+  "metrics": {
+    "net_income_musd": 9840.0,
+    "cost_to_income_ratio": 0.945892,
+    "quick_ratio": 0.411287,
+    "debt_to_equity_ratio": 1.785347,
+    "debt_to_assets_ratio": 0.445833,
+    "debt_to_capital_ratio": 0.640978,
+    "debt_to_ebitda_ratio": 5.746295,
+    "interest_coverage_ratio": 10.206367,
+    "total_debt_musd": 121741.0,
+    "ebitda_proxy_musd": 21186.0
+  },
+  "assumptions": [
+    "Cost-to-income = Total costs and expenses / Total net sales and revenue.",
+    "Quick assets = cash + marketable debt securities + accounts and notes receivable.",
+    "Total debt = short-term debt + long-term debt (Automotive + GM Financial).",
+    "EBITDA proxy = operating income + depreciation/impairment of operating leases + depreciation/amortization/impairment of property.",
+    "Interest coverage = operating income / automotive interest expense."
+  ]
+}

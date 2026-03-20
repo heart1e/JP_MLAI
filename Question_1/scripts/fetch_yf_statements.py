@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 import re
 import time
@@ -11,33 +12,14 @@ from typing import Iterable, Tuple
 import pandas as pd
 import yfinance as yf
 
-SPECIAL_TICKERS = {
-    "700": "0700.HK",
-    "1810": "1810.HK",
-    "9633": "9633.HK",
-    "9987": "9987.HK",
-    "9988": "9988.HK",
-    "BRK B": "BRK-B",
-    "NESN": "NESN.SW",
-}
+CONFIG_PATH = Path(__file__).resolve().parents[1] / "config" / "data_config.json"
+with open(CONFIG_PATH, "r", encoding = "utf-8-sig") as f:
+    DATA_CONFIG = json.load(f)
 
-DEFAULT_TICKERS = [
-    "AAPL",
-    "GOOG",
-    "700",
-    "1810",
-    "IBM",
-    "TSLA",
-    "9633",
-    "9987",
-    "9988",
-    "IBKR",
-    "KO",
-    "MCD",
-    "EL",
-    "BRK B",
-    "NESN",
-]
+SPECIAL_TICKERS = DATA_CONFIG["special_tickers"]
+DEFAULT_TICKERS = DATA_CONFIG["default_tickers"]
+DEFAULT_DATA_DIR = DATA_CONFIG.get("yfinance_data_dir", "data/yfinance")
+DEFAULT_SLEEP = float(DATA_CONFIG.get("yfinance_sleep_seconds", 0.5))
 
 
 def normalize_ticker(raw: str) -> str:
@@ -116,7 +98,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--data-dir",
-        default = str(Path(__file__).resolve().parents[1] / "data" / "yfinance"),
+        default = str(Path(__file__).resolve().parents[1] / DEFAULT_DATA_DIR),
         help = "Output data directory (yearly/quarterly subfolders will be created)."
     )
     parser.add_argument(
@@ -127,7 +109,7 @@ def main() -> int:
     parser.add_argument(
         "--sleep",
         type = float,
-        default = 0.5,
+        default = DEFAULT_SLEEP,
         help = "Sleep seconds between tickers."
     )
 
