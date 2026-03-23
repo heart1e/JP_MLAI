@@ -3,7 +3,7 @@
   "statement_year": 2023,
   "units": "USD millions unless ratio",
   "source_pdf_url": "https://investor.gm.com/static-files/1fff6f59-551f-4fe0-bca9-74bfc9a56aeb",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/gm_annual_report_2023.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/gm_annual_report_2023.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 61,
     "balance_sheet": 62,
@@ -56,5 +56,26 @@
     "Total debt = short-term debt + long-term debt (Automotive + GM Financial).",
     "EBITDA proxy = operating income + depreciation/impairment of operating leases + depreciation/amortization/impairment of property.",
     "Interest coverage = operating income / automotive interest expense."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 273064.0,
+    "liabilities": 204757.0,
+    "equity": 68189.0,
+    "current_liabilities": 94445.0,
+    "cash": 18853.0,
+    "marketable": 7613.0,
+    "receivables": 12378.0,
+    "inventory": 16461.0,
+    "prepayments_current": null,
+    "revenue": 171842.0,
+    "operating_income": 9298.0,
+    "net_income": 9840.0,
+    "debt_current": 428.0,
+    "debt_noncurrent": 15985.0,
+    "total_debt": 121741.0,
+    "cash_like_assets": 26466.0,
+    "liquid_assets": 38844.0,
+    "current_assets_proxy": 55305.0,
+    "is_bank_like": false
+  }
 }

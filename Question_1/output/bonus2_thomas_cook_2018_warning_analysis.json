@@ -1,0 +1,318 @@
+{
+  "case_id": "thomas_cook_2018",
+  "company_name": "Thomas Cook Group plc",
+  "statement_year": 2018,
+  "model": "gpt-5.4-mini",
+  "reasoning": "medium",
+  "warning_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus2_warning_config.json",
+  "schema_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_warning_schema.json",
+  "candidate_passage_count": 12,
+  "section_count": 4,
+  "candidate_passages": [
+    {
+      "page_number": 114,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "basis for opinion",
+      "text": "and, as regards the parent company financial statements, as applied in accordance with the provisions of the Companies Act 2006. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under those standards are further described in the Auditor\u2019s responsibilities for the audit of the financial statements section of our report below. We are independent of the Group and Company in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, including the FRC\u2019s Ethical Standard as applied to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Conclusions relating to principal risks, going concern and viability statement We have nothing to report in respect of the following information in the Annual Report, in relation to which the ISAs (UK) require us to report to you whether we have anything material to add or draw attention to: > the disclosures in the Annual Report set out on pages 58 to 61 that describe the principal risks and explain how they are being managed",
+      "passage_id": "thomas_cook_2018_basis_for_opinion_1"
+    },
+    {
+      "page_number": 128,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "except for",
+      "text": "After making enquiries and taking into account the matters set out in the Risk Management section on pages 56 to 61, the Directors confirm that they consider it appropriate to use the going concern basis in preparing the Annual Report & Accounts. The financial statements have been prepared on a historical cost basis, except for revaluation of certain financial assets and liabilities (including derivative financial instruments) at fair value through the profit or loss, share-based payments and defined benefit pension obligations. The financial statements have been rounded to the nearest million in Great British Pounds. Amounts in pence have been rounded to the nearest tenth of a pence. The principal accounting policies applied in the preparation of the financial information presented in this document are set out below. These policies have been applied consistently to the periods presented unless otherwise stated. Management identified several adjustments that, in their opinion should be applied to Thomas Cook\u2019s financial statements for the year ended 30 September 2017. As a result these have been restated. Refer to Note 33 for further details of the restatement. 3 SIGNIFICANT ACCOUNTING POLICIES 3A CHANGES IN ACCOUNTING POLICY AND DISCLOSURE No new standards, amendments or interpretations, effective for the first time for the financial year beginning on or after 1 October 2017 have had a material impact on the Group or parent company. New or amended standard and interpretations in issue but not yet effective or EU endorsed At the date of authorisation of these financial ...",
+      "passage_id": "thomas_cook_2018_basis_for_opinion_2"
+    },
+    {
+      "page_number": 133,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "except for",
+      "text": "The amount of allowance is the difference between the asset\u2019s carrying amount and the present value of estimated future cash flows. Available-for-sale financial assets Available-for-sale financial assets are recognised and subsequently recorded at their fair value. Gains or losses (except for impairment losses and foreign exchange gains and losses) are recognised directly in equity until the financial asset is derecognised. At this point, the cumulative gain or loss previously recognised in equity is recognised in the income statement. Any impairment losses, foreign exchange gains or losses or dividends receivable are recognised in the income statement. Held for trading investments Short-term investments and derivatives that are not designated in a hedge relationship such as natural hedges of a balance sheet exposure are classified as held for trading and are recognised and subsequently measured at their fair value. Gains or losses are recognised in the income statement. Other non-current asset investments The fair value of investments in equity instruments that do not have a quoted market price in an active market are measured using an appropriate valuation technique. Where a fair value cannot be reliably measured, the investment is measured at cost. Loans and receivables are initially recognised at fair value plus any directly attributable transaction costs and are subsequently measured at amortised cost using the effective interest method. Any impairment losses are recognised in the income statement. Trade and other payables Trade and other payables are initially ...",
+      "passage_id": "thomas_cook_2018_basis_for_opinion_3"
+    },
+    {
+      "page_number": 120,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "In preparing the financial statements, the Directors are responsible for assessing the Group and Company\u2019s ability to continue as a going concern, disclosing, as applicable, matters related to going concern and using the going concern basis of accounting unless management either intends to liquidate the Group or the Company or to cease operations, or has no realistic alternative but to do so. Auditor\u2019s responsibilities for the audit of the financial statements Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from material misstatement, whether due to fraud or error, and to issue an auditor\u2019s report that includes our opinion. Reasonable assurance is a high level of assurance, but is not a guarantee that an audit conducted in accordance with ISAs (UK) will always detect a material misstatement when it exists. Misstatements can arise from fraud or error and are considered material if, individually or in the aggregate, they could reasonably be expected to influence the economic decisions of users taken on the basis of these financial statements. INDEPENDENT AUDITOR\u2019S REPORT TO THE MEMBERS OF THOMAS COOK GROUP PLC CONTINUED",
+      "passage_id": "thomas_cook_2018_going_concern_1"
+    },
+    {
+      "page_number": 120,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "for assessing the Group and Company\u2019s ability to continue as a going concern, disclosing, as applicable, matters related to going concern and using the going concern basis of accounting unless management either intends to liquidate the Group or the Company or to cease operations, or has no realistic alternative but to do so. Auditor\u2019s responsibilities for the audit of the financial statements Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from material misstatement, whether due to fraud or error, and to issue an auditor\u2019s report that includes our opinion. Reasonable assurance is a high level of assurance, but is not a guarantee that an audit conducted in accordance with ISAs (UK) will always detect a material misstatement when it exists. Misstatements can arise from fraud or error and are considered material if, individually or in the aggregate, they could reasonably be expected to influence the economic decisions of users taken on the basis of these financial statements. INDEPENDENT AUDITOR\u2019S REPORT TO THE MEMBERS OF THOMAS COOK GROUP PLC CONTINUED",
+      "passage_id": "thomas_cook_2018_going_concern_2"
+    },
+    {
+      "page_number": 165,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "26 CALLED-UP SHARE CAPITAL CONTINUED Capital management The Group\u2019s objectives when managing capital are to safeguard the Group\u2019s ability to continue as a going concern in order to provide returns for Shareholders and benefits for other stakeholders and to maintain an optimal capital structure to reduce the cost of capital. The capital structure of the Group consists of debt (net of related hedging instruments), cash and cash equivalents and equity attributable to equity holders of the parent (as shown in the Group balance sheet). At the balance sheet date the Group had total capital of \u00a3807m (2017: \u00a3320m). 27 OPERATING LEASE ARRANGEMENTS The Group as lessee At the balance sheet date, the Group had outstanding commitments for future minimum lease payments under non-cancellable operating leases, which fall due as follows: 2018 2017 Property and other \u00a3m Aircraft and aircraft spares \u00a3m Total \u00a3m Property and other",
+      "passage_id": "thomas_cook_2018_going_concern_3"
+    },
+    {
+      "page_number": 56,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "In December 2017, the Group refinanced its \u20ac400 million bond with a new bond of the same size which matures in June 2023. This has further improved the Group\u2019s liquidity and debt maturity profile and has lowered our annual interest costs due to a coupon rate reduction of nearly 300 basis points compared to the bond which was refinanced. As at 30 September 2018 the Group had \u00a3875 million of Committed Facilities, which comprised a Revolving Credit Facility of \u00a3650 million, of which \u00a320 million was utilised at 30 September 2018 (\u00a328 million in September 2017), and a \u00a3225 million bonding and guarantee facility of which \u00a3193 million was drawn at 30 September 2018 (30 September 2017: \u00a3267 million). All of the combined \u00a3213 million of drawn balances have been used solely for bonding, and therefore is not reflected in our gross debt. TREASURY AND CASH MANAGEMENT The Group\u2019s funding, liquidity and exposure to foreign currencies, interest rates, commodity prices and \ufb01nancial credit risk are managed by a centralised Treasury function and are conducted within a framework of Board-approved policies and guidelines. The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating",
+      "passage_id": "thomas_cook_2018_debt_liquidity_1"
+    },
+    {
+      "page_number": 56,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "our gross debt. TREASURY AND CASH MANAGEMENT The Group\u2019s funding, liquidity and exposure to foreign currencies, interest rates, commodity prices and \ufb01nancial credit risk are managed by a centralised Treasury function and are conducted within a framework of Board-approved policies and guidelines. The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating segments, and to ensure a sufficient level of liquidity headroom at all times. The successful execution of policy is intended to support a sustainable low-risk growth strategy, enable the Group to meet its \ufb01nancial commitments, and enhance the Group\u2019s credit rating over the medium term. Due to the seasonality of the Group\u2019s business cycle and cash \ufb02ows, a substantial amount of surplus cash accumulates during the summer months. Efficient use and tight control of cash throughout the Group is facilitated by the use of cash pooling arrangements and the net surplus cash is invested by Treasury in high quality, short-term liquid instruments consistent with Board-approved policy, which is designed to mitigate counterparty credit risk. Yield is maximised within the",
+      "passage_id": "thomas_cook_2018_debt_liquidity_2"
+    },
+    {
+      "page_number": 56,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating segments, and to ensure a sufficient level of liquidity headroom at all times. The successful execution of policy is intended to support a sustainable low-risk growth strategy, enable the Group to meet its \ufb01nancial commitments, and enhance the Group\u2019s credit rating over the medium term. Due to the seasonality of the Group\u2019s business cycle and cash \ufb02ows, a substantial amount of surplus cash accumulates during the summer months. Efficient use and tight control of cash throughout the Group is facilitated by the use of cash pooling arrangements and the net surplus cash is invested by Treasury in high quality, short-term liquid instruments consistent with Board-approved policy, which is designed to mitigate counterparty credit risk. Yield is maximised within the terms of the policy but returns in general remain low given the low interest rate environment in the UK, the US and Europe. A small portion of the Group\u2019s cash is restricted in overseas jurisdictions primarily due to legal or regulatory requirements. Such cash does not form part of our liquidity headroom calculation.",
+      "passage_id": "thomas_cook_2018_debt_liquidity_3"
+    },
+    {
+      "page_number": 128,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "but are not yet effective or EU endorsed: IFRS 9 \u2018Financial instruments\u2019 contains new requirements on the classification and measurement of financial assets and new requirements to address the impairment of financial assets. The new standard also introduces a new hedge accounting model to further align hedge accounting with risk management strategy and objectives. IFRS 9 is effective for periods commencing 1 January 2018 and therefore will be applied by the Group in the financial statements for the year ending 30 September 2019. The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 ...",
+      "passage_id": "thomas_cook_2018_impairment_valuation_1"
+    },
+    {
+      "page_number": 128,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "therefore will be applied by the Group in the financial statements for the year ending 30 September 2019. The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 however the Group expects the following changes to hedge accounting upon the adoption of the new standard: > movements in the forward points related to foreign exchange forward contracts to be classified as a cost of hedging and be classified within Other Comprehensive Income; > similarly, the movements in the time value of options are expected to be classified as a cost of hedging and classified within Other Comprehensive Income. ...",
+      "passage_id": "thomas_cook_2018_impairment_valuation_2"
+    },
+    {
+      "page_number": 128,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "expected credit loss",
+      "text": "The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 however the Group expects the following changes to hedge accounting upon the adoption of the new standard: > movements in the forward points related to foreign exchange forward contracts to be classified as a cost of hedging and be classified within Other Comprehensive Income; > similarly, the movements in the time value of options are expected to be classified as a cost of hedging and classified within Other Comprehensive Income. Both items are currently classified within Separately Disclosed Items within the Cost of providing tourism ...",
+      "passage_id": "thomas_cook_2018_impairment_valuation_3"
+    }
+  ],
+  "sections": [
+    {
+      "section_id": "basis_for_opinion",
+      "title": "Basis for Opinion",
+      "page_hits": [
+        {
+          "page_number": 114,
+          "match_count": 1,
+          "matched_keywords": [
+            "basis for opinion"
+          ]
+        },
+        {
+          "page_number": 128,
+          "match_count": 1,
+          "matched_keywords": [
+            "except for"
+          ]
+        },
+        {
+          "page_number": 133,
+          "match_count": 1,
+          "matched_keywords": [
+            "except for"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 114,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "basis for opinion",
+          "text": "and, as regards the parent company financial statements, as applied in accordance with the provisions of the Companies Act 2006. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under those standards are further described in the Auditor\u2019s responsibilities for the audit of the financial statements section of our report below. We are independent of the Group and Company in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, including the FRC\u2019s Ethical Standard as applied to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Conclusions relating to principal risks, going concern and viability statement We have nothing to report in respect of the following information in the Annual Report, in relation to which the ISAs (UK) require us to report to you whether we have anything material to add or draw attention to: > the disclosures in the Annual Report set out on pages 58 to 61 that describe the principal risks and explain how they are being managed",
+          "passage_id": "thomas_cook_2018_basis_for_opinion_1"
+        },
+        {
+          "page_number": 128,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "except for",
+          "text": "After making enquiries and taking into account the matters set out in the Risk Management section on pages 56 to 61, the Directors confirm that they consider it appropriate to use the going concern basis in preparing the Annual Report & Accounts. The financial statements have been prepared on a historical cost basis, except for revaluation of certain financial assets and liabilities (including derivative financial instruments) at fair value through the profit or loss, share-based payments and defined benefit pension obligations. The financial statements have been rounded to the nearest million in Great British Pounds. Amounts in pence have been rounded to the nearest tenth of a pence. The principal accounting policies applied in the preparation of the financial information presented in this document are set out below. These policies have been applied consistently to the periods presented unless otherwise stated. Management identified several adjustments that, in their opinion should be applied to Thomas Cook\u2019s financial statements for the year ended 30 September 2017. As a result these have been restated. Refer to Note 33 for further details of the restatement. 3 SIGNIFICANT ACCOUNTING POLICIES 3A CHANGES IN ACCOUNTING POLICY AND DISCLOSURE No new standards, amendments or interpretations, effective for the first time for the financial year beginning on or after 1 October 2017 have had a material impact on the Group or parent company. New or amended standard and interpretations in issue but not yet effective or EU endorsed At the date of authorisation of these financial ...",
+          "passage_id": "thomas_cook_2018_basis_for_opinion_2"
+        },
+        {
+          "page_number": 133,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "except for",
+          "text": "The amount of allowance is the difference between the asset\u2019s carrying amount and the present value of estimated future cash flows. Available-for-sale financial assets Available-for-sale financial assets are recognised and subsequently recorded at their fair value. Gains or losses (except for impairment losses and foreign exchange gains and losses) are recognised directly in equity until the financial asset is derecognised. At this point, the cumulative gain or loss previously recognised in equity is recognised in the income statement. Any impairment losses, foreign exchange gains or losses or dividends receivable are recognised in the income statement. Held for trading investments Short-term investments and derivatives that are not designated in a hedge relationship such as natural hedges of a balance sheet exposure are classified as held for trading and are recognised and subsequently measured at their fair value. Gains or losses are recognised in the income statement. Other non-current asset investments The fair value of investments in equity instruments that do not have a quoted market price in an active market are measured using an appropriate valuation technique. Where a fair value cannot be reliably measured, the investment is measured at cost. Loans and receivables are initially recognised at fair value plus any directly attributable transaction costs and are subsequently measured at amortised cost using the effective interest method. Any impairment losses are recognised in the income statement. Trade and other payables Trade and other payables are initially ...",
+          "passage_id": "thomas_cook_2018_basis_for_opinion_3"
+        }
+      ]
+    },
+    {
+      "section_id": "going_concern",
+      "title": "Going Concern",
+      "page_hits": [
+        {
+          "page_number": 120,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 165,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 80,
+          "match_count": 1,
+          "matched_keywords": [
+            "going concern"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 120,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "In preparing the financial statements, the Directors are responsible for assessing the Group and Company\u2019s ability to continue as a going concern, disclosing, as applicable, matters related to going concern and using the going concern basis of accounting unless management either intends to liquidate the Group or the Company or to cease operations, or has no realistic alternative but to do so. Auditor\u2019s responsibilities for the audit of the financial statements Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from material misstatement, whether due to fraud or error, and to issue an auditor\u2019s report that includes our opinion. Reasonable assurance is a high level of assurance, but is not a guarantee that an audit conducted in accordance with ISAs (UK) will always detect a material misstatement when it exists. Misstatements can arise from fraud or error and are considered material if, individually or in the aggregate, they could reasonably be expected to influence the economic decisions of users taken on the basis of these financial statements. INDEPENDENT AUDITOR\u2019S REPORT TO THE MEMBERS OF THOMAS COOK GROUP PLC CONTINUED",
+          "passage_id": "thomas_cook_2018_going_concern_1"
+        },
+        {
+          "page_number": 120,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "for assessing the Group and Company\u2019s ability to continue as a going concern, disclosing, as applicable, matters related to going concern and using the going concern basis of accounting unless management either intends to liquidate the Group or the Company or to cease operations, or has no realistic alternative but to do so. Auditor\u2019s responsibilities for the audit of the financial statements Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from material misstatement, whether due to fraud or error, and to issue an auditor\u2019s report that includes our opinion. Reasonable assurance is a high level of assurance, but is not a guarantee that an audit conducted in accordance with ISAs (UK) will always detect a material misstatement when it exists. Misstatements can arise from fraud or error and are considered material if, individually or in the aggregate, they could reasonably be expected to influence the economic decisions of users taken on the basis of these financial statements. INDEPENDENT AUDITOR\u2019S REPORT TO THE MEMBERS OF THOMAS COOK GROUP PLC CONTINUED",
+          "passage_id": "thomas_cook_2018_going_concern_2"
+        },
+        {
+          "page_number": 165,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "26 CALLED-UP SHARE CAPITAL CONTINUED Capital management The Group\u2019s objectives when managing capital are to safeguard the Group\u2019s ability to continue as a going concern in order to provide returns for Shareholders and benefits for other stakeholders and to maintain an optimal capital structure to reduce the cost of capital. The capital structure of the Group consists of debt (net of related hedging instruments), cash and cash equivalents and equity attributable to equity holders of the parent (as shown in the Group balance sheet). At the balance sheet date the Group had total capital of \u00a3807m (2017: \u00a3320m). 27 OPERATING LEASE ARRANGEMENTS The Group as lessee At the balance sheet date, the Group had outstanding commitments for future minimum lease payments under non-cancellable operating leases, which fall due as follows: 2018 2017 Property and other \u00a3m Aircraft and aircraft spares \u00a3m Total \u00a3m Property and other",
+          "passage_id": "thomas_cook_2018_going_concern_3"
+        }
+      ]
+    },
+    {
+      "section_id": "debt_liquidity",
+      "title": "Debt and Liquidity",
+      "page_hits": [
+        {
+          "page_number": 56,
+          "match_count": 4,
+          "matched_keywords": [
+            "liquidity",
+            "refinance",
+            "maturity",
+            "borrowings"
+          ]
+        },
+        {
+          "page_number": 160,
+          "match_count": 4,
+          "matched_keywords": [
+            "liquidity",
+            "liquidity risk",
+            "borrowings",
+            "covenant"
+          ]
+        },
+        {
+          "page_number": 55,
+          "match_count": 3,
+          "matched_keywords": [
+            "refinancing",
+            "borrowings",
+            "repayment"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 56,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "In December 2017, the Group refinanced its \u20ac400 million bond with a new bond of the same size which matures in June 2023. This has further improved the Group\u2019s liquidity and debt maturity profile and has lowered our annual interest costs due to a coupon rate reduction of nearly 300 basis points compared to the bond which was refinanced. As at 30 September 2018 the Group had \u00a3875 million of Committed Facilities, which comprised a Revolving Credit Facility of \u00a3650 million, of which \u00a320 million was utilised at 30 September 2018 (\u00a328 million in September 2017), and a \u00a3225 million bonding and guarantee facility of which \u00a3193 million was drawn at 30 September 2018 (30 September 2017: \u00a3267 million). All of the combined \u00a3213 million of drawn balances have been used solely for bonding, and therefore is not reflected in our gross debt. TREASURY AND CASH MANAGEMENT The Group\u2019s funding, liquidity and exposure to foreign currencies, interest rates, commodity prices and \ufb01nancial credit risk are managed by a centralised Treasury function and are conducted within a framework of Board-approved policies and guidelines. The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating",
+          "passage_id": "thomas_cook_2018_debt_liquidity_1"
+        },
+        {
+          "page_number": 56,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "our gross debt. TREASURY AND CASH MANAGEMENT The Group\u2019s funding, liquidity and exposure to foreign currencies, interest rates, commodity prices and \ufb01nancial credit risk are managed by a centralised Treasury function and are conducted within a framework of Board-approved policies and guidelines. The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating segments, and to ensure a sufficient level of liquidity headroom at all times. The successful execution of policy is intended to support a sustainable low-risk growth strategy, enable the Group to meet its \ufb01nancial commitments, and enhance the Group\u2019s credit rating over the medium term. Due to the seasonality of the Group\u2019s business cycle and cash \ufb02ows, a substantial amount of surplus cash accumulates during the summer months. Efficient use and tight control of cash throughout the Group is facilitated by the use of cash pooling arrangements and the net surplus cash is invested by Treasury in high quality, short-term liquid instruments consistent with Board-approved policy, which is designed to mitigate counterparty credit risk. Yield is maximised within the",
+          "passage_id": "thomas_cook_2018_debt_liquidity_2"
+        },
+        {
+          "page_number": 56,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "The principal aim of Treasury activities is to reduce volatility by hedging, which provides a degree of certainty to the operating segments, and to ensure a sufficient level of liquidity headroom at all times. The successful execution of policy is intended to support a sustainable low-risk growth strategy, enable the Group to meet its \ufb01nancial commitments, and enhance the Group\u2019s credit rating over the medium term. Due to the seasonality of the Group\u2019s business cycle and cash \ufb02ows, a substantial amount of surplus cash accumulates during the summer months. Efficient use and tight control of cash throughout the Group is facilitated by the use of cash pooling arrangements and the net surplus cash is invested by Treasury in high quality, short-term liquid instruments consistent with Board-approved policy, which is designed to mitigate counterparty credit risk. Yield is maximised within the terms of the policy but returns in general remain low given the low interest rate environment in the UK, the US and Europe. A small portion of the Group\u2019s cash is restricted in overseas jurisdictions primarily due to legal or regulatory requirements. Such cash does not form part of our liquidity headroom calculation.",
+          "passage_id": "thomas_cook_2018_debt_liquidity_3"
+        }
+      ]
+    },
+    {
+      "section_id": "impairment_valuation",
+      "title": "Impairment and Valuation",
+      "page_hits": [
+        {
+          "page_number": 128,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "expected credit loss"
+          ]
+        },
+        {
+          "page_number": 131,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "write-down"
+          ]
+        },
+        {
+          "page_number": 134,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "write-down"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 128,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "but are not yet effective or EU endorsed: IFRS 9 \u2018Financial instruments\u2019 contains new requirements on the classification and measurement of financial assets and new requirements to address the impairment of financial assets. The new standard also introduces a new hedge accounting model to further align hedge accounting with risk management strategy and objectives. IFRS 9 is effective for periods commencing 1 January 2018 and therefore will be applied by the Group in the financial statements for the year ending 30 September 2019. The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 ...",
+          "passage_id": "thomas_cook_2018_impairment_valuation_1"
+        },
+        {
+          "page_number": 128,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "therefore will be applied by the Group in the financial statements for the year ending 30 September 2019. The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 however the Group expects the following changes to hedge accounting upon the adoption of the new standard: > movements in the forward points related to foreign exchange forward contracts to be classified as a cost of hedging and be classified within Other Comprehensive Income; > similarly, the movements in the time value of options are expected to be classified as a cost of hedging and classified within Other Comprehensive Income. ...",
+          "passage_id": "thomas_cook_2018_impairment_valuation_2"
+        },
+        {
+          "page_number": 128,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "expected credit loss",
+          "text": "The Group does not expect IFRS 9 to materially affect the classification and measurement of financial assets, most financial assets will continue to be recognised at amortised cost. The new impairment model requires the recognition of impairment provisions based on expected credit losses (\u2018ECL\u2019) rather than only incurred credit losses as is the case under IAS 39. Most of the Group\u2019s trade and other receivables relate to deposits and prepayments paid in advance to hotel and other suppliers in order to guarantee the provision of those supplies. These are not financial assets and therefore outside the scope of IFRS 9. Of trade receivables, the Group\u2019s average debtors days is seven days (refer to Note 16 for further detail). On this basis, the Group does not expect any material adjustments to existing provisions on transition. The Group will continue to undertake hedging activity in line with its financial risk management strategy and policies. The Group\u2019s current hedge relationships will continue to qualify as hedges upon the adoption of IFRS 9 however the Group expects the following changes to hedge accounting upon the adoption of the new standard: > movements in the forward points related to foreign exchange forward contracts to be classified as a cost of hedging and be classified within Other Comprehensive Income; > similarly, the movements in the time value of options are expected to be classified as a cost of hedging and classified within Other Comprehensive Income. Both items are currently classified within Separately Disclosed Items within the Cost of providing tourism ...",
+          "passage_id": "thomas_cook_2018_impairment_valuation_3"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "overall_risk_level": "low",
+    "executive_summary": "No material warning signals are supported by the supplied passages. The excerpts contain standard audit boilerplate, going-concern wording, and liquidity/impairment disclosures that are either neutral or explicitly reassuring, so they are omitted.",
+    "top_warning_tags": [],
+    "warnings": []
+  }
+}

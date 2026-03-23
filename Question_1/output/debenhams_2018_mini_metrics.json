@@ -1,0 +1,111 @@
+{
+  "company": "Debenhams plc",
+  "statement_year": 2018,
+  "units": "GBP millions unless ratio",
+  "source_pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_DEB_2018.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/debenhams_2018.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 92,
+    "balance_sheet": 94,
+    "cash_flow_statement": 96
+  },
+  "extracted_values": {
+    "income_statement": {
+      "revenue": 2277.0,
+      "cost_of_sales": -2261.9,
+      "gross_profit": 15.1,
+      "selling_and_marketing_costs": -143.0,
+      "administrative_expenses": -353.4,
+      "operating_income": -481.3,
+      "finance_costs": -12.5,
+      "net_income": -461.0
+    },
+    "balance_sheet": {
+      "inventories": 396.0,
+      "trade_and_other_receivables_current": 81.3,
+      "cash_and_cash_equivalents": 42.7,
+      "current_borrowings": -165.6,
+      "trade_and_other_payables": -615.6,
+      "total_current_liabilities": -807.0,
+      "non_current_borrowings": -198.4,
+      "total_non_current_liabilities": -671.5,
+      "total_equity": 489.4,
+      "trade_payables": 433.0,
+      "other_payables": 77.8,
+      "current_borrowings_note": 165.6,
+      "non_current_borrowings_note": 198.4,
+      "total_borrowings": 364.0
+    },
+    "cash_flow_statement": {
+      "net_cash_generated_from_operations": 127.8
+    }
+  },
+  "metrics": {
+    "net_income_musd": -461.0,
+    "cost_to_income_ratio": 1.211375,
+    "quick_ratio": 0.153656,
+    "debt_to_equity_ratio": 0.743768,
+    "debt_to_assets_ratio": 0.184969,
+    "debt_to_capital_ratio": 0.426529,
+    "debt_to_ebitda_ratio": null,
+    "interest_coverage_ratio": -38.504,
+    "total_debt_musd": 364.0,
+    "ebitda_proxy_musd": null
+  },
+  "assumptions": [
+    "The balance sheet does not print an explicit total assets line on the extracted page; the canonical layer infers assets from liabilities plus equity when needed.",
+    "Borrowings and payables presented in parentheses are normalized into positive stock values upstream.",
+    "Interest paid is not separately extracted because the cash flow statement provides finance costs but not a standalone cash interest line."
+  ],
+  "bonus1_case_metadata": {
+    "case_id": "debenhams_2018",
+    "registry_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_case_sources.json",
+    "section_pages_pdf_1_based": {
+      "income_statement": 92,
+      "balance_sheet": 94,
+      "payables_note": 122,
+      "borrowings_note": 123,
+      "cash_flow_statement": 96
+    }
+  },
+  "canonical_values": {
+    "assets": 1967.9,
+    "liabilities": 1478.5,
+    "equity": 489.4,
+    "current_liabilities": 807.0,
+    "non_current_liabilities": 671.5,
+    "cash": 42.7,
+    "restricted_cash": null,
+    "marketable": null,
+    "receivables": 81.3,
+    "trade_receivables": null,
+    "other_receivables": null,
+    "inventory": 396.0,
+    "prepayments_current": null,
+    "trade_payables": 433.0,
+    "other_payables": 615.6,
+    "contract_liabilities": null,
+    "revenue": 2277.0,
+    "cost_of_sales": -2261.9,
+    "selling_marketing_costs": -143.0,
+    "administrative_expenses": -353.4,
+    "other_operating_expenses": null,
+    "gross_profit": 15.1,
+    "operating_income": -481.3,
+    "net_income": -461.0,
+    "debt_current": 165.6,
+    "debt_noncurrent": 198.4,
+    "current_borrowings": 165.6,
+    "non_current_borrowings": 198.4,
+    "finance_costs": -12.5,
+    "operating_cashflow": 127.8,
+    "interest_paid": null,
+    "write_down_properties": null,
+    "impairment_financial_assets": null,
+    "total_debt": 364.0,
+    "cash_like_assets": 42.7,
+    "liquid_assets": 124.0,
+    "current_assets_proxy": 520.0,
+    "is_bank_like": false
+  }
+}

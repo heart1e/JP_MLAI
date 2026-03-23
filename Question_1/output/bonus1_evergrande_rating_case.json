@@ -1,0 +1,398 @@
+{
+  "case_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_case_sources.json",
+  "case_source": {
+    "id": "evergrande_2022",
+    "company_name": "China Evergrande Group",
+    "statement_year": 2022,
+    "currency": "RMB millions unless ratio",
+    "source_type": "pdf",
+    "pdf_url": "https://www.hkexnews.hk/listedco/listconews/sehk/2023/0830/2023083002327.pdf",
+    "pdf_path": "Question_1/data/raw/evergrande_annual_report_2022.pdf",
+    "output_path": "Question_1/output/evergrande_2022_mini_metrics.json",
+    "statement_page_sections": {
+      "income_statement": "income_statement",
+      "balance_sheet": "balance_sheet_assets",
+      "cash_flow_statement": "cash_flow_statement"
+    },
+    "payload_section_map": {
+      "income_statement": [
+        "income_statement",
+        "loss_attribution"
+      ],
+      "balance_sheet": [
+        "balance_sheet_assets",
+        "balance_sheet_liabilities",
+        "trade_and_other_receivables_note",
+        "borrowings_note",
+        "trade_payables_note"
+      ],
+      "cash_flow_statement": [
+        "cash_flow_statement"
+      ]
+    },
+    "sections": {
+      "income_statement": {
+        "page_match": {
+          "contains_all": [
+            "CONSOLIDATED STATEMENT OF PROFIT OR",
+            "Revenue 5",
+            "Operating loss"
+          ]
+        },
+        "fields": [
+          {
+            "name": "revenue",
+            "line_contains": "Revenue 5",
+            "trailing_columns": 2
+          },
+          {
+            "name": "cost_of_sales",
+            "line_contains": "Cost of sales 29",
+            "trailing_columns": 2
+          },
+          {
+            "name": "gross_profit_loss",
+            "line_contains": "Gross profit/(loss)",
+            "trailing_columns": 2
+          },
+          {
+            "name": "write_down_properties",
+            "lookahead_token": "Write down of properties under development and completed",
+            "lookahead": 2,
+            "trailing_columns": 2
+          },
+          {
+            "name": "impairment_losses_on_financial_assets",
+            "line_contains": "Impairment losses on financial assets",
+            "trailing_columns": 2
+          },
+          {
+            "name": "other_losses_net",
+            "line_contains": "Other losses, net 27",
+            "trailing_columns": 2
+          },
+          {
+            "name": "selling_and_marketing_costs",
+            "line_contains": "Selling and marketing costs 29",
+            "trailing_columns": 2
+          },
+          {
+            "name": "administrative_expenses",
+            "line_contains": "Administrative expenses 29",
+            "trailing_columns": 2
+          },
+          {
+            "name": "other_operating_expenses",
+            "line_contains": "Other operating expenses 29",
+            "trailing_columns": 2
+          },
+          {
+            "name": "operating_income",
+            "line_contains": "Operating loss",
+            "trailing_columns": 2
+          },
+          {
+            "name": "finance_costs_net",
+            "line_contains": "Finance costs, net 31",
+            "trailing_columns": 2
+          },
+          {
+            "name": "losses_before_income_tax",
+            "line_contains": "Losses before income tax",
+            "trailing_columns": 2
+          },
+          {
+            "name": "net_income",
+            "line_contains": "Losses for the year",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "loss_attribution": {
+        "page_match": {
+          "contains_all": [
+            "Loss attributable to:",
+            "Shareholders of the Company"
+          ]
+        },
+        "fields": [
+          {
+            "name": "loss_attributable_to_shareholders",
+            "line_contains": "Shareholders of the Company",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "balance_sheet_assets": {
+        "page_match": {
+          "contains_all": [
+            "CONSOLIDATED STATEMENT OF",
+            "Total assets",
+            "Deficiency in equity"
+          ]
+        },
+        "fields": [
+          {
+            "name": "inventories",
+            "line_contains": "Inventories",
+            "trailing_columns": 2
+          },
+          {
+            "name": "properties_under_development",
+            "line_contains": "Properties under development 11",
+            "trailing_columns": 2
+          },
+          {
+            "name": "completed_properties_held_for_sale",
+            "line_contains": "Completed properties held for sale 11",
+            "trailing_columns": 2
+          },
+          {
+            "name": "trade_and_other_receivables",
+            "line_contains": "Trade and other receivables 12",
+            "trailing_columns": 2
+          },
+          {
+            "name": "prepayments",
+            "line_contains": "Prepayments 13 131,443 153,330",
+            "trailing_columns": 2
+          },
+          {
+            "name": "restricted_cash",
+            "line_contains": "Restricted cash 18",
+            "trailing_columns": 2
+          },
+          {
+            "name": "cash_and_cash_equivalents",
+            "line_contains": "Cash and cash equivalents 19",
+            "trailing_columns": 2
+          },
+          {
+            "name": "total_assets",
+            "line_contains": "Total assets 1,838,338 2,107,096",
+            "trailing_columns": 2
+          },
+          {
+            "name": "total_equity",
+            "line_contains": "Deficiency in equity",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "balance_sheet_liabilities": {
+        "page_match": {
+          "contains_all": [
+            "CONSOLIDATED STATEMENT OF",
+            "Total liabilities",
+            "Net current liabilities"
+          ]
+        },
+        "fields": [
+          {
+            "name": "non_current_borrowings",
+            "line_contains": "Borrowings 22 25,268 4,724",
+            "trailing_columns": 2
+          },
+          {
+            "name": "current_borrowings",
+            "line_contains": "Borrowings 22 587,123 602,653",
+            "trailing_columns": 2
+          },
+          {
+            "name": "trade_and_other_payables",
+            "line_contains": "Trade and other payables 25",
+            "trailing_columns": 2
+          },
+          {
+            "name": "contract_liabilities",
+            "line_contains": "Contract liabilities 25",
+            "trailing_columns": 2
+          },
+          {
+            "name": "total_current_liabilities",
+            "line_contains": "2,352,923 2,521,136",
+            "trailing_columns": 2
+          },
+          {
+            "name": "total_liabilities",
+            "line_contains": "Total liabilities 2,437,412 2,580,150",
+            "trailing_columns": 2
+          },
+          {
+            "name": "net_current_liabilities",
+            "line_contains": "Net current liabilities",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "trade_and_other_receivables_note": {
+        "page_match": {
+          "contains_all": [
+            "12 TRADE AND OTHER RECEIVABLES",
+            "Other receivables",
+            "230,238 207,634"
+          ]
+        },
+        "fields": [
+          {
+            "name": "trade_and_other_receivables_current",
+            "line_contains": "Current portion 228,911 204,809",
+            "trailing_columns": 2
+          },
+          {
+            "name": "trade_receivables",
+            "line_contains": "Trade receivables (a)",
+            "trailing_columns": 2
+          },
+          {
+            "name": "other_receivables",
+            "line_contains": "Other receivables (b)",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "borrowings_note": {
+        "page_match": {
+          "contains_all": [
+            "22 BORROWINGS",
+            "Total borrowings",
+            "Current portion of non-current borrowings"
+          ]
+        },
+        "fields": [
+          {
+            "name": "borrowings_non_current_total",
+            "line_contains": "557,104 522,522",
+            "trailing_columns": 2
+          },
+          {
+            "name": "current_portion_of_non_current_borrowings",
+            "line_contains": "Current portion of non-current borrowings 531,836 517,798",
+            "trailing_columns": 2
+          },
+          {
+            "name": "borrowings_current_total",
+            "line_contains": "587,123 602,653",
+            "trailing_columns": 2
+          },
+          {
+            "name": "total_borrowings",
+            "line_contains": "Total borrowings 612,391 607,377",
+            "trailing_columns": 2
+          }
+        ]
+      },
+      "trade_payables_note": {
+        "page_match": {
+          "contains_all": [
+            "25 TRADE AND OTHER PAYABLES AND CONTRACT LIABILITIES",
+            "603,324",
+            "721,021"
+          ]
+        },
+        "fields": [
+          {
+            "name": "trade_payables",
+            "first_line_token": "603,324 614,208",
+            "trailing_columns": 2
+          },
+          {
+            "name": "contract_liabilities_note",
+            "line_contains": "Total 721,021 974,347 185,746",
+            "trailing_columns": 3
+          }
+        ]
+      },
+      "cash_flow_statement": {
+        "page_match": {
+          "contains_all": [
+            "CONSOLIDATED STATEMENT OF",
+            "Net cash used in operating activities",
+            "Interest paid"
+          ]
+        },
+        "fields": [
+          {
+            "name": "net_cash_generated_from_operations",
+            "line_contains": "Net cash generated from operations 35",
+            "trailing_columns": 2
+          },
+          {
+            "name": "interest_paid",
+            "line_contains": "Interest paid",
+            "trailing_columns": 2
+          },
+          {
+            "name": "net_cash_used_in_operating_activities",
+            "line_contains": "Net cash used in operating activities",
+            "trailing_columns": 2
+          }
+        ]
+      }
+    },
+    "assumptions": [
+      "Metrics are computed by the generic PDF-case engine from canonicalized extracted fields.",
+      "Debt-to-equity and debt-to-capital are suppressed when equity is non-positive.",
+      "Debt-to-EBITDA is left null when no positive comparable EBITDA proxy is available."
+    ],
+    "cohorts": [
+      "bankruptcy_oos"
+    ],
+    "distress_event": "default and restructuring process",
+    "distress_event_year": 2023
+  },
+  "rating_result": {
+    "company": "China Evergrande Group",
+    "statement_year": 2022,
+    "units": "RMB millions unless ratio",
+    "rating": "D",
+    "total_score": -14,
+    "normalized_score": -0.7777777777777778,
+    "scored_metric_count": 9,
+    "distress_flag_count": 5,
+    "distress_flags": [
+      "non_positive_equity",
+      "non_positive_net_income",
+      "current_ratio_below_1x",
+      "interest_coverage_below_1x",
+      "cash_to_debt_below_0_1x"
+    ],
+    "metrics_used": {
+      "is_bank": false,
+      "equity_proxy": -599074.0,
+      "net_income_musd": -125814.0,
+      "current_ratio": 0.09935599252504225,
+      "quick_ratio": 0.009553,
+      "cash_ratio": 0.0018419642291736705,
+      "debt_to_assets_ratio": 0.333122,
+      "debt_to_capital_ratio": null,
+      "debt_to_equity_ratio": null,
+      "debt_to_ebitda_ratio": null,
+      "interest_coverage_ratio": -1.356472,
+      "cost_to_income_ratio": 0.990859,
+      "equity_to_assets_ratio": -0.3258780485416719,
+      "liabilities_to_assets_ratio": 1.325878048541672,
+      "roa_ratio": -0.0684389921766291,
+      "net_margin_ratio": -0.5468580891653301,
+      "operating_margin_ratio": -0.27995323101531294,
+      "cash_to_debt_ratio": 0.00707717781613381,
+      "liquid_assets_to_assets_ratio": 0.126878191061709,
+      "total_debt_musd": 612391.0,
+      "liquid_assets_musd": 233245.0,
+      "current_assets_proxy_musd": 233777.0
+    },
+    "component_scores": {
+      "current_ratio_score": -2,
+      "quick_ratio_score": -2,
+      "cash_ratio_score": -2,
+      "debt_to_assets_ratio_score": 2,
+      "interest_coverage_ratio_score": -2,
+      "equity_to_assets_ratio_score": -2,
+      "roa_ratio_score": -2,
+      "net_margin_ratio_score": -2,
+      "cash_to_debt_ratio_score": -2
+    },
+    "rationale": "Distressed quantitative profile with multiple hard warning signals."
+  },
+  "source_output_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/evergrande_2022_mini_metrics.json"
+}

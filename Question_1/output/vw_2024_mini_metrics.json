@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "EUR millions unless ratio",
   "source_pdf_url": "https://annualreport2024.volkswagen-group.com/_assets/downloads/entire-vw-ar24.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/volkswagen_annual_report_2024.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/volkswagen_annual_report_2024.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 472,
     "balance_sheet": 475,
@@ -50,5 +50,26 @@
   },
   "assumptions": [
     "VW current liabilities/equity use unlabeled subtotal lines in balance section."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 632905.0,
+    "liabilities": 436174.0,
+    "equity": 196731.0,
+    "current_liabilities": 217039.0,
+    "cash": 40296.0,
+    "marketable": null,
+    "receivables": 21130.0,
+    "inventory": 56720.0,
+    "prepayments_current": null,
+    "revenue": 324656.0,
+    "operating_income": 19060.0,
+    "net_income": 12394.0,
+    "debt_current": 117020.0,
+    "debt_noncurrent": 137061.0,
+    "total_debt": 254081.0,
+    "cash_like_assets": 40296.0,
+    "liquid_assets": 61426.0,
+    "current_assets_proxy": 118146.0,
+    "is_bank_like": false
+  }
 }

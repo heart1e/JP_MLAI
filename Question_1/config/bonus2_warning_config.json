@@ -1,0 +1,132 @@
+{
+  "version": "bonus2-v1",
+  "section_specs": [
+    {
+      "id": "auditor_report",
+      "title": "Auditor Report",
+      "contains_any": [
+        "independent auditor's report",
+        "independent auditors' report",
+        "report of the independent auditor",
+        "independent auditor report"
+      ]
+    },
+    {
+      "id": "basis_for_opinion",
+      "title": "Basis for Opinion",
+      "contains_any": [
+        "basis for qualified opinion",
+        "basis for opinion",
+        "qualified opinion",
+        "adverse opinion",
+        "disclaimer of opinion",
+        "except for",
+        "emphasis of matter"
+      ]
+    },
+    {
+      "id": "going_concern",
+      "title": "Going Concern",
+      "contains_any": [
+        "going concern",
+        "material uncertainty related to going concern",
+        "continue as a going concern",
+        "significant doubt about the group's ability to continue",
+        "significant doubt over the group's ability to continue"
+      ]
+    },
+    {
+      "id": "internal_control",
+      "title": "Internal Control",
+      "contains_any": [
+        "material weakness",
+        "internal control over financial reporting",
+        "ineffective internal control",
+        "significant deficiency"
+      ]
+    },
+    {
+      "id": "debt_liquidity",
+      "title": "Debt and Liquidity",
+      "contains_any": [
+        "liquidity",
+        "liquidity risk",
+        "refinancing",
+        "refinance",
+        "maturity",
+        "borrowings",
+        "debt obligations",
+        "default",
+        "defaults",
+        "covenant",
+        "waiver",
+        "repayment",
+        "financing activities"
+      ]
+    },
+    {
+      "id": "impairment_valuation",
+      "title": "Impairment and Valuation",
+      "contains_any": [
+        "impairment",
+        "write-down",
+        "write down",
+        "expected credit loss",
+        "valuation loss",
+        "fair value loss"
+      ]
+    }
+  ],
+  "risk_tags": [
+    {
+      "id": "qualified_opinion",
+      "description": "Auditor issues a qualified opinion, adverse opinion, disclaimer, or except-for language."
+    },
+    {
+      "id": "going_concern",
+      "description": "Going-concern language or material uncertainty about continuing operations."
+    },
+    {
+      "id": "internal_control",
+      "description": "Material weakness or ineffective internal control over financial reporting."
+    },
+    {
+      "id": "liquidity_stress",
+      "description": "Liquidity shortage, weak cash generation, or inability to meet obligations."
+    },
+    {
+      "id": "refinancing_risk",
+      "description": "Near-term maturities, refinancing pressure, debt wall, or dependency on waivers."
+    },
+    {
+      "id": "covenant_default",
+      "description": "Default, covenant breach, cross-default, or waiver-dependent financing."
+    },
+    {
+      "id": "impairment_loss",
+      "description": "Material impairment, write-down, valuation loss, or large expected credit loss."
+    },
+    {
+      "id": "legal_regulatory",
+      "description": "Major litigation, regulatory investigation, sanctions, or legal contingencies."
+    },
+    {
+      "id": "other_warning",
+      "description": "Any other material warning signal clearly supported by the passage."
+    }
+  ],
+  "severity_levels": [
+    "critical",
+    "high",
+    "medium",
+    "low"
+  ],
+  "retrieval": {
+    "max_pages_per_section": 3,
+    "max_passages_per_section": 3,
+    "max_total_passages": 12,
+    "line_window_before": 2,
+    "line_window_after": 18,
+    "max_chars_per_passage": 1600
+  }
+}

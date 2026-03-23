@@ -1,0 +1,385 @@
+{
+  "case_id": "evergrande_2022",
+  "company_name": "China Evergrande Group",
+  "statement_year": 2022,
+  "model": "gpt-5.4-mini",
+  "reasoning": "medium",
+  "warning_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus2_warning_config.json",
+  "schema_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_warning_schema.json",
+  "candidate_passage_count": 12,
+  "section_count": 4,
+  "candidate_passages": [
+    {
+      "page_number": 17,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "except for",
+      "text": "such as internal control, risk management, fair disclosure and accountability to the shareholders of the Company, except for the following deviation from the Corporate Governance Code. Code provision B.2.2 stipulates that every director, including those appointed for a specific term, should be subject to retirement by rotation at least once every three years. The Company has not held an annual general meeting since 11 June 2021. Accordingly, none of the Directors retired at the annual general meeting nor re-elected by the Shareholders. The Company will hold an annual general meeting at which the Directors will retire and offer themselves for re-election. Due to the delay in publication of the audited results, the trading in the shares of the Company on the The Stock Exchange of Hong Kong Limited has been suspended with effect from 9:00 a.m. on 21 March 2022. The Company did not hold any annual general meetings for the year ended 31 December 2022. Save for the above deviation, the Directors are of the view that the Company has been conducting its business according to the principles of the Corporate Governance",
+      "passage_id": "evergrande_2022_basis_for_opinion_1"
+    },
+    {
+      "page_number": 43,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "disclaimer of opinion",
+      "text": "To the Shareholders of China Evergrande Group (incorporated in the Cayman Islands with limited liability) DISCLAIMER OF OPINION We were engaged to audit the consolidated financial statements of China Evergrande Group (the \u201cCompany\u201d) and its subsidiaries (hereinafter collectively referred to as the \u201cGroup\u201d) set out on pages 44 to 178, which comprise the consolidated statement of financial position as at 31 December 2022, and the consolidated statement of profit or loss and other comprehensive income, consolidated statement of changes in equity and consolidated statement of cash flows for the year then ended, and notes to the consolidated financial statements, including a summary of significant accounting policies. We do not express an opinion on the consolidated financial statements of the Group. Because of the significance of the matter described in the Basis for Disclaimer of Opinion section of this report, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these consolidated financial statements. In all other respects, in our opinion the consolidated financial statements have been properly prepared in compliance with the disclosure requirements of the Hong Kong Companies Ordinance. BASIS FOR DISCLAIMER OF OPINION 1. Material uncertainties relating to going concern As described in note 2 to the consolidated financial statements, the Group incurred a net loss of approximately RMB125,814 million for the year ended 31 December 2022 and, as at 31 December 2022, the Group had net liabilities and net current ...",
+      "passage_id": "evergrande_2022_basis_for_opinion_2"
+    },
+    {
+      "page_number": 43,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "disclaimer of opinion",
+      "text": "then ended, and notes to the consolidated financial statements, including a summary of significant accounting policies. We do not express an opinion on the consolidated financial statements of the Group. Because of the significance of the matter described in the Basis for Disclaimer of Opinion section of this report, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these consolidated financial statements. In all other respects, in our opinion the consolidated financial statements have been properly prepared in compliance with the disclosure requirements of the Hong Kong Companies Ordinance. BASIS FOR DISCLAIMER OF OPINION 1. Material uncertainties relating to going concern As described in note 2 to the consolidated financial statements, the Group incurred a net loss of approximately RMB125,814 million for the year ended 31 December 2022 and, as at 31 December 2022, the Group had net liabilities and net current liabilities of approximately RMB599,074 million and RMB687,734 million respectively. As at 31 December 2022, the Group\u2019s current and non-current borrowings amounted to approximately RMB587,123 million and RMB25,268 million respectively, while the Group had total cash (including cash and cash equivalents and restricted cash) amounting to approximately RMB14,305 million. In addition, the Group was involved in various litigation and arbitration cases for various reasons. These conditions, along with other matters as described in note 2 to the consolidated financial statements, indicate the existence of ...",
+      "passage_id": "evergrande_2022_basis_for_opinion_3"
+    },
+    {
+      "page_number": 28,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "certain conditions indicate the existence of material uncertainties which may cast significant doubt about the Group\u2019s ability to continue as a going concern. The directors of the Company have carefully considered the Group\u2019s expected cash flow projections not less than 12 months from the date of reporting period and have given due consideration to the matters that give rise to material doubt as to its ability to continue as a going concern, and accordingly, have proactively come up with debt solutions to alleviate the liquidity pressure. In their opinion, in view of the plans and measures as disclosed in Note 2(a)(i) to the financial statements, the Group will be able to adequately fund its operations and meet its financial obligations as and when they fall due within the next 12 months from 31 December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern.",
+      "passage_id": "evergrande_2022_going_concern_1"
+    },
+    {
+      "page_number": 28,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "from the date of reporting period and have given due consideration to the matters that give rise to material doubt as to its ability to continue as a going concern, and accordingly, have proactively come up with debt solutions to alleviate the liquidity pressure. In their opinion, in view of the plans and measures as disclosed in Note 2(a)(i) to the financial statements, the Group will be able to adequately fund its operations and meet its financial obligations as and when they fall due within the next 12 months from 31 December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern. DIVIDEND POLICY In deciding whether to propose a dividend and in determining the dividend amount, the Board will take into consideration the Group\u2019s distributable profits generated during the year, the financial situation and liquidity of the",
+      "passage_id": "evergrande_2022_going_concern_2"
+    },
+    {
+      "page_number": 28,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern. DIVIDEND POLICY In deciding whether to propose a dividend and in determining the dividend amount, the Board will take into consideration the Group\u2019s distributable profits generated during the year, the financial situation and liquidity of the Group, the investment needs and the retained profits that should be set aside for future development purposes. While sharing the profit with shareholders, the Company will also maintain sufficient reserves to meet its liabilities and to ensure the implementation of the Group\u2019s strategy for future development. The payment of dividend is also subject to any restrictions under the laws of Cayman Islands, the laws of Hong Kong, the articles of association of the Company and the terms of debt documents.",
+      "passage_id": "evergrande_2022_going_concern_3"
+    },
+    {
+      "page_number": 86,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "3 FINANCIAL RISK MANAGEMENT (Continued) (a) Financial risk factor (Continued) (iv) Liquidity risk Management aims to maintain sufficient cash and cash equivalents or have available funding through an adequate amount of available financing, including proceeds from pre-sale of properties, committed credit facilities and short-term and long-term borrowings to meet its construction commitments. However, as described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over",
+      "passage_id": "evergrande_2022_debt_liquidity_1"
+    },
+    {
+      "page_number": 86,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over 5 years Total RMB million RMB million RMB million RMB million RMB million At 31 December 2022 Borrowings 671,635 33,427 \u2014 \u2014 705,062 Trade and other payables* 997,265 6,343 2,576 975 1,007,159",
+      "passage_id": "evergrande_2022_debt_liquidity_2"
+    },
+    {
+      "page_number": 86,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "maturity",
+      "text": "adequate amount of available financing, including proceeds from pre-sale of properties, committed credit facilities and short-term and long-term borrowings to meet its construction commitments. However, as described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over 5 years Total RMB million RMB million RMB million RMB million RMB million At 31 December 2022 Borrowings 671,635 33,427 \u2014 \u2014 705,062",
+      "passage_id": "evergrande_2022_debt_liquidity_3"
+    },
+    {
+      "page_number": 48,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "Write down of properties under development and completed properties held for sales (1,685) (373,681) Impairment losses on financial assets (12,384) (50,376) Other losses, net 27 (38,230) (45,985) Other income 28 1,987 2,286 Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss) (Item that may be subsequently reclassified to profit or loss) Share of other comprehensive income of investments accounted for",
+      "passage_id": "evergrande_2022_impairment_valuation_1"
+    },
+    {
+      "page_number": 48,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss) (Item that may be subsequently reclassified to profit or loss) Share of other comprehensive income of investments accounted for using the equity method \u2014 31 Exchange difference arising on translation of financial statements of foreign operations 63 536 (Item that may not be subsequently reclassified to profit or loss) Change in fair value of financial assets at fair value through other",
+      "passage_id": "evergrande_2022_impairment_valuation_2"
+    },
+    {
+      "page_number": 48,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "write down",
+      "text": "Gross profit/(loss) 24,987 (18,448) Fair value gains/(losses) on investment properties, net 8 1,807 (31,267) Write down of properties under development and completed properties held for sales (1,685) (373,681) Impairment losses on financial assets (12,384) (50,376) Other losses, net 27 (38,230) (45,985) Other income 28 1,987 2,286 Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss)",
+      "passage_id": "evergrande_2022_impairment_valuation_3"
+    }
+  ],
+  "sections": [
+    {
+      "section_id": "basis_for_opinion",
+      "title": "Basis for Opinion",
+      "page_hits": [
+        {
+          "page_number": 17,
+          "match_count": 1,
+          "matched_keywords": [
+            "except for"
+          ]
+        },
+        {
+          "page_number": 43,
+          "match_count": 1,
+          "matched_keywords": [
+            "disclaimer of opinion"
+          ]
+        },
+        {
+          "page_number": 44,
+          "match_count": 1,
+          "matched_keywords": [
+            "disclaimer of opinion"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 17,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "except for",
+          "text": "such as internal control, risk management, fair disclosure and accountability to the shareholders of the Company, except for the following deviation from the Corporate Governance Code. Code provision B.2.2 stipulates that every director, including those appointed for a specific term, should be subject to retirement by rotation at least once every three years. The Company has not held an annual general meeting since 11 June 2021. Accordingly, none of the Directors retired at the annual general meeting nor re-elected by the Shareholders. The Company will hold an annual general meeting at which the Directors will retire and offer themselves for re-election. Due to the delay in publication of the audited results, the trading in the shares of the Company on the The Stock Exchange of Hong Kong Limited has been suspended with effect from 9:00 a.m. on 21 March 2022. The Company did not hold any annual general meetings for the year ended 31 December 2022. Save for the above deviation, the Directors are of the view that the Company has been conducting its business according to the principles of the Corporate Governance",
+          "passage_id": "evergrande_2022_basis_for_opinion_1"
+        },
+        {
+          "page_number": 43,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "disclaimer of opinion",
+          "text": "To the Shareholders of China Evergrande Group (incorporated in the Cayman Islands with limited liability) DISCLAIMER OF OPINION We were engaged to audit the consolidated financial statements of China Evergrande Group (the \u201cCompany\u201d) and its subsidiaries (hereinafter collectively referred to as the \u201cGroup\u201d) set out on pages 44 to 178, which comprise the consolidated statement of financial position as at 31 December 2022, and the consolidated statement of profit or loss and other comprehensive income, consolidated statement of changes in equity and consolidated statement of cash flows for the year then ended, and notes to the consolidated financial statements, including a summary of significant accounting policies. We do not express an opinion on the consolidated financial statements of the Group. Because of the significance of the matter described in the Basis for Disclaimer of Opinion section of this report, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these consolidated financial statements. In all other respects, in our opinion the consolidated financial statements have been properly prepared in compliance with the disclosure requirements of the Hong Kong Companies Ordinance. BASIS FOR DISCLAIMER OF OPINION 1. Material uncertainties relating to going concern As described in note 2 to the consolidated financial statements, the Group incurred a net loss of approximately RMB125,814 million for the year ended 31 December 2022 and, as at 31 December 2022, the Group had net liabilities and net current ...",
+          "passage_id": "evergrande_2022_basis_for_opinion_2"
+        },
+        {
+          "page_number": 43,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "disclaimer of opinion",
+          "text": "then ended, and notes to the consolidated financial statements, including a summary of significant accounting policies. We do not express an opinion on the consolidated financial statements of the Group. Because of the significance of the matter described in the Basis for Disclaimer of Opinion section of this report, we have not been able to obtain sufficient appropriate audit evidence to provide a basis for an audit opinion on these consolidated financial statements. In all other respects, in our opinion the consolidated financial statements have been properly prepared in compliance with the disclosure requirements of the Hong Kong Companies Ordinance. BASIS FOR DISCLAIMER OF OPINION 1. Material uncertainties relating to going concern As described in note 2 to the consolidated financial statements, the Group incurred a net loss of approximately RMB125,814 million for the year ended 31 December 2022 and, as at 31 December 2022, the Group had net liabilities and net current liabilities of approximately RMB599,074 million and RMB687,734 million respectively. As at 31 December 2022, the Group\u2019s current and non-current borrowings amounted to approximately RMB587,123 million and RMB25,268 million respectively, while the Group had total cash (including cash and cash equivalents and restricted cash) amounting to approximately RMB14,305 million. In addition, the Group was involved in various litigation and arbitration cases for various reasons. These conditions, along with other matters as described in note 2 to the consolidated financial statements, indicate the existence of ...",
+          "passage_id": "evergrande_2022_basis_for_opinion_3"
+        }
+      ]
+    },
+    {
+      "section_id": "going_concern",
+      "title": "Going Concern",
+      "page_hits": [
+        {
+          "page_number": 28,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 43,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 44,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 28,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "certain conditions indicate the existence of material uncertainties which may cast significant doubt about the Group\u2019s ability to continue as a going concern. The directors of the Company have carefully considered the Group\u2019s expected cash flow projections not less than 12 months from the date of reporting period and have given due consideration to the matters that give rise to material doubt as to its ability to continue as a going concern, and accordingly, have proactively come up with debt solutions to alleviate the liquidity pressure. In their opinion, in view of the plans and measures as disclosed in Note 2(a)(i) to the financial statements, the Group will be able to adequately fund its operations and meet its financial obligations as and when they fall due within the next 12 months from 31 December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern.",
+          "passage_id": "evergrande_2022_going_concern_1"
+        },
+        {
+          "page_number": 28,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "from the date of reporting period and have given due consideration to the matters that give rise to material doubt as to its ability to continue as a going concern, and accordingly, have proactively come up with debt solutions to alleviate the liquidity pressure. In their opinion, in view of the plans and measures as disclosed in Note 2(a)(i) to the financial statements, the Group will be able to adequately fund its operations and meet its financial obligations as and when they fall due within the next 12 months from 31 December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern. DIVIDEND POLICY In deciding whether to propose a dividend and in determining the dividend amount, the Board will take into consideration the Group\u2019s distributable profits generated during the year, the financial situation and liquidity of the",
+          "passage_id": "evergrande_2022_going_concern_2"
+        },
+        {
+          "page_number": 28,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "December 2022. Accordingly, the Directors consider that the preparation of the consolidated financial statements as at 31 December 2022 on a going concern basis is appropriate. Save as disclosed above, the Directors were not aware of any material uncertainties which may cast significant doubt upon the Company\u2019s ability to continue as a going concern. DIVIDEND POLICY In deciding whether to propose a dividend and in determining the dividend amount, the Board will take into consideration the Group\u2019s distributable profits generated during the year, the financial situation and liquidity of the Group, the investment needs and the retained profits that should be set aside for future development purposes. While sharing the profit with shareholders, the Company will also maintain sufficient reserves to meet its liabilities and to ensure the implementation of the Group\u2019s strategy for future development. The payment of dividend is also subject to any restrictions under the laws of Cayman Islands, the laws of Hong Kong, the articles of association of the Company and the terms of debt documents.",
+          "passage_id": "evergrande_2022_going_concern_3"
+        }
+      ]
+    },
+    {
+      "section_id": "debt_liquidity",
+      "title": "Debt and Liquidity",
+      "page_hits": [
+        {
+          "page_number": 86,
+          "match_count": 5,
+          "matched_keywords": [
+            "liquidity",
+            "liquidity risk",
+            "maturity",
+            "borrowings",
+            "repayment"
+          ]
+        },
+        {
+          "page_number": 87,
+          "match_count": 4,
+          "matched_keywords": [
+            "liquidity",
+            "liquidity risk",
+            "borrowings",
+            "repayment"
+          ]
+        },
+        {
+          "page_number": 11,
+          "match_count": 3,
+          "matched_keywords": [
+            "liquidity",
+            "borrowings",
+            "repayment"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 86,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "3 FINANCIAL RISK MANAGEMENT (Continued) (a) Financial risk factor (Continued) (iv) Liquidity risk Management aims to maintain sufficient cash and cash equivalents or have available funding through an adequate amount of available financing, including proceeds from pre-sale of properties, committed credit facilities and short-term and long-term borrowings to meet its construction commitments. However, as described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over",
+          "passage_id": "evergrande_2022_debt_liquidity_1"
+        },
+        {
+          "page_number": 86,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over 5 years Total RMB million RMB million RMB million RMB million RMB million At 31 December 2022 Borrowings 671,635 33,427 \u2014 \u2014 705,062 Trade and other payables* 997,265 6,343 2,576 975 1,007,159",
+          "passage_id": "evergrande_2022_debt_liquidity_2"
+        },
+        {
+          "page_number": 86,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "maturity",
+          "text": "adequate amount of available financing, including proceeds from pre-sale of properties, committed credit facilities and short-term and long-term borrowings to meet its construction commitments. However, as described in note 2, the Group has certain liabilities that are not repayable on maturity at the repayment date during the year ended 31 December 2022 and thereafter due to the financial difficulties faced by the Group. The Group is undertaking a number of measures to alleviate the current liquidity difficulties. The table below analyses the Group\u2019s financial liabilities into relevant maturity groupings based on the remaining period at the date of reporting period to the contractual maturity date. The amounts disclosed in the table are the contractual undiscount cash flows. Less than 1 year Between 1 and 2 years Between 2 and 5 years Over 5 years Total RMB million RMB million RMB million RMB million RMB million At 31 December 2022 Borrowings 671,635 33,427 \u2014 \u2014 705,062",
+          "passage_id": "evergrande_2022_debt_liquidity_3"
+        }
+      ]
+    },
+    {
+      "section_id": "impairment_valuation",
+      "title": "Impairment and Valuation",
+      "page_hits": [
+        {
+          "page_number": 48,
+          "match_count": 3,
+          "matched_keywords": [
+            "impairment",
+            "write down",
+            "fair value loss"
+          ]
+        },
+        {
+          "page_number": 70,
+          "match_count": 3,
+          "matched_keywords": [
+            "impairment",
+            "expected credit loss",
+            "fair value loss"
+          ]
+        },
+        {
+          "page_number": 182,
+          "match_count": 3,
+          "matched_keywords": [
+            "impairment",
+            "write-down",
+            "fair value loss"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 48,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "Write down of properties under development and completed properties held for sales (1,685) (373,681) Impairment losses on financial assets (12,384) (50,376) Other losses, net 27 (38,230) (45,985) Other income 28 1,987 2,286 Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss) (Item that may be subsequently reclassified to profit or loss) Share of other comprehensive income of investments accounted for",
+          "passage_id": "evergrande_2022_impairment_valuation_1"
+        },
+        {
+          "page_number": 48,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss) (Item that may be subsequently reclassified to profit or loss) Share of other comprehensive income of investments accounted for using the equity method \u2014 31 Exchange difference arising on translation of financial statements of foreign operations 63 536 (Item that may not be subsequently reclassified to profit or loss) Change in fair value of financial assets at fair value through other",
+          "passage_id": "evergrande_2022_impairment_valuation_2"
+        },
+        {
+          "page_number": 48,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "write down",
+          "text": "Gross profit/(loss) 24,987 (18,448) Fair value gains/(losses) on investment properties, net 8 1,807 (31,267) Write down of properties under development and completed properties held for sales (1,685) (373,681) Impairment losses on financial assets (12,384) (50,376) Other losses, net 27 (38,230) (45,985) Other income 28 1,987 2,286 Selling and marketing costs 29 (6,068) (31,945) Administrative expenses 29 (6,678) (16,527) Impairment loss of investments accounted for using equity method (18,006) (8,097) Other operating expenses 29 (10,138) (7,489) Operating loss (64,408 ) (581,529 ) Share of profits/(losses) of investments accounted for using equity method 14 39 (19,722) Fair value losses on financial assets at fair value through profit or loss 16 (2,041) (1,936) Fair value losses on contingent consideration payables \u2014 (2,555) Fair value gains/(losses) on financial guarantee contracts 1,129 (51,530) Finance costs, net 31 (47,482) (41,623) Losses before income tax (112,763 ) (698,895 ) Income tax (expenses)/credit 32 (13,051 ) 12,676 Losses for the year (125,814) (686,219 ) Other comprehensive income/(loss)",
+          "passage_id": "evergrande_2022_impairment_valuation_3"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "overall_risk_level": "critical",
+    "executive_summary": "The passages contain multiple material warning signals: a disclaimer of opinion, explicit going-concern uncertainty, severe liquidity pressure, near-term maturity stress, and very large asset write-downs and impairment losses.",
+    "top_warning_tags": [
+      "qualified_opinion",
+      "going_concern",
+      "liquidity_stress",
+      "refinancing_risk",
+      "impairment_loss"
+    ],
+    "warnings": [
+      {
+        "passage_id": "evergrande_2022_basis_for_opinion_2",
+        "section_id": "basis_for_opinion",
+        "page_number": 43,
+        "risk_tag": "qualified_opinion",
+        "severity": "critical",
+        "is_material_warning": true,
+        "why_it_matters": "A disclaimer of opinion means the auditor could not obtain sufficient appropriate audit evidence to form an audit opinion, which is a severe reliability warning.",
+        "rationale": "The report explicitly states a disclaimer of opinion and says the auditors could not obtain sufficient appropriate audit evidence.",
+        "evidence_quote": "DISCLAIMER OF OPINION"
+      },
+      {
+        "passage_id": "evergrande_2022_basis_for_opinion_2",
+        "section_id": "basis_for_opinion",
+        "page_number": 43,
+        "risk_tag": "going_concern",
+        "severity": "critical",
+        "is_material_warning": true,
+        "why_it_matters": "The report explicitly identifies material uncertainties about continuing as a going concern, indicating existential business risk without successful restructuring or support.",
+        "rationale": "The passage states there are material uncertainties relating to going concern and links them to large losses, net liabilities, and low cash.",
+        "evidence_quote": "Material uncertainties relating to going concern"
+      },
+      {
+        "passage_id": "evergrande_2022_impairment_valuation_1",
+        "section_id": "impairment_valuation",
+        "page_number": 48,
+        "risk_tag": "impairment_loss",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "The large write-downs and impairment losses indicate major asset value deterioration and materially weaken reported earnings and balance-sheet quality.",
+        "rationale": "The passage reports a very large write-down of properties and additional impairment losses, which is a clear material warning.",
+        "evidence_quote": "Write down of properties under development"
+      },
+      {
+        "passage_id": "evergrande_2022_debt_liquidity_1",
+        "section_id": "debt_liquidity",
+        "page_number": 86,
+        "risk_tag": "refinancing_risk",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "Liabilities that cannot be repaid at maturity indicate dependence on refinancing, waivers, or other debt solutions to avoid default.",
+        "rationale": "The text says certain liabilities were not repayable on maturity and that the group was taking measures to alleviate liquidity difficulties.",
+        "evidence_quote": "not repayable on maturity"
+      },
+      {
+        "passage_id": "evergrande_2022_debt_liquidity_2",
+        "section_id": "debt_liquidity",
+        "page_number": 86,
+        "risk_tag": "liquidity_stress",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "Net liabilities, net current liabilities, and limited cash relative to obligations indicate severe short-term funding pressure and strain on meeting obligations.",
+        "rationale": "The passage shows the group had very large liabilities and only limited cash, which supports a liquidity-stress warning.",
+        "evidence_quote": "not repayable on maturity"
+      }
+    ]
+  }
+}

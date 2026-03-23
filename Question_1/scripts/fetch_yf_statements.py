@@ -8,62 +8,71 @@ from pathlib import Path
 import re
 import time
 from typing import Iterable, Tuple
-
 import pandas as pd
 import yfinance as yf
 
-CONFIG_PATH = Path(__file__).resolve().parents[1] / "config" / "data_config.json"
-with open(CONFIG_PATH, "r", encoding = "utf-8-sig") as f:
-    DATA_CONFIG = json.load(f)
+CONFIG_PATH = Path(__file__).resolve().parents[1] / "config" / "pipeline_config.json"
 
-SPECIAL_TICKERS = DATA_CONFIG["special_tickers"]
-DEFAULT_TICKERS = DATA_CONFIG["default_tickers"]
-DEFAULT_DATA_DIR = DATA_CONFIG.get("yfinance_data_dir", "data/yfinance")
-DEFAULT_SLEEP = float(DATA_CONFIG.get("yfinance_sleep_seconds", 0.5))
+with open(CONFIG_PATH, "r", encoding = "utf-8") as f:
+    PIPELINE_CONFIG = json.load(f)
+
+SPECIAL_TICKERS = PIPELINE_CONFIG["tickers"]["special_map"]
+DEFAULT_TICKERS = PIPELINE_CONFIG["tickers"]["universe"]
+DEFAULT_DATA_DIR = PIPELINE_CONFIG["paths"].get("yfinance_raw_dir", "data/yfinance")
+DEFAULT_SLEEP = float(PIPELINE_CONFIG["fetch"]["yfinance"].get("sleep_seconds", 0.5))
 
 
 def normalize_ticker(raw: str) -> str:
     """Normalize tickers and apply project-specific mappings."""
+
     value = raw.strip()
     upper = value.upper()
 
     if upper in SPECIAL_TICKERS:
+
         return SPECIAL_TICKERS[upper]
 
     if re.fullmatch(r"\d+", value):
+
         return value.zfill(4) + ".HK"
+
 
     return upper
 
 
 def slugify(ticker: str) -> str:
     """Create a filesystem-friendly slug from a ticker."""
+
     return re.sub(r"[^a-z0-9]+", "_", ticker.lower()).strip("_")
 
 
 def fetch_statements(ticker: str, freq: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """Fetch balance sheet and income statement for a ticker."""
+
     tkr = yf.Ticker(ticker)
     bs = tkr.get_balance_sheet(freq = freq)
     is_df = tkr.get_financials(freq = freq)
 
     if bs is None or is_df is None:
+
         return pd.DataFrame(), pd.DataFrame()
 
     bs = bs.T.sort_index()
     is_df = is_df.T.sort_index()
 
+
     return bs, is_df
 
 
 def save_statements(
-    bs: pd.DataFrame,
-    is_df: pd.DataFrame,
-    data_dir: Path,
-    slug: str,
-    freq: str
-) -> None:
+                    bs: pd.DataFrame,
+                    is_df: pd.DataFrame,
+                    data_dir: Path,
+                    slug: str,
+                    freq: str
+                ) -> None:
     """Save balance sheet and income statement to CSV files."""
+
     freq_dir = data_dir / freq
     freq_dir.mkdir(parents = True, exist_ok = True)
     bs_path = freq_dir / f"{slug}_balance_sheet_{freq}.csv"
@@ -75,37 +84,100 @@ def save_statements(
 
 def needs_fetch(data_dir: Path, slug: str, freq: str) -> bool:
     """Return True when cached files are missing for a ticker/frequency."""
+
     freq_dir = data_dir / freq
     bs_path = freq_dir / f"{slug}_balance_sheet_{freq}.csv"
     is_path = freq_dir / f"{slug}_income_statement_{freq}.csv"
+
 
     return not (bs_path.exists() and is_path.exists())
 
 
 def iter_tickers(values: Iterable[str]) -> list[str]:
     """Normalize all tickers from an iterable."""
+
     return [normalize_ticker(v) for v in values]
+
+
+def refresh_ticker_data(
+    ticker: str,
+    data_dir: Path | None = None,
+    force: bool = False,
+) -> dict:
+    """Fetch and persist Yahoo Finance statements for a single ticker."""
+
+    normalized = normalize_ticker(ticker)
+    slug = slugify(normalized)
+    target_dir = data_dir or (Path(__file__).resolve().parents[1] / DEFAULT_DATA_DIR)
+    target_dir.mkdir(parents = True, exist_ok = True)
+
+    yearly_needed = force or needs_fetch(target_dir, slug, "yearly")
+    quarterly_needed = force or needs_fetch(target_dir, slug, "quarterly")
+    result = {
+        "ticker": normalized,
+        "slug": slug,
+        "status": "cached",
+        "yearly_rows": 0,
+        "quarterly_rows": 0,
+        "paths": [],
+    }
+
+    if not yearly_needed and not quarterly_needed:
+
+        return result
+
+    bs_y, is_y = fetch_statements(normalized, "yearly") if yearly_needed else (pd.DataFrame(), pd.DataFrame())
+    bs_q, is_q = fetch_statements(normalized, "quarterly") if quarterly_needed else (pd.DataFrame(), pd.DataFrame())
+
+    if yearly_needed and not bs_y.empty and not is_y.empty:
+        save_statements(bs_y, is_y, target_dir, slug, "yearly")
+        result["yearly_rows"] = int(bs_y.shape[0])
+        result["paths"].extend(
+            [
+                str(target_dir / "yearly" / f"{slug}_balance_sheet_yearly.csv"),
+                str(target_dir / "yearly" / f"{slug}_income_statement_yearly.csv"),
+            ]
+        )
+
+    if quarterly_needed and not bs_q.empty and not is_q.empty:
+        save_statements(bs_q, is_q, target_dir, slug, "quarterly")
+        result["quarterly_rows"] = int(bs_q.shape[0])
+        result["paths"].extend(
+            [
+                str(target_dir / "quarterly" / f"{slug}_balance_sheet_quarterly.csv"),
+                str(target_dir / "quarterly" / f"{slug}_income_statement_quarterly.csv"),
+            ]
+        )
+
+    result["status"] = "ok" if (result["yearly_rows"] or result["quarterly_rows"]) else "empty"
+
+    return result
 
 
 def main() -> int:
     """Run the CLI workflow for fetching statements."""
+
     parser = argparse.ArgumentParser(description = "Fetch statements from yfinance.")
+
     parser.add_argument(
         "--tickers",
         nargs = "*",
         default = DEFAULT_TICKERS,
         help = "Ticker list (default is the project list)."
     )
+
     parser.add_argument(
         "--data-dir",
         default = str(Path(__file__).resolve().parents[1] / DEFAULT_DATA_DIR),
         help = "Output data directory (yearly/quarterly subfolders will be created)."
     )
+
     parser.add_argument(
         "--force",
         action = "store_true",
         help = "Refetch even if cached files exist."
     )
+
     parser.add_argument(
         "--sleep",
         type = float,
@@ -121,6 +193,7 @@ def main() -> int:
     results = []
 
     for ticker in tickers:
+
         slug = slugify(ticker)
         yearly_needed = args.force or needs_fetch(data_dir, slug, "yearly")
         quarterly_needed = args.force or needs_fetch(data_dir, slug, "quarterly")
@@ -128,6 +201,7 @@ def main() -> int:
         if not yearly_needed and not quarterly_needed:
             print(f"{ticker}: cached")
             results.append((ticker, "cached", 0, 0))
+
             continue
 
         try:
@@ -156,10 +230,13 @@ def main() -> int:
     ok = sum(1 for _, status, _, _ in results if status == "ok")
     cached = sum(1 for _, status, _, _ in results if status == "cached")
     failed = sum(1 for _, status, _, _ in results if status == "failed")
+
     print(f"Done. ok={ok}, cached={cached}, failed={failed}")
+
 
     return 0
 
 
 if __name__ == "__main__":
+
     raise SystemExit(main())

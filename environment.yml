@@ -1,15 +1,21 @@
-name: jp_mlai_q1
+name: jpm-q1-py313
 channels:
   - conda-forge
 dependencies:
-  - python=3.10
+  - python=3.13.1
   - pip
   - pip:
-      - numpy
-      - pandas
-      - matplotlib
-      - scikit-learn
-      - tensorflow
-      - tensorflow-probability
-      - yfinance
-      - jupyter
+      - numpy==2.3.5
+      - pandas==2.3.3
+      - matplotlib==3.10.8
+      - tensorflow==2.20.0
+      - tensorflow-probability==0.25.0
+      - scikit-learn==1.8.0
+      - yfinance==1.0
+      - requests==2.32.5
+      - pypdf==6.7.1
+      - nbformat==5.10.4
+      - nbclient==0.10.4
+      - ipykernel==7.1.0
+      - jupyterlab==4.5.2
+      - setuptools==80.9.0

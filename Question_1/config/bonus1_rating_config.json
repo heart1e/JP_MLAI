@@ -1,0 +1,220 @@
+{
+  "version": "2026q1-v1",
+  "methodology": {
+    "rating_scale": {
+      "A": "Strong annual-report credit profile",
+      "B": "Acceptable but not elite credit profile",
+      "C": "Weak / speculative profile with visible stress",
+      "D": "Distressed annual-report profile"
+    },
+    "principle": "Use annual-report information only. No market prices, no management meetings, no external agency inputs.",
+    "input_contract": "Part 2 outputs must include canonical_values produced by AutoPDF.py.",
+    "score_aggregation": "Average the available metric scores after mapping each ratio to {+2, +1, 0, -2}.",
+    "hard_overrides": [
+      "Assign D if at least three quantitative distress flags are present.",
+      "Assign C if at least two quantitative distress flags are present and no D override applies."
+    ],
+    "sector_note": "Use a bank-aware branch when the annual report clearly follows a bank balance-sheet format."
+  },
+  "metric_rules": {
+    "non_bank": {
+      "current_ratio": {
+        "good": 1.8,
+        "okay": 1.2,
+        "weak": 0.9,
+        "higher_is_better": true
+      },
+      "quick_ratio": {
+        "good": 1.2,
+        "okay": 0.9,
+        "weak": 0.7,
+        "higher_is_better": true
+      },
+      "cash_ratio": {
+        "good": 0.6,
+        "okay": 0.3,
+        "weak": 0.15,
+        "higher_is_better": true
+      },
+      "debt_to_assets_ratio": {
+        "good": 0.35,
+        "okay": 0.55,
+        "weak": 0.75,
+        "higher_is_better": false
+      },
+      "debt_to_capital_ratio": {
+        "good": 0.3,
+        "okay": 0.45,
+        "weak": 0.6,
+        "higher_is_better": false
+      },
+      "debt_to_equity_ratio": {
+        "good": 0.8,
+        "okay": 1.5,
+        "weak": 3.0,
+        "higher_is_better": false
+      },
+      "debt_to_ebitda_ratio": {
+        "good": 1.5,
+        "okay": 3.0,
+        "weak": 5.0,
+        "higher_is_better": false
+      },
+      "interest_coverage_ratio": {
+        "good": 8.0,
+        "okay": 4.0,
+        "weak": 2.0,
+        "higher_is_better": true
+      },
+      "equity_to_assets_ratio": {
+        "good": 0.45,
+        "okay": 0.3,
+        "weak": 0.2,
+        "higher_is_better": true
+      },
+      "roa_ratio": {
+        "good": 0.08,
+        "okay": 0.04,
+        "weak": 0.01,
+        "higher_is_better": true
+      },
+      "net_margin_ratio": {
+        "good": 0.12,
+        "okay": 0.06,
+        "weak": 0.01,
+        "higher_is_better": true
+      },
+      "cash_to_debt_ratio": {
+        "good": 0.8,
+        "okay": 0.4,
+        "weak": 0.15,
+        "higher_is_better": true
+      }
+    },
+    "bank": {
+      "liquid_assets_to_assets_ratio": {
+        "good": 0.12,
+        "okay": 0.08,
+        "weak": 0.05,
+        "higher_is_better": true
+      },
+      "cost_to_income_ratio": {
+        "good": 0.5,
+        "okay": 0.6,
+        "weak": 0.75,
+        "higher_is_better": false
+      },
+      "equity_to_assets_ratio": {
+        "good": 0.1,
+        "okay": 0.07,
+        "weak": 0.04,
+        "higher_is_better": true
+      },
+      "liabilities_to_assets_ratio": {
+        "good": 0.9,
+        "okay": 0.93,
+        "weak": 0.96,
+        "higher_is_better": false
+      },
+      "roa_ratio": {
+        "good": 0.012,
+        "okay": 0.008,
+        "weak": 0.004,
+        "higher_is_better": true
+      },
+      "net_margin_ratio": {
+        "good": 0.25,
+        "okay": 0.15,
+        "weak": 0.06,
+        "higher_is_better": true
+      },
+      "interest_coverage_ratio": {
+        "good": 0.8,
+        "okay": 0.6,
+        "weak": 0.4,
+        "higher_is_better": true
+      }
+    }
+  },
+  "distress_rules": {
+    "common": [
+      {
+        "metric": "equity_proxy",
+        "operator": "<=",
+        "threshold": 0.0,
+        "flag": "non_positive_equity"
+      },
+      {
+        "metric": "net_income_musd",
+        "operator": "<=",
+        "threshold": 0.0,
+        "flag": "non_positive_net_income"
+      }
+    ],
+    "non_bank": [
+      {
+        "metric": "current_ratio",
+        "operator": "<",
+        "threshold": 1.0,
+        "flag": "current_ratio_below_1x"
+      },
+      {
+        "metric": "interest_coverage_ratio",
+        "operator": "<",
+        "threshold": 1.0,
+        "flag": "interest_coverage_below_1x"
+      },
+      {
+        "metric": "debt_to_ebitda_ratio",
+        "operator": ">",
+        "threshold": 6.0,
+        "flag": "debt_to_ebitda_above_6x"
+      },
+      {
+        "metric": "debt_to_assets_ratio",
+        "operator": ">",
+        "threshold": 0.8,
+        "flag": "debt_to_assets_above_0_8x"
+      },
+      {
+        "metric": "cash_to_debt_ratio",
+        "operator": "<",
+        "threshold": 0.1,
+        "flag": "cash_to_debt_below_0_1x"
+      }
+    ],
+    "bank": [
+      {
+        "metric": "equity_to_assets_ratio",
+        "operator": "<",
+        "threshold": 0.03,
+        "flag": "equity_to_assets_below_0_03x"
+      },
+      {
+        "metric": "cost_to_income_ratio",
+        "operator": ">",
+        "threshold": 0.8,
+        "flag": "cost_to_income_above_0_80x"
+      },
+      {
+        "metric": "roa_ratio",
+        "operator": "<",
+        "threshold": 0.003,
+        "flag": "roa_below_0_3pct"
+      },
+      {
+        "metric": "liquid_assets_to_assets_ratio",
+        "operator": "<",
+        "threshold": 0.05,
+        "flag": "liquid_assets_to_assets_below_0_05x"
+      }
+    ]
+  },
+  "rating_bands": {
+    "a_min_normalized_score": 0.45,
+    "b_min_normalized_score": 0.1,
+    "c_min_normalized_score": -0.25,
+    "c_min_distress_flags": 2,
+    "d_min_distress_flags": 3
+  }
+}

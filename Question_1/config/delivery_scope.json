@@ -1,0 +1,81 @@
+{
+  "project": "JPM MLCOE TSRL 2026 Q1",
+  "phase": "Part2+Bonus",
+  "status": "frozen",
+  "frozen_date": "2026-02-22",
+  "paths": {
+    "annual_report_sources": "Question_1/config/annual_report_sources.json",
+    "annual_report_schema": "Question_1/config/annual_report_schema.json",
+    "raw_reports_dir": "Question_1/data/raw",
+    "outputs_dir": "Question_1/output",
+    "integration_notebook": "Question_1/notebooks/JPM_MLCOE_TSRL_2026_Q1.ipynb"
+  },
+  "requirements": {
+    "part2": {
+      "require_llm_analysis": true,
+      "require_part1_comparison": true,
+      "require_ensemble": true,
+      "require_management_recommendation": true,
+      "require_llm_robustness_check": true,
+      "min_repeat_runs_per_prompt": 5
+    },
+    "bonus1": {
+      "enabled": true,
+      "require_evergrande_case": true,
+      "min_additional_bankrupt_samples": 2,
+      "require_shenanigans_warning_checks": true
+    },
+    "bonus2": {
+      "enabled": true,
+      "require_qualified_opinion_cues": true,
+      "require_bankrupt_company_validation": true
+    },
+    "bonus3": {
+      "enabled": true,
+      "require_term_loan_spread_model": true,
+      "require_private_client_fallback": true,
+      "require_1m_resale_price_forecast": true,
+      "require_95ci": true
+    }
+  },
+  "source_sets": {
+    "annual_report_ids": [
+      "gm_2023",
+      "lvmh_2024",
+      "tencent_2024",
+      "alibaba_2024",
+      "jpm_2024",
+      "exxon_2024",
+      "vw_2024",
+      "microsoft_2024",
+      "alphabet_2024"
+    ],
+    "distress_ids": [
+      "evergrande"
+    ],
+    "min_additional_bankrupt_companies": 2
+  },
+  "acceptance_criteria": {
+    "d1_extraction_engine": {
+      "must_run_companies": [
+        "General Motors",
+        "LVMH"
+      ],
+      "min_additional_companies_from_generalization_set": 3,
+      "output_schema": "normalized_json_with_values_and_ratios"
+    },
+    "d2_model_comparison": {
+      "common_metrics_required": [
+        "MAE"
+      ],
+      "prefer_additional_scale_free_metric": true
+    },
+    "d3_robustness": {
+      "report_mean_std": true,
+      "pin_api_model_version": true
+    },
+    "d4_to_d6_bonus_modules": {
+      "all_enabled_modules_must_generate_outputs": true
+    }
+  }
+}

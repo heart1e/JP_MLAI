@@ -1,0 +1,111 @@
+{
+  "company": "Thomas Cook Group plc",
+  "statement_year": 2018,
+  "units": "GBP millions unless ratio",
+  "source_pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_TCG_2018.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/thomas_cook_2018.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 122,
+    "balance_sheet": 125,
+    "cash_flow_statement": 124
+  },
+  "extracted_values": {
+    "income_statement": {
+      "revenue": 9584.0,
+      "cost_of_sales": -7651.0,
+      "gross_profit": 1933.0,
+      "administrative_expenses": -1071.0,
+      "other_operating_expenses": -589.0,
+      "operating_income": 97.0,
+      "finance_costs": -155.0,
+      "net_income": -163.0
+    },
+    "balance_sheet": {
+      "inventories": 44.0,
+      "trade_and_other_receivables_current": 811.0,
+      "cash_and_cash_equivalents": 1039.0,
+      "total_assets": 6569.0,
+      "trade_and_other_payables": -2314.0,
+      "current_borrowings": -184.0,
+      "total_current_liabilities": -4222.0,
+      "non_current_borrowings": -1028.0,
+      "total_liabilities": -6278.0,
+      "total_equity": 291.0,
+      "trade_payables": 1679.0,
+      "other_payables": 136.0
+    },
+    "cash_flow_statement": {
+      "net_cash_generated_from_operations": 139.0,
+      "interest_paid": -135.0
+    }
+  },
+  "metrics": {
+    "net_income_musd": -163.0,
+    "cost_to_income_ratio": 0.971515,
+    "quick_ratio": 0.438181,
+    "debt_to_equity_ratio": 4.164948,
+    "debt_to_assets_ratio": 0.184503,
+    "debt_to_capital_ratio": 0.806387,
+    "debt_to_ebitda_ratio": null,
+    "interest_coverage_ratio": 0.625806,
+    "total_debt_musd": 1212.0,
+    "ebitda_proxy_musd": null
+  },
+  "assumptions": [
+    "The same generic PDF-case engine is used; only page numbers and line matchers differ by report.",
+    "Liability-side line items are normalized to positive stock values by the canonicalization layer.",
+    "Restricted cash is not separately extracted for Thomas Cook because the note discloses restricted components narratively rather than as a single total line."
+  ],
+  "bonus1_case_metadata": {
+    "case_id": "thomas_cook_2018",
+    "registry_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_case_sources.json",
+    "section_pages_pdf_1_based": {
+      "income_statement": 122,
+      "balance_sheet_assets": 125,
+      "balance_sheet_current_liabilities": 125,
+      "balance_sheet_non_current_liabilities": 126,
+      "liquidity_note": 152,
+      "cash_flow_statement": 124
+    }
+  },
+  "canonical_values": {
+    "assets": 6569.0,
+    "liabilities": 6278.0,
+    "equity": 291.0,
+    "current_liabilities": 4222.0,
+    "non_current_liabilities": null,
+    "cash": 1039.0,
+    "restricted_cash": null,
+    "marketable": null,
+    "receivables": 811.0,
+    "trade_receivables": null,
+    "other_receivables": null,
+    "inventory": 44.0,
+    "prepayments_current": null,
+    "trade_payables": 1679.0,
+    "other_payables": 2314.0,
+    "contract_liabilities": null,
+    "revenue": 9584.0,
+    "cost_of_sales": -7651.0,
+    "selling_marketing_costs": null,
+    "administrative_expenses": -1071.0,
+    "other_operating_expenses": -589.0,
+    "gross_profit": 1933.0,
+    "operating_income": 97.0,
+    "net_income": -163.0,
+    "debt_current": 184.0,
+    "debt_noncurrent": 1028.0,
+    "current_borrowings": 184.0,
+    "non_current_borrowings": 1028.0,
+    "finance_costs": -155.0,
+    "operating_cashflow": 139.0,
+    "interest_paid": -135.0,
+    "write_down_properties": null,
+    "impairment_financial_assets": null,
+    "total_debt": 1212.0,
+    "cash_like_assets": 1039.0,
+    "liquid_assets": 1850.0,
+    "current_assets_proxy": 1894.0,
+    "is_bank_like": false
+  }
+}

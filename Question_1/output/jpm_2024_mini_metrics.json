@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "USD millions unless ratio",
   "source_pdf_url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2024.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/jpm_annual_report_2024.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/jpm_annual_report_2024.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 206,
     "balance_sheet": 208,
@@ -47,5 +47,26 @@
     "Quick ratio proxy = (cash and due from banks + deposits with banks + federal funds sold/resale) / total liabilities.",
     "EBITDA proxy = income before income tax expense + depreciation and amortization.",
     "Interest coverage proxy = income before income tax expense / interest expense."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 4002814.0,
+    "liabilities": 3658056.0,
+    "equity": 344758.0,
+    "current_liabilities": null,
+    "cash": 23372.0,
+    "marketable": 445945.0,
+    "receivables": null,
+    "inventory": null,
+    "prepayments_current": null,
+    "revenue": 177556.0,
+    "operating_income": null,
+    "net_income": 58471.0,
+    "debt_current": null,
+    "debt_noncurrent": null,
+    "total_debt": 3658056.0,
+    "cash_like_assets": 469317.0,
+    "liquid_assets": 469317.0,
+    "current_assets_proxy": 469317.0,
+    "is_bank_like": true
+  }
 }

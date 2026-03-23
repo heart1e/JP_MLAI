@@ -1,0 +1,493 @@
+{
+  "cohort_name": "bankruptcy_oos",
+  "case_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_case_sources.json",
+  "case_ids": [
+    "evergrande_2022",
+    "thomas_cook_2018",
+    "debenhams_2018",
+    "intu_2019"
+  ],
+  "records": [
+    {
+      "id": "evergrande_2022",
+      "company_name": "China Evergrande Group",
+      "statement_year": 2022,
+      "distress_event": "default and restructuring process",
+      "distress_event_year": 2023,
+      "source_output_path": "Question_1/output/evergrande_2022_mini_metrics.json",
+      "rating_result": {
+        "company": "China Evergrande Group",
+        "statement_year": 2022,
+        "units": "RMB millions unless ratio",
+        "rating": "D",
+        "total_score": -14,
+        "normalized_score": -0.7777777777777778,
+        "scored_metric_count": 9,
+        "distress_flag_count": 5,
+        "distress_flags": [
+          "non_positive_equity",
+          "non_positive_net_income",
+          "current_ratio_below_1x",
+          "interest_coverage_below_1x",
+          "cash_to_debt_below_0_1x"
+        ],
+        "metrics_used": {
+          "is_bank": false,
+          "equity_proxy": -599074.0,
+          "net_income_musd": -125814.0,
+          "current_ratio": 0.09935599252504225,
+          "quick_ratio": 0.009553,
+          "cash_ratio": 0.0018419642291736705,
+          "debt_to_assets_ratio": 0.333122,
+          "debt_to_capital_ratio": null,
+          "debt_to_equity_ratio": null,
+          "debt_to_ebitda_ratio": null,
+          "interest_coverage_ratio": -1.356472,
+          "cost_to_income_ratio": 0.990859,
+          "equity_to_assets_ratio": -0.3258780485416719,
+          "liabilities_to_assets_ratio": 1.325878048541672,
+          "roa_ratio": -0.0684389921766291,
+          "net_margin_ratio": -0.5468580891653301,
+          "operating_margin_ratio": -0.27995323101531294,
+          "cash_to_debt_ratio": 0.00707717781613381,
+          "liquid_assets_to_assets_ratio": 0.126878191061709,
+          "total_debt_musd": 612391.0,
+          "liquid_assets_musd": 233245.0,
+          "current_assets_proxy_musd": 233777.0
+        },
+        "component_scores": {
+          "current_ratio_score": -2,
+          "quick_ratio_score": -2,
+          "cash_ratio_score": -2,
+          "debt_to_assets_ratio_score": 2,
+          "interest_coverage_ratio_score": -2,
+          "equity_to_assets_ratio_score": -2,
+          "roa_ratio_score": -2,
+          "net_margin_ratio_score": -2,
+          "cash_to_debt_ratio_score": -2
+        },
+        "rationale": "Distressed quantitative profile with multiple hard warning signals."
+      },
+      "shenanigans_result": {
+        "company": "China Evergrande Group",
+        "statement_year": 2022,
+        "warning_band": "severe",
+        "total_points": 19,
+        "trigger_count": 11,
+        "triggered_rules": [
+          {
+            "id": "negative_equity",
+            "metric": "equity_proxy",
+            "value": -599074.0,
+            "threshold": 0.0,
+            "points": 4,
+            "severity": "critical",
+            "description": "Negative or zero equity."
+          },
+          {
+            "id": "weak_current_ratio",
+            "metric": "current_ratio",
+            "value": 0.09935599252504225,
+            "threshold": 0.75,
+            "points": 2,
+            "severity": "high",
+            "description": "Current ratio below 0.75x."
+          },
+          {
+            "id": "weak_cash_to_debt",
+            "metric": "cash_to_debt_ratio",
+            "value": 0.00707717781613381,
+            "threshold": 0.05,
+            "points": 2,
+            "severity": "high",
+            "description": "Cash-like assets below 5% of total debt."
+          },
+          {
+            "id": "negative_interest_coverage",
+            "metric": "interest_coverage_ratio",
+            "value": -1.356472,
+            "threshold": 0.0,
+            "points": 2,
+            "severity": "high",
+            "description": "Negative operating income relative to financing cost."
+          },
+          {
+            "id": "negative_operating_cashflow",
+            "metric": "net_cash_used_operating_ratio",
+            "value": -0.05310192248345047,
+            "threshold": 0.0,
+            "points": 2,
+            "severity": "high",
+            "description": "Operating cash flow is negative relative to revenue."
+          },
+          {
+            "id": "restricted_cash_trap",
+            "metric": "restricted_cash_share",
+            "value": 0.6970290108353723,
+            "threshold": 0.5,
+            "points": 1,
+            "severity": "moderate",
+            "description": "More than half of total cash is restricted."
+          },
+          {
+            "id": "receivables_vs_revenue",
+            "metric": "receivables_to_revenue_ratio",
+            "value": 0.9949753767380807,
+            "threshold": 0.8,
+            "points": 1,
+            "severity": "moderate",
+            "description": "Receivables exceed 80% of annual revenue."
+          },
+          {
+            "id": "other_receivables_vs_assets",
+            "metric": "other_receivables_to_assets_ratio",
+            "value": 0.1153732338666774,
+            "threshold": 0.1,
+            "points": 1,
+            "severity": "moderate",
+            "description": "Other receivables exceed 10% of total assets."
+          },
+          {
+            "id": "impairment_vs_revenue",
+            "metric": "impairment_to_revenue_ratio",
+            "value": 0.05382779798928138,
+            "threshold": 0.05,
+            "points": 1,
+            "severity": "moderate",
+            "description": "Financial-asset impairment losses exceed 5% of annual revenue."
+          },
+          {
+            "id": "short_term_debt_pressure",
+            "metric": "current_borrowings_to_total_debt_ratio",
+            "value": 0.9587387796358863,
+            "threshold": 0.75,
+            "points": 2,
+            "severity": "high",
+            "description": "More than 75% of debt is current."
+          },
+          {
+            "id": "trade_payables_vs_revenue",
+            "metric": "trade_payables_to_revenue_ratio",
+            "value": 2.622383914251066,
+            "threshold": 1.5,
+            "points": 1,
+            "severity": "moderate",
+            "description": "Trade payables exceed 1.5x annual revenue."
+          }
+        ],
+        "derived_features": {
+          "equity_proxy": -599074.0,
+          "current_ratio": 0.09935599252504225,
+          "cash_to_debt_ratio": 0.00707717781613381,
+          "interest_coverage_ratio": -1.356472,
+          "net_cash_used_operating_ratio": -0.05310192248345047,
+          "restricted_cash_share": 0.6970290108353723,
+          "receivables_to_revenue_ratio": 0.9949753767380807,
+          "other_receivables_to_assets_ratio": 0.1153732338666774,
+          "write_down_to_revenue_ratio": 0.007323953457036429,
+          "impairment_to_revenue_ratio": 0.05382779798928138,
+          "current_borrowings_to_total_debt_ratio": 0.9587387796358863,
+          "trade_payables_to_revenue_ratio": 2.622383914251066
+        }
+      }
+    },
+    {
+      "id": "thomas_cook_2018",
+      "company_name": "Thomas Cook Group plc",
+      "statement_year": 2018,
+      "distress_event": "compulsory liquidation / collapse",
+      "distress_event_year": 2019,
+      "source_output_path": "Question_1/output/thomas_cook_2018_mini_metrics.json",
+      "rating_result": {
+        "company": "Thomas Cook Group plc",
+        "statement_year": 2018,
+        "units": "GBP millions unless ratio",
+        "rating": "D",
+        "total_score": -12,
+        "normalized_score": -0.5454545454545454,
+        "scored_metric_count": 11,
+        "distress_flag_count": 3,
+        "distress_flags": [
+          "non_positive_net_income",
+          "current_ratio_below_1x",
+          "interest_coverage_below_1x"
+        ],
+        "metrics_used": {
+          "is_bank": false,
+          "equity_proxy": 291.0,
+          "net_income_musd": -163.0,
+          "current_ratio": 0.44860255802937,
+          "quick_ratio": 0.438181,
+          "cash_ratio": 0.24609189957366176,
+          "debt_to_assets_ratio": 0.184503,
+          "debt_to_capital_ratio": 0.806387,
+          "debt_to_equity_ratio": 4.164948,
+          "debt_to_ebitda_ratio": null,
+          "interest_coverage_ratio": 0.625806,
+          "cost_to_income_ratio": 0.971515,
+          "equity_to_assets_ratio": 0.044298980057847465,
+          "liabilities_to_assets_ratio": 0.9557010199421525,
+          "roa_ratio": -0.024813518039275385,
+          "net_margin_ratio": -0.017007512520868115,
+          "operating_margin_ratio": 0.010121035058430717,
+          "cash_to_debt_ratio": 0.8572607260726073,
+          "liquid_assets_to_assets_ratio": 0.2816258182371746,
+          "total_debt_musd": 1212.0,
+          "liquid_assets_musd": 1850.0,
+          "current_assets_proxy_musd": 1894.0
+        },
+        "component_scores": {
+          "current_ratio_score": -2,
+          "quick_ratio_score": -2,
+          "cash_ratio_score": 0,
+          "debt_to_assets_ratio_score": 2,
+          "debt_to_capital_ratio_score": -2,
+          "debt_to_equity_ratio_score": -2,
+          "interest_coverage_ratio_score": -2,
+          "equity_to_assets_ratio_score": -2,
+          "roa_ratio_score": -2,
+          "net_margin_ratio_score": -2,
+          "cash_to_debt_ratio_score": 2
+        },
+        "rationale": "Distressed quantitative profile with multiple hard warning signals."
+      },
+      "shenanigans_result": {
+        "company": "Thomas Cook Group plc",
+        "statement_year": 2018,
+        "warning_band": "moderate",
+        "total_points": 2,
+        "trigger_count": 1,
+        "triggered_rules": [
+          {
+            "id": "weak_current_ratio",
+            "metric": "current_ratio",
+            "value": 0.44860255802937,
+            "threshold": 0.75,
+            "points": 2,
+            "severity": "high",
+            "description": "Current ratio below 0.75x."
+          }
+        ],
+        "derived_features": {
+          "equity_proxy": 291.0,
+          "current_ratio": 0.44860255802937,
+          "cash_to_debt_ratio": 0.8572607260726073,
+          "interest_coverage_ratio": 0.625806,
+          "net_cash_used_operating_ratio": 0.014503338898163605,
+          "restricted_cash_share": null,
+          "receivables_to_revenue_ratio": 0.08462020033388981,
+          "other_receivables_to_assets_ratio": null,
+          "write_down_to_revenue_ratio": null,
+          "impairment_to_revenue_ratio": null,
+          "current_borrowings_to_total_debt_ratio": 0.15181518151815182,
+          "trade_payables_to_revenue_ratio": 0.17518781302170283
+        }
+      }
+    },
+    {
+      "id": "debenhams_2018",
+      "company_name": "Debenhams plc",
+      "statement_year": 2018,
+      "distress_event": "administration / liquidation process",
+      "distress_event_year": 2019,
+      "source_output_path": "Question_1/output/debenhams_2018_mini_metrics.json",
+      "rating_result": {
+        "company": "Debenhams plc",
+        "statement_year": 2018,
+        "units": "GBP millions unless ratio",
+        "rating": "D",
+        "total_score": -9,
+        "normalized_score": -0.4090909090909091,
+        "scored_metric_count": 11,
+        "distress_flag_count": 3,
+        "distress_flags": [
+          "non_positive_net_income",
+          "current_ratio_below_1x",
+          "interest_coverage_below_1x"
+        ],
+        "metrics_used": {
+          "is_bank": false,
+          "equity_proxy": 489.4,
+          "net_income_musd": -461.0,
+          "current_ratio": 0.644361833952912,
+          "quick_ratio": 0.153656,
+          "cash_ratio": 0.05291201982651797,
+          "debt_to_assets_ratio": 0.184969,
+          "debt_to_capital_ratio": 0.426529,
+          "debt_to_equity_ratio": 0.743768,
+          "debt_to_ebitda_ratio": null,
+          "interest_coverage_ratio": -38.504,
+          "cost_to_income_ratio": 1.211375,
+          "equity_to_assets_ratio": 0.24869149855175565,
+          "liabilities_to_assets_ratio": 0.7513085014482442,
+          "roa_ratio": -0.2342598709284008,
+          "net_margin_ratio": -0.20245937637241984,
+          "operating_margin_ratio": -0.21137461572244182,
+          "cash_to_debt_ratio": 0.11730769230769232,
+          "liquid_assets_to_assets_ratio": 0.06301133187661974,
+          "total_debt_musd": 364.0,
+          "liquid_assets_musd": 124.0,
+          "current_assets_proxy_musd": 520.0
+        },
+        "component_scores": {
+          "current_ratio_score": -2,
+          "quick_ratio_score": -2,
+          "cash_ratio_score": -2,
+          "debt_to_assets_ratio_score": 2,
+          "debt_to_capital_ratio_score": 1,
+          "debt_to_equity_ratio_score": 2,
+          "interest_coverage_ratio_score": -2,
+          "equity_to_assets_ratio_score": 0,
+          "roa_ratio_score": -2,
+          "net_margin_ratio_score": -2,
+          "cash_to_debt_ratio_score": -2
+        },
+        "rationale": "Distressed quantitative profile with multiple hard warning signals."
+      },
+      "shenanigans_result": {
+        "company": "Debenhams plc",
+        "statement_year": 2018,
+        "warning_band": "high",
+        "total_points": 4,
+        "trigger_count": 2,
+        "triggered_rules": [
+          {
+            "id": "weak_current_ratio",
+            "metric": "current_ratio",
+            "value": 0.644361833952912,
+            "threshold": 0.75,
+            "points": 2,
+            "severity": "high",
+            "description": "Current ratio below 0.75x."
+          },
+          {
+            "id": "negative_interest_coverage",
+            "metric": "interest_coverage_ratio",
+            "value": -38.504,
+            "threshold": 0.0,
+            "points": 2,
+            "severity": "high",
+            "description": "Negative operating income relative to financing cost."
+          }
+        ],
+        "derived_features": {
+          "equity_proxy": 489.4,
+          "current_ratio": 0.644361833952912,
+          "cash_to_debt_ratio": 0.11730769230769232,
+          "interest_coverage_ratio": -38.504,
+          "net_cash_used_operating_ratio": 0.05612648221343874,
+          "restricted_cash_share": null,
+          "receivables_to_revenue_ratio": 0.03570487483530962,
+          "other_receivables_to_assets_ratio": null,
+          "write_down_to_revenue_ratio": null,
+          "impairment_to_revenue_ratio": null,
+          "current_borrowings_to_total_debt_ratio": 0.45494505494505494,
+          "trade_payables_to_revenue_ratio": 0.1901624945103206
+        }
+      }
+    },
+    {
+      "id": "intu_2019",
+      "company_name": "intu properties plc",
+      "statement_year": 2019,
+      "distress_event": "administration process",
+      "distress_event_year": 2020,
+      "source_output_path": "Question_1/output/intu_2019_mini_metrics.json",
+      "rating_result": {
+        "company": "intu properties plc",
+        "statement_year": 2019,
+        "units": "GBP millions unless ratio",
+        "rating": "D",
+        "total_score": -11,
+        "normalized_score": -0.5,
+        "scored_metric_count": 11,
+        "distress_flag_count": 4,
+        "distress_flags": [
+          "non_positive_net_income",
+          "current_ratio_below_1x",
+          "interest_coverage_below_1x",
+          "cash_to_debt_below_0_1x"
+        ],
+        "metrics_used": {
+          "is_bank": false,
+          "equity_proxy": 1846.0,
+          "net_income_musd": -2021.8,
+          "current_ratio": 0.9045294277190128,
+          "quick_ratio": 0.660157,
+          "cash_ratio": 0.5519392459994575,
+          "debt_to_assets_ratio": 0.664456,
+          "debt_to_capital_ratio": 0.71924,
+          "debt_to_equity_ratio": 2.561755,
+          "debt_to_ebitda_ratio": null,
+          "interest_coverage_ratio": -6.983703,
+          "cost_to_income_ratio": 0.079108,
+          "equity_to_assets_ratio": 0.25937530735833414,
+          "liabilities_to_assets_ratio": 0.7406246926416659,
+          "roa_ratio": -0.28407637942420366,
+          "net_margin_ratio": -3.7281947261663286,
+          "operating_margin_ratio": -2.8447353863175366,
+          "cash_to_debt_ratio": 0.04303235356312117,
+          "liquid_assets_to_assets_ratio": 0.04685897345829059,
+          "total_debt_musd": 4729.0,
+          "liquid_assets_musd": 333.5,
+          "current_assets_proxy_musd": 333.5
+        },
+        "component_scores": {
+          "current_ratio_score": 0,
+          "quick_ratio_score": -2,
+          "cash_ratio_score": 1,
+          "debt_to_assets_ratio_score": 0,
+          "debt_to_capital_ratio_score": -2,
+          "debt_to_equity_ratio_score": 0,
+          "interest_coverage_ratio_score": -2,
+          "equity_to_assets_ratio_score": 0,
+          "roa_ratio_score": -2,
+          "net_margin_ratio_score": -2,
+          "cash_to_debt_ratio_score": -2
+        },
+        "rationale": "Distressed quantitative profile with multiple hard warning signals."
+      },
+      "shenanigans_result": {
+        "company": "intu properties plc",
+        "statement_year": 2019,
+        "warning_band": "high",
+        "total_points": 4,
+        "trigger_count": 2,
+        "triggered_rules": [
+          {
+            "id": "weak_cash_to_debt",
+            "metric": "cash_to_debt_ratio",
+            "value": 0.04303235356312117,
+            "threshold": 0.05,
+            "points": 2,
+            "severity": "high",
+            "description": "Cash-like assets below 5% of total debt."
+          },
+          {
+            "id": "negative_interest_coverage",
+            "metric": "interest_coverage_ratio",
+            "value": -6.983703,
+            "threshold": 0.0,
+            "points": 2,
+            "severity": "high",
+            "description": "Negative operating income relative to financing cost."
+          }
+        ],
+        "derived_features": {
+          "equity_proxy": 1846.0,
+          "current_ratio": 0.9045294277190128,
+          "cash_to_debt_ratio": 0.04303235356312117,
+          "interest_coverage_ratio": -6.983703,
+          "net_cash_used_operating_ratio": 0.5926608888069335,
+          "restricted_cash_share": 0.08084914182475157,
+          "receivables_to_revenue_ratio": 0.2397197123363452,
+          "other_receivables_to_assets_ratio": 0.002388613339702969,
+          "write_down_to_revenue_ratio": null,
+          "impairment_to_revenue_ratio": null,
+          "current_borrowings_to_total_debt_ratio": 0.013914146754070628,
+          "trade_payables_to_revenue_ratio": 0.015489581412502307
+        }
+      }
+    }
+  ]
+}

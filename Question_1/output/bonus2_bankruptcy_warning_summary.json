@@ -1,0 +1,228 @@
+{
+  "cohort_name": "bankruptcy_oos",
+  "model": "gpt-5.4-mini",
+  "reasoning": "medium",
+  "warning_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus2_warning_config.json",
+  "case_ids": [
+    "evergrande_2022",
+    "thomas_cook_2018",
+    "debenhams_2018",
+    "intu_2019"
+  ],
+  "records": [
+    {
+      "id": "evergrande_2022",
+      "company_name": "China Evergrande Group",
+      "statement_year": 2022,
+      "distress_event": "default and restructuring process",
+      "distress_event_year": 2023,
+      "candidate_passage_count": 12,
+      "section_count": 4,
+      "analysis_output_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_evergrande_2022_warning_analysis.json",
+      "analysis": {
+        "overall_risk_level": "critical",
+        "executive_summary": "The passages contain multiple material warning signals: a disclaimer of opinion, explicit going-concern uncertainty, severe liquidity pressure, near-term maturity stress, and very large asset write-downs and impairment losses.",
+        "top_warning_tags": [
+          "qualified_opinion",
+          "going_concern",
+          "liquidity_stress",
+          "refinancing_risk",
+          "impairment_loss"
+        ],
+        "warnings": [
+          {
+            "passage_id": "evergrande_2022_basis_for_opinion_2",
+            "section_id": "basis_for_opinion",
+            "page_number": 43,
+            "risk_tag": "qualified_opinion",
+            "severity": "critical",
+            "is_material_warning": true,
+            "why_it_matters": "A disclaimer of opinion means the auditor could not obtain sufficient appropriate audit evidence to form an audit opinion, which is a severe reliability warning.",
+            "rationale": "The report explicitly states a disclaimer of opinion and says the auditors could not obtain sufficient appropriate audit evidence.",
+            "evidence_quote": "DISCLAIMER OF OPINION"
+          },
+          {
+            "passage_id": "evergrande_2022_basis_for_opinion_2",
+            "section_id": "basis_for_opinion",
+            "page_number": 43,
+            "risk_tag": "going_concern",
+            "severity": "critical",
+            "is_material_warning": true,
+            "why_it_matters": "The report explicitly identifies material uncertainties about continuing as a going concern, indicating existential business risk without successful restructuring or support.",
+            "rationale": "The passage states there are material uncertainties relating to going concern and links them to large losses, net liabilities, and low cash.",
+            "evidence_quote": "Material uncertainties relating to going concern"
+          },
+          {
+            "passage_id": "evergrande_2022_impairment_valuation_1",
+            "section_id": "impairment_valuation",
+            "page_number": 48,
+            "risk_tag": "impairment_loss",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "The large write-downs and impairment losses indicate major asset value deterioration and materially weaken reported earnings and balance-sheet quality.",
+            "rationale": "The passage reports a very large write-down of properties and additional impairment losses, which is a clear material warning.",
+            "evidence_quote": "Write down of properties under development"
+          },
+          {
+            "passage_id": "evergrande_2022_debt_liquidity_1",
+            "section_id": "debt_liquidity",
+            "page_number": 86,
+            "risk_tag": "refinancing_risk",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "Liabilities that cannot be repaid at maturity indicate dependence on refinancing, waivers, or other debt solutions to avoid default.",
+            "rationale": "The text says certain liabilities were not repayable on maturity and that the group was taking measures to alleviate liquidity difficulties.",
+            "evidence_quote": "not repayable on maturity"
+          },
+          {
+            "passage_id": "evergrande_2022_debt_liquidity_2",
+            "section_id": "debt_liquidity",
+            "page_number": 86,
+            "risk_tag": "liquidity_stress",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "Net liabilities, net current liabilities, and limited cash relative to obligations indicate severe short-term funding pressure and strain on meeting obligations.",
+            "rationale": "The passage shows the group had very large liabilities and only limited cash, which supports a liquidity-stress warning.",
+            "evidence_quote": "not repayable on maturity"
+          }
+        ]
+      }
+    },
+    {
+      "id": "thomas_cook_2018",
+      "company_name": "Thomas Cook Group plc",
+      "statement_year": 2018,
+      "distress_event": "compulsory liquidation / collapse",
+      "distress_event_year": 2019,
+      "candidate_passage_count": 12,
+      "section_count": 4,
+      "analysis_output_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_thomas_cook_2018_warning_analysis.json",
+      "analysis": {
+        "overall_risk_level": "low",
+        "executive_summary": "No material warning signals are supported by the supplied passages. The excerpts contain standard audit boilerplate, going-concern wording, and liquidity/impairment disclosures that are either neutral or explicitly reassuring, so they are omitted.",
+        "top_warning_tags": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "debenhams_2018",
+      "company_name": "Debenhams plc",
+      "statement_year": 2018,
+      "distress_event": "administration / liquidation process",
+      "distress_event_year": 2019,
+      "candidate_passage_count": 11,
+      "section_count": 4,
+      "analysis_output_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_debenhams_2018_warning_analysis.json",
+      "analysis": {
+        "overall_risk_level": "high",
+        "executive_summary": "The material warnings are concentrated in three areas: a severe going-concern assessment linked to large losses and reduced supplier credit insurance cover, refinancing and covenant-headroom pressure on the revolving credit facility, and material impairment-related exceptional items including goodwill and intangible write-offs. Neutral audit boilerplate has been excluded.",
+        "top_warning_tags": [
+          "going_concern",
+          "refinancing_risk",
+          "impairment_loss"
+        ],
+        "warnings": [
+          {
+            "passage_id": "debenhams_2018_going_concern_2",
+            "section_id": "going_concern",
+            "page_number": 84,
+            "risk_tag": "going_concern",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "This signals severe trading stress and that the directors had to perform a formal going-concern assessment using downside sensitivities and mitigating actions.",
+            "rationale": "The passage states a very large loss after tax and exceptional items and notes reduced cover from credit insurers to suppliers, both of which are material distress indicators in a going-concern context.",
+            "evidence_quote": "made a loss after tax and exceptional items of \u00a3461.0 million"
+          },
+          {
+            "passage_id": "debenhams_2018_impairment_valuation_3",
+            "section_id": "impairment_valuation",
+            "page_number": 38,
+            "risk_tag": "impairment_loss",
+            "severity": "medium",
+            "is_material_warning": true,
+            "why_it_matters": "Exceptional items included impairment losses and a goodwill impairment, which can indicate significant asset value deterioration and earnings strain.",
+            "rationale": "The passage explicitly lists impairment losses, write-off of intangible assets, and impairment of goodwill as exceptional items, making this a concrete warning signal.",
+            "evidence_quote": "the impairment of goodwill"
+          },
+          {
+            "passage_id": "debenhams_2018_debt_liquidity_1",
+            "section_id": "debt_liquidity",
+            "page_number": 123,
+            "risk_tag": "refinancing_risk",
+            "severity": "medium",
+            "is_material_warning": true,
+            "why_it_matters": "The company had to refinance and amend its revolving credit facility, including a covenant-headroom increase, which points to ongoing financing pressure.",
+            "rationale": "The text shows dependency on refinancing to extend maturity and a subsequent amendment to increase fixed-charge covenant headroom, even though the group says it complied with covenants.",
+            "evidence_quote": "refinanced its \u00a3350.0 million revolving credit facility"
+          }
+        ]
+      }
+    },
+    {
+      "id": "intu_2019",
+      "company_name": "intu properties plc",
+      "statement_year": 2019,
+      "distress_event": "administration process",
+      "distress_event_year": 2020,
+      "candidate_passage_count": 9,
+      "section_count": 4,
+      "analysis_output_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_intu_2019_warning_analysis.json",
+      "analysis": {
+        "overall_risk_level": "critical",
+        "executive_summary": "The passages show a material going-concern uncertainty, refinancing and covenant pressure on a large debt stack, and significant impairment/write-down activity. These are material warning signals rather than neutral disclosure.",
+        "top_warning_tags": [
+          "going_concern",
+          "covenant_default",
+          "refinancing_risk",
+          "impairment_loss"
+        ],
+        "warnings": [
+          {
+            "passage_id": "intu_2019_basis_for_opinion_1",
+            "section_id": "basis_for_opinion",
+            "page_number": 102,
+            "risk_tag": "going_concern",
+            "severity": "critical",
+            "is_material_warning": true,
+            "why_it_matters": "The auditor explicitly highlights a material uncertainty that may cast significant doubt on continuation as a going concern.",
+            "rationale": "This is direct auditor warning language, not just management commentary, and indicates serious uncertainty about the company\u2019s ability to keep operating.",
+            "evidence_quote": "material uncertainty exists that may cast significant doubt"
+          },
+          {
+            "passage_id": "intu_2019_going_concern_1",
+            "section_id": "going_concern",
+            "page_number": 10,
+            "risk_tag": "covenant_default",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "The company says it may need covenant waivers, which signals dependence on lender relief to avoid remedies.",
+            "rationale": "The passage links going-concern concern to covenant waivers and potential covenant remedies, which is a clear debt distress signal.",
+            "evidence_quote": "negotiate covenant waivers where appropriate"
+          },
+          {
+            "passage_id": "intu_2019_debt_liquidity_3",
+            "section_id": "debt_liquidity",
+            "page_number": 103,
+            "risk_tag": "refinancing_risk",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "The group may not be able to refinance borrowings on acceptable terms, with a large debt reduction needed and potential immediate repayment risk.",
+            "rationale": "This is explicit refinancing pressure tied to a large debt stack and near-term maturity risk, which is a material warning for creditors and equity holders.",
+            "evidence_quote": "may not be able to refinance its borrowings"
+          },
+          {
+            "passage_id": "intu_2019_impairment_valuation_3",
+            "section_id": "impairment_valuation",
+            "page_number": 111,
+            "risk_tag": "impairment_loss",
+            "severity": "high",
+            "is_material_warning": true,
+            "why_it_matters": "The passage reports multiple impairments and write-downs, indicating substantial value erosion in assets and investments.",
+            "rationale": "Several assets are written down or impaired in one note, including goodwill, associates, and a loan to associate, which is material negative valuation evidence.",
+            "evidence_quote": "Impairment of goodwill"
+          }
+        ]
+      }
+    }
+  ]
+}

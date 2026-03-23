@@ -1,0 +1,67 @@
+[
+  {
+    "target": "DGS5",
+    "train_rows": 327,
+    "test_rows": 24,
+    "train_mae": 0.19986093102693242,
+    "test_mae": 0.21784494882833783,
+    "train_rmse": 0.26622325420164294,
+    "test_rmse": 0.25920438946123775,
+    "latest_date": "2026-02-28",
+    "current_value": 3.51,
+    "pred_next": 3.562143213809074,
+    "model_name": "treasury_5y"
+  },
+  {
+    "target": "AAA10Y",
+    "train_rows": 327,
+    "test_rows": 24,
+    "train_mae": 0.1037305094809275,
+    "test_mae": 0.06322721752338482,
+    "train_rmse": 0.1428359881484255,
+    "test_rmse": 0.07780913453750016,
+    "latest_date": "2026-02-28",
+    "current_value": 1.27,
+    "pred_next": 1.2642170200810516,
+    "model_name": "spread_bucket_A"
+  },
+  {
+    "target": "BAMLC0A4CBBB",
+    "train_rows": 327,
+    "test_rows": 24,
+    "train_mae": 0.15824681252699255,
+    "test_mae": 0.07127229323119104,
+    "train_rmse": 0.2902758288258333,
+    "test_rmse": 0.08797163344478366,
+    "latest_date": "2026-02-28",
+    "current_value": 1.08,
+    "pred_next": 1.1219560451154766,
+    "model_name": "spread_bucket_B"
+  },
+  {
+    "target": "BAMLC0A4CBBB",
+    "train_rows": 327,
+    "test_rows": 24,
+    "train_mae": 0.15824681252699255,
+    "test_mae": 0.07127229323119104,
+    "train_rmse": 0.2902758288258333,
+    "test_rmse": 0.08797163344478366,
+    "latest_date": "2026-02-28",
+    "current_value": 1.08,
+    "pred_next": 1.1219560451154766,
+    "model_name": "spread_bucket_C"
+  },
+  {
+    "target": "BAMLH0A0HYM2",
+    "train_rows": 327,
+    "test_rows": 24,
+    "train_mae": 0.4403663360810127,
+    "test_mae": 0.18028461205735424,
+    "train_rmse": 0.7138993777628818,
+    "test_rmse": 0.24643830867675767,
+    "latest_date": "2026-02-28",
+    "current_value": 3.12,
+    "pred_next": 3.24149906396456,
+    "model_name": "spread_bucket_D"
+  }
+]

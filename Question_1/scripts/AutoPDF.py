@@ -29,7 +29,24 @@ def resolve_question_root(question_root: Path | None = None) -> Path:
     return Path(__file__).resolve().parents[1]
 
 
-NUMBER_TOKEN_RE = re.compile(r'\(?\d[\d,]*\)?')
+def resolve_question_paths(question_root: Path | None = None) -> dict[str, Path]:
+    """Resolve shared Question_1 paths used by Part 2 helpers."""
+
+    qroot = resolve_question_root(question_root)
+
+    return {
+        'question_root': qroot,
+        'project_root': qroot.parent,
+        'config_root': qroot / 'config',
+        'raw_root': qroot / 'data' / 'raw',
+        'output_root': qroot / 'output',
+        'report_sources_path': qroot / 'config' / 'annual_report_sources.json',
+        'report_schema_path': qroot / 'config' / 'annual_report_schema.json',
+        'cross_output_path': qroot / 'output' / 'mini_cross_company_metrics.json',
+    }
+
+
+NUMBER_TOKEN_RE = re.compile(r'\(?\d[\d,]*(?:\.\d+)?\)?')
 
 
 def _download_if_missing(url: str, pdf_path: Path) -> None:
@@ -73,7 +90,8 @@ def _extract_amount(line: str, trailing_columns: int) -> float:
     """Extract first value from trailing report year columns."""
 
     cleaned = re.sub(r'\(Note[^)]*\)', '', line, flags = re.IGNORECASE)
-    cleaned = cleaned.replace('$', ' ')
+    cleaned = re.sub(r'\(\s*([\d,]+(?:\.\d+)?)\s*\)', r'(\1)', cleaned)
+    cleaned = cleaned.replace('$', ' ').replace('\u00a3', ' ').replace('\u20ac', ' ')
     tokens = NUMBER_TOKEN_RE.findall(cleaned)
     values = [_parse_number_token(tok) for tok in tokens]
 
@@ -444,6 +462,249 @@ def _pick_sec(facts: dict, tag: str, fy: int, end_date: str) -> float:
     return float(pts[-1]['val'])
 
 
+CANONICAL_VALUE_ALIASES = {
+    'assets': ['total_assets', 'assets'],
+    'liabilities': ['total_liabilities', 'liab', 'total_liabilities_proxy'],
+    'equity': ['total_equity', 'equity_total', 'total_stockholders_equity', 'total_equity_proxy', 'equity'],
+    'current_liabilities': ['total_current_liabilities', 'current_liabilities', 'curr_liab', 'total_current_liabilities_proxy'],
+    'non_current_liabilities': ['total_non_current_liabilities', 'non_current_liabilities', 'non_current_liabilities_total'],
+    'cash': ['cash_and_cash_equivalents', 'cash_due_from_banks', 'cash'],
+    'restricted_cash': ['restricted_cash'],
+    'marketable': ['short_term_investments', 'marketable_debt_securities', 'marketable', 'short_inv', 'deposits_with_banks', 'fed_funds_sold_and_resale'],
+    'receivables': ['trade_and_other_receivables_current', 'trade_and_other_receivables', 'accounts_notes_receivable', 'notes_and_accounts_receivable_net', 'trade_receivables', 'ar', 'accounts_receivable'],
+    'trade_receivables': ['trade_receivables', 'accounts_notes_receivable', 'notes_and_accounts_receivable_net', 'trade_and_other_receivables'],
+    'other_receivables': ['other_receivables'],
+    'inventory': ['inventories', 'inventory'],
+    'prepayments_current': ['prepayments_receivables_other_assets_current_proxy'],
+    'trade_payables': ['trade_payables'],
+    'other_payables': ['trade_and_other_payables', 'other_payables'],
+    'contract_liabilities': ['contract_liabilities'],
+    'revenue': ['total_revenue', 'total_net_revenue', 'sales_and_operating_revenue', 'sales_revenue', 'total_net_sales_revenue', 'revenue'],
+    'cost_of_sales': ['cost_of_sales', 'cost_of_revenue', 'cost', 'total_costs_and_other_deductions', 'total_costs_expenses'],
+    'selling_marketing_costs': ['selling_and_marketing_costs', 'marketing_selling_expenses', 'sm'],
+    'administrative_expenses': ['administrative_expenses', 'general_admin_expenses', 'ga'],
+    'other_operating_expenses': ['other_operating_expenses'],
+    'gross_profit': ['gross_profit_loss', 'gross_profit'],
+    'operating_income': ['income_from_operations', 'operating_income', 'operating_result', 'oper', 'operating_profit'],
+    'net_income': ['net_income', 'net_income_attributable_to_stockholders', 'net_income_attributable_exxonmobil', 'earnings_after_tax', 'net', 'profit_for_year', 'net_profit_before_minority_interests'],
+    'debt_current': ['current_borrowings', 'current_bank_borrowings', 'current_unsecured_senior_notes', 'short_term_debt_automotive', 'short_term_debt_gm_financial', 'notes_and_loans_payable', 'financial_liabilities_current', 'ltd_curr', 'cp', 'short_term_borrowings', 'short_term_notes_payable'],
+    'debt_noncurrent': ['non_current_borrowings', 'non_current_bank_borrowings', 'non_current_unsecured_senior_notes', 'long_term_debt_automotive', 'long_term_debt_gm_financial', 'long_term_debt', 'financial_liabilities_non_current', 'ltd_noncurr', 'long_term_borrowings', 'long_term_notes_payable'],
+    'current_borrowings': ['current_borrowings', 'current_bank_borrowings', 'short_term_borrowings', 'notes_and_loans_payable'],
+    'non_current_borrowings': ['non_current_borrowings', 'non_current_bank_borrowings', 'long_term_borrowings', 'long_term_debt'],
+    'finance_costs': ['finance_costs_net', 'interest_expense', 'interest_expenses', 'finance_costs', 'interest'],
+    'operating_cashflow': ['net_cash_used_in_operating_activities', 'net_cash_generated_from_operations'],
+    'interest_paid': ['interest_paid'],
+    'write_down_properties': ['write_down_properties', 'write_down_of_properties'],
+    'impairment_financial_assets': ['impairment_losses_on_financial_assets'],
+}
+
+NON_NEGATIVE_CANONICAL_FIELDS = {
+    'assets',
+    'liabilities',
+    'current_liabilities',
+    'non_current_liabilities',
+    'cash',
+    'restricted_cash',
+    'marketable',
+    'receivables',
+    'trade_receivables',
+    'other_receivables',
+    'inventory',
+    'prepayments_current',
+    'trade_payables',
+    'other_payables',
+    'contract_liabilities',
+    'debt_current',
+    'debt_noncurrent',
+    'current_borrowings',
+    'non_current_borrowings',
+}
+
+BANK_FORMAT_MARKERS = {'cash_due_from_banks', 'deposits_with_banks', 'fed_funds_sold_and_resale'}
+
+
+def _clean_numeric(value: Any) -> float | None:
+    """Convert numeric-like payload values to float while preserving None."""
+
+    if value is None:
+        return None
+
+    if isinstance(value, bool):
+        return float(value)
+
+    try:
+
+        if pd.isna(value):
+            return None
+
+    except TypeError:
+        pass
+
+    if isinstance(value, (int, float)):
+        return float(value)
+
+    return None
+
+
+def _first_available_numeric(values: dict[str, Any], aliases: list[str]) -> float | None:
+    """Return the first numeric value available across alias candidates."""
+
+    for alias in aliases:
+        cleaned = _clean_numeric(values.get(alias))
+
+        if cleaned is not None:
+            return cleaned
+
+    return None
+
+
+def _sum_numeric(*values: Any) -> float | None:
+    """Sum numeric values while ignoring missing entries."""
+
+    cleaned_values = [cleaned for cleaned in (_clean_numeric(v) for v in values) if cleaned is not None]
+
+    return float(sum(cleaned_values)) if cleaned_values else None
+
+
+def _coalesce_numeric(*values: Any) -> float | None:
+    """Return the first available numeric value across candidates."""
+
+    for value in values:
+        cleaned = _clean_numeric(value)
+
+        if cleaned is not None:
+            return cleaned
+
+    return None
+
+
+def _safe_div(numerator: Any, denominator: Any) -> float | None:
+    """Safely divide numeric values while tolerating missing inputs."""
+
+    numerator_clean = _clean_numeric(numerator)
+    denominator_clean = _clean_numeric(denominator)
+
+    if numerator_clean is None or denominator_clean is None or denominator_clean == 0:
+        return None
+
+    return float(numerator_clean / denominator_clean)
+
+
+def _merge_extracted_values(payload: dict[str, Any]) -> dict[str, Any]:
+    """Flatten extracted statement sections into a single lookup dict."""
+
+    merged: dict[str, Any] = {}
+    extracted = payload.get('extracted_values', {})
+
+    if not isinstance(extracted, dict):
+        return merged
+
+    for section in ('balance_sheet', 'income_statement', 'cash_flow_statement'):
+        section_values = extracted.get(section, {})
+
+        if isinstance(section_values, dict):
+            merged.update(section_values)
+
+    return merged
+
+
+def _round_or_none(value: Any, digits: int = 6) -> float | None:
+    """Round numeric payload values for JSON stability."""
+
+    numeric = _clean_numeric(value)
+
+    return round(numeric, digits) if numeric is not None else None
+
+
+def _build_canonical_values(payload: dict[str, Any]) -> dict[str, Any]:
+    """Attach canonical annual-report values so notebook code avoids alias juggling."""
+
+    raw_values = _merge_extracted_values(payload)
+    metrics = payload.get('metrics', {})
+    canonical = {name: _first_available_numeric(raw_values, aliases) for name, aliases in CANONICAL_VALUE_ALIASES.items()}
+
+    for key in NON_NEGATIVE_CANONICAL_FIELDS:
+        value = canonical.get(key)
+
+        if value is not None:
+            canonical[key] = abs(value)
+
+    if canonical['net_income'] is None:
+        canonical['net_income'] = _clean_numeric(metrics.get('net_income_musd'))
+
+    if canonical['liabilities'] is None and canonical['current_liabilities'] is not None and canonical['non_current_liabilities'] is not None:
+        canonical['liabilities'] = canonical['current_liabilities'] + canonical['non_current_liabilities']
+
+    if canonical['liabilities'] is None and canonical['assets'] is not None and canonical['equity'] is not None:
+        canonical['liabilities'] = canonical['assets'] - canonical['equity']
+
+    if canonical['equity'] is None and canonical['assets'] is not None and canonical['liabilities'] is not None:
+        canonical['equity'] = canonical['assets'] - canonical['liabilities']
+
+    if canonical['assets'] is None and canonical['liabilities'] is not None and canonical['equity'] is not None:
+        canonical['assets'] = canonical['liabilities'] + canonical['equity']
+
+    total_debt = _clean_numeric(metrics.get('total_debt_musd'))
+
+    if total_debt is None:
+        debt_current = _coalesce_numeric(canonical.get('debt_current'), canonical.get('current_borrowings'))
+        debt_noncurrent = _coalesce_numeric(canonical.get('debt_noncurrent'), canonical.get('non_current_borrowings'))
+        total_debt = _sum_numeric(
+            debt_current,
+            debt_noncurrent,
+        )
+
+    if total_debt is not None:
+        total_debt = abs(total_debt)
+
+    cash_like_assets = _sum_numeric(canonical.get('cash'), canonical.get('marketable'))
+    liquid_assets = _sum_numeric(cash_like_assets, canonical.get('receivables'))
+    current_assets_proxy = _sum_numeric(liquid_assets, canonical.get('inventory'), canonical.get('prepayments_current'))
+    company_name = str(payload.get('company') or '').lower()
+    is_bank_like = any(marker in raw_values for marker in BANK_FORMAT_MARKERS) or 'bank' in company_name or 'jpmorgan' in company_name
+
+    canonical.update(
+        {
+            'total_debt': total_debt,
+            'cash_like_assets': cash_like_assets,
+            'liquid_assets': liquid_assets,
+            'current_assets_proxy': current_assets_proxy,
+            'is_bank_like': is_bank_like,
+        }
+    )
+
+    normalized: dict[str, Any] = {}
+
+    for key, value in canonical.items():
+
+        if isinstance(value, bool):
+            normalized[key] = value
+
+        else:
+            normalized[key] = _round_or_none(value)
+
+    return normalized
+
+
+def _finalize_output_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Return payload with canonical annual-report values attached."""
+
+    finalized = dict(payload)
+    finalized['canonical_values'] = _build_canonical_values(payload)
+
+    return finalized
+
+
+def _write_payload_json(path: Path, payload: dict[str, Any]) -> dict[str, Any]:
+    """Persist a finalized annual-report payload and return the saved object."""
+
+    finalized = _finalize_output_payload(payload)
+    path.parent.mkdir(parents = True, exist_ok = True)
+    path.write_text(json.dumps(finalized, indent = 2), encoding = 'utf-8')
+
+    return finalized
+
+
 def extract_gm_pilot(question_root: Path | None = None) -> dict[str, Any]:
 
     QUESTION_ROOT = resolve_question_root(question_root)
@@ -515,8 +776,7 @@ def extract_gm_pilot(question_root: Path | None = None) -> dict[str, Any]:
         ],
     }
 
-    GM_OUTPUT_PATH.parent.mkdir(parents = True, exist_ok = True)
-    GM_OUTPUT_PATH.write_text(json.dumps(part2_output, indent = 2), encoding = 'utf-8')
+    part2_output = _write_payload_json(GM_OUTPUT_PATH, part2_output)
 
     print('Saved:', GM_OUTPUT_PATH)
     print('Income / Balance / Cash Flow pages:', income_page_idx + 1, balance_page_idx + 1, cash_flow_page_idx + 1)
@@ -602,8 +862,7 @@ def extract_lvmh_extension(question_root: Path | None = None) -> dict[str, Any]:
         ],
     }
 
-    LVMH_OUTPUT_PATH.parent.mkdir(parents = True, exist_ok = True)
-    LVMH_OUTPUT_PATH.write_text(json.dumps(lvmh_output, indent = 2), encoding = 'utf-8')
+    lvmh_output = _write_payload_json(LVMH_OUTPUT_PATH, lvmh_output)
 
     print('Saved:', LVMH_OUTPUT_PATH)
     print('LVMH Income / Balance / Cash Flow pages:', lvmh_income_page_idx + 1, lvmh_balance_page_idx + 1, lvmh_cash_flow_page_idx + 1)
@@ -685,16 +944,13 @@ def build_cross_summary(
 
 def validate_manifest_outputs(question_root: Path | None = None) -> dict[str, Any]:
 
-    QUESTION_ROOT = resolve_question_root(question_root)
-    PROJECT_ROOT = QUESTION_ROOT.parent
-    MANIFEST_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'annual_report_manifest_2026q1.json'
-    CONTRACT_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'extraction_output_contract_2026q1.json'
-    # Validate extraction outputs against manifest + contract.
-    MANIFEST_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'annual_report_manifest_2026q1.json'
-    CONTRACT_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'extraction_output_contract_2026q1.json'
+    paths = resolve_question_paths(question_root)
+    project_root = paths['project_root']
+    manifest_path = paths['report_sources_path']
+    contract_path = paths['report_schema_path']
 
-    manifest_cfg = json.loads(MANIFEST_PATH.read_text(encoding = 'utf-8'))
-    contract_cfg = json.loads(CONTRACT_PATH.read_text(encoding = 'utf-8'))
+    manifest_cfg = json.loads(manifest_path.read_text(encoding = 'utf-8'))
+    contract_cfg = json.loads(contract_path.read_text(encoding = 'utf-8'))
 
 
     def _type_ok(value, kind: str) -> bool:
@@ -776,7 +1032,7 @@ def validate_manifest_outputs(question_root: Path | None = None) -> dict[str, An
             pdf_path = Path(pdf_path_raw)
 
             if not pdf_path.is_absolute():
-                pdf_path = PROJECT_ROOT / pdf_path_raw
+                pdf_path = project_root / pdf_path_raw
 
             if not pdf_path.exists():
                 errors.append(f"source_pdf_path missing: {pdf_path}")
@@ -790,8 +1046,8 @@ def validate_manifest_outputs(question_root: Path | None = None) -> dict[str, An
     validation_rows = []
     all_errors = []
 
-    for item in manifest_cfg['companies']:
-        output_path = PROJECT_ROOT / item['output_path']
+    for item in manifest_cfg['reports']:
+        output_path = project_root / item['output_path']
 
         if output_path.exists():
             payload = json.loads(output_path.read_text(encoding = 'utf-8'))
@@ -837,15 +1093,12 @@ def refresh_manifest_progress(
     write_manifest_status_back: bool = True,
 ) -> dict[str, Any]:
 
-    QUESTION_ROOT = resolve_question_root(question_root)
-    PROJECT_ROOT = QUESTION_ROOT.parent
-    MANIFEST_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'annual_report_manifest_2026q1.json'
-    manifest_cfg = json.loads(MANIFEST_PATH.read_text(encoding = 'utf-8'))
+    paths = resolve_question_paths(question_root)
+    project_root = paths['project_root']
+    manifest_path = paths['report_sources_path']
+    manifest_cfg = json.loads(manifest_path.read_text(encoding = 'utf-8'))
     AUTO_DOWNLOAD_FROM_MANIFEST = auto_download_from_manifest
     WRITE_MANIFEST_STATUS_BACK = write_manifest_status_back
-    # Manifest-driven download/status refresh.
-    AUTO_DOWNLOAD_FROM_MANIFEST = True
-    WRITE_MANIFEST_STATUS_BACK = True
 
 
     def _refresh_company_status(item: dict, root: Path) -> str:
@@ -874,7 +1127,7 @@ def refresh_manifest_progress(
 
     download_rows = []
 
-    for item in manifest_cfg['companies']:
+    for item in manifest_cfg['reports']:
         required_now = bool(item.get('required_now', False))
         pdf_url = (item.get('pdf_url') or '').strip()
         pdf_path_str = (item.get('pdf_path') or '').strip()
@@ -895,7 +1148,7 @@ def refresh_manifest_progress(
 
             continue
 
-        pdf_path = PROJECT_ROOT / pdf_path_str
+        pdf_path = project_root / pdf_path_str
         pdf_path.parent.mkdir(parents = True, exist_ok = True)
 
         downloaded = False
@@ -913,7 +1166,7 @@ def refresh_manifest_progress(
         else:
             action = 'already_exists' if pdf_path.exists() else 'skipped'
 
-        new_status = _refresh_company_status(item, PROJECT_ROOT)
+        new_status = _refresh_company_status(item, project_root)
 
         if isinstance(action, str) and action.startswith('download_failed'):
             new_status = 'blocked'
@@ -932,7 +1185,7 @@ def refresh_manifest_progress(
         )
 
     if WRITE_MANIFEST_STATUS_BACK:
-        MANIFEST_PATH.write_text(json.dumps(manifest_cfg, indent = 2), encoding = 'utf-8')
+        manifest_path.write_text(json.dumps(manifest_cfg, indent = 2), encoding = 'utf-8')
 
     manifest_progress_df = pd.DataFrame(download_rows)
     manifest_progress_df
@@ -946,12 +1199,13 @@ def refresh_manifest_progress(
 
 def extract_jpm_pilot(question_root: Path | None = None) -> dict[str, Any]:
 
-    QUESTION_ROOT = resolve_question_root(question_root)
-    PROJECT_ROOT = QUESTION_ROOT.parent
-    MANIFEST_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'annual_report_manifest_2026q1.json'
+    paths = resolve_question_paths(question_root)
+    question_root = paths['question_root']
+    project_root = paths['project_root']
+    report_sources_path = paths['report_sources_path']
     # JPM 2024 extraction (bank-specific metric proxies).
-    JPM_PDF_PATH = PROJECT_ROOT / 'Question_1' / 'data' / 'raw' / 'jpm_annual_report_2024.pdf'
-    JPM_OUTPUT_PATH = PROJECT_ROOT / 'Question_1' / 'output' / 'jpm_2024_mini_metrics.json'
+    JPM_PDF_PATH = project_root / 'Question_1' / 'data' / 'raw' / 'jpm_annual_report_2024.pdf'
+    JPM_OUTPUT_PATH = project_root / 'Question_1' / 'output' / 'jpm_2024_mini_metrics.json'
 
     jpm_reader = PdfReader(str(JPM_PDF_PATH))
 
@@ -1088,20 +1342,20 @@ def extract_jpm_pilot(question_root: Path | None = None) -> dict[str, Any]:
         ],
     }
 
-    JPM_OUTPUT_PATH.write_text(json.dumps(jpm_output, indent = 2), encoding = 'utf-8')
+    jpm_output = _write_payload_json(JPM_OUTPUT_PATH, jpm_output)
     print('Saved:', JPM_OUTPUT_PATH)
     print('JPM Income / Balance / Cash Flow pages:', jpm_income_page_idx + 1, jpm_balance_page_idx + 1, jpm_cashflow_page_idx + 1)
 
     # Update manifest status for JPM when output exists.
-    manifest_live = json.loads(MANIFEST_PATH.read_text(encoding = 'utf-8'))
-    for entry in manifest_live['companies']:
+    manifest_live = json.loads(report_sources_path.read_text(encoding = 'utf-8'))
+    for entry in manifest_live['reports']:
 
         if entry['id'] == 'jpm_2024':
             entry['status'] = 'complete'
 
             break
 
-    MANIFEST_PATH.write_text(json.dumps(manifest_live, indent = 2), encoding = 'utf-8')
+    report_sources_path.write_text(json.dumps(manifest_live, indent = 2), encoding = 'utf-8')
 
     pd.DataFrame([
         {'metric': k, 'value': v}
@@ -1164,25 +1418,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     t_ebitda = ti_vals['operating_profit']+tc_vals['depreciation_proxy']+tc_vals['amortisation_proxy']
 
     TOUT = PROJECT_ROOT/'Question_1'/'output'/'tencent_2024_mini_metrics.json'
-    TOUT.write_text(json.dumps({
-     'company':'Tencent Holdings Limited','statement_year':2024,'units':'RMB millions unless ratio',
-     'source_pdf_url':'https://static.www.tencent.com/uploads/2025/04/08/1132b72b565389d1b913aea60a648d73.pdf',
-     'source_pdf_path':str(TENCENT_PDF_PATH.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':124,'balance_sheet':126,'cash_flow_statement':133},
-     'extracted_values':{'income_statement':ti_vals,'balance_sheet':tb_vals,'cash_flow_statement':tc_vals},
-     'metrics':{
-       'net_income_musd':round(ti_vals['profit_for_year'],6),
-       'cost_to_income_ratio':round(abs(ti_vals['cost_of_revenue'])/ti_vals['total_revenue'],6),
-       'quick_ratio':round((tb_vals['cash_and_cash_equivalents']+tb_vals['accounts_receivable'])/tb_vals['total_current_liabilities_proxy'],6),
-       'debt_to_equity_ratio':round(t_debt/tb_vals['total_equity'],6),
-       'debt_to_assets_ratio':round(t_debt/tb_vals['total_assets'],6),
-       'debt_to_capital_ratio':round(t_debt/(t_debt+tb_vals['total_equity']),6),
-       'debt_to_ebitda_ratio':round(t_debt/t_ebitda,6),
-       'interest_coverage_ratio':round(ti_vals['operating_profit']/abs(ti_vals['finance_costs']),6),
-       'total_debt_musd':round(t_debt,6),'ebitda_proxy_musd':round(t_ebitda,6)
-     },
-     'assumptions':['Current liabilities uses subtotal line 396,909 in Tencent statement section.']
-    },indent = 2),encoding = 'utf-8')
+    tencent_output = _write_payload_json(
+        TOUT,
+        {
+            'company': 'Tencent Holdings Limited',
+            'statement_year': 2024,
+            'units': 'RMB millions unless ratio',
+            'source_pdf_url': 'https://static.www.tencent.com/uploads/2025/04/08/1132b72b565389d1b913aea60a648d73.pdf',
+            'source_pdf_path': str(TENCENT_PDF_PATH.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 124, 'balance_sheet': 126, 'cash_flow_statement': 133},
+            'extracted_values': {'income_statement': ti_vals, 'balance_sheet': tb_vals, 'cash_flow_statement': tc_vals},
+            'metrics': {
+                'net_income_musd': round(ti_vals['profit_for_year'], 6),
+                'cost_to_income_ratio': round(abs(ti_vals['cost_of_revenue']) / ti_vals['total_revenue'], 6),
+                'quick_ratio': round((tb_vals['cash_and_cash_equivalents'] + tb_vals['accounts_receivable']) / tb_vals['total_current_liabilities_proxy'], 6),
+                'debt_to_equity_ratio': round(t_debt / tb_vals['total_equity'], 6),
+                'debt_to_assets_ratio': round(t_debt / tb_vals['total_assets'], 6),
+                'debt_to_capital_ratio': round(t_debt / (t_debt + tb_vals['total_equity']), 6),
+                'debt_to_ebitda_ratio': round(t_debt / t_ebitda, 6),
+                'interest_coverage_ratio': round(ti_vals['operating_profit'] / abs(ti_vals['finance_costs']), 6),
+                'total_debt_musd': round(t_debt, 6),
+                'ebitda_proxy_musd': round(t_ebitda, 6),
+            },
+            'assumptions': ['Current liabilities uses subtotal line 396,909 in Tencent statement section.'],
+        },
+    )
 
     ALI_PDF = PROJECT_ROOT/'Question_1'/'data'/'raw'/'alibaba_fy2024_annual_report.pdf'
     ar = PdfReader(str(ALI_PDF))
@@ -1214,25 +1474,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     a_debt = ab_vals['current_bank_borrowings']+ab_vals['current_unsecured_senior_notes']+ab_vals['non_current_bank_borrowings']+ab_vals['non_current_unsecured_senior_notes']
     a_ebitda = ai_vals['income_from_operations']+ac_vals['depreciation_proxy']+ac_vals['amortization_proxy']
     AOUT = PROJECT_ROOT/'Question_1'/'output'/'alibaba_2024_mini_metrics.json'
-    AOUT.write_text(json.dumps({
-     'company':'Alibaba Group Holding Limited','statement_year':2024,'units':'RMB millions unless ratio',
-     'source_pdf_url':'https://data.alibabagroup.com/ecms-files/1514443390/5788a02d-696c-412a-ad2a-386d19b21769/Alibaba%20Group%20Holding%20Limited%20Fiscal%20Year%202024%20Annual%20Report.pdf',
-     'source_pdf_path':str(ALI_PDF.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':254,'balance_sheet':256,'cash_flow_statement':261},
-     'extracted_values':{'income_statement':ai_vals,'balance_sheet':ab_vals,'cash_flow_statement':ac_vals},
-     'metrics':{
-       'net_income_musd':round(ai_vals['net_income'],6),
-       'cost_to_income_ratio':round(abs(ai_vals['cost_of_revenue'])/ai_vals['total_revenue'],6),
-       'quick_ratio':round((ab_vals['cash_and_cash_equivalents']+ab_vals['short_term_investments']+ab_vals['prepayments_receivables_other_assets_current_proxy'])/ab_vals['total_current_liabilities'],6),
-       'debt_to_equity_ratio':round(a_debt/ab_vals['total_equity'],6),
-       'debt_to_assets_ratio':round(a_debt/ab_vals['total_assets'],6),
-       'debt_to_capital_ratio':round(a_debt/(a_debt+ab_vals['total_equity']),6),
-       'debt_to_ebitda_ratio':round(a_debt/a_ebitda,6),
-       'interest_coverage_ratio':round(ai_vals['income_from_operations']/abs(ai_vals['interest_expense']),6),
-       'total_debt_musd':round(a_debt,6),'ebitda_proxy_musd':round(a_ebitda,6)
-     },
-     'assumptions':['Current receivable proxy uses prepayments/receivables/other assets line item in Alibaba report.']
-    },indent = 2),encoding = 'utf-8')
+    alibaba_output = _write_payload_json(
+        AOUT,
+        {
+            'company': 'Alibaba Group Holding Limited',
+            'statement_year': 2024,
+            'units': 'RMB millions unless ratio',
+            'source_pdf_url': 'https://data.alibabagroup.com/ecms-files/1514443390/5788a02d-696c-412a-ad2a-386d19b21769/Alibaba%20Group%20Holding%20Limited%20Fiscal%20Year%202024%20Annual%20Report.pdf',
+            'source_pdf_path': str(ALI_PDF.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 254, 'balance_sheet': 256, 'cash_flow_statement': 261},
+            'extracted_values': {'income_statement': ai_vals, 'balance_sheet': ab_vals, 'cash_flow_statement': ac_vals},
+            'metrics': {
+                'net_income_musd': round(ai_vals['net_income'], 6),
+                'cost_to_income_ratio': round(abs(ai_vals['cost_of_revenue']) / ai_vals['total_revenue'], 6),
+                'quick_ratio': round((ab_vals['cash_and_cash_equivalents'] + ab_vals['short_term_investments'] + ab_vals['prepayments_receivables_other_assets_current_proxy']) / ab_vals['total_current_liabilities'], 6),
+                'debt_to_equity_ratio': round(a_debt / ab_vals['total_equity'], 6),
+                'debt_to_assets_ratio': round(a_debt / ab_vals['total_assets'], 6),
+                'debt_to_capital_ratio': round(a_debt / (a_debt + ab_vals['total_equity']), 6),
+                'debt_to_ebitda_ratio': round(a_debt / a_ebitda, 6),
+                'interest_coverage_ratio': round(ai_vals['income_from_operations'] / abs(ai_vals['interest_expense']), 6),
+                'total_debt_musd': round(a_debt, 6),
+                'ebitda_proxy_musd': round(a_ebitda, 6),
+            },
+            'assumptions': ['Current receivable proxy uses prepayments/receivables/other assets line item in Alibaba report.'],
+        },
+    )
 
     print('Saved:',TOUT) ; print('Saved:',AOUT)
 
@@ -1266,24 +1532,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     e_debt = eb_vals['notes_and_loans_payable']+eb_vals['long_term_debt']
     e_ebitda = ei_vals['income_before_income_taxes']+ec_vals['depreciation_and_depletion']
     EOUT = PROJECT_ROOT/'Question_1'/'output'/'exxon_2024_mini_metrics.json'
-    EOUT.write_text(json.dumps({
-     'company':'Exxon Mobil Corporation','statement_year':2024,'units':'USD millions unless ratio',
-     'source_pdf_url':EXXON_URL,'source_pdf_path':str(EXXON_PDF.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':73,'balance_sheet':75,'cash_flow_statement':76},
-     'extracted_values':{'income_statement':ei_vals,'balance_sheet':eb_vals,'cash_flow_statement':ec_vals},
-     'metrics':{
-      'net_income_musd':round(ei_vals['net_income_attributable_exxonmobil'],6),
-      'cost_to_income_ratio':round(ei_vals['total_costs_and_other_deductions']/ei_vals['sales_and_operating_revenue'],6),
-      'quick_ratio':round((eb_vals['cash_and_cash_equivalents']+eb_vals['notes_and_accounts_receivable_net'])/eb_vals['total_current_liabilities'],6),
-      'debt_to_equity_ratio':round(e_debt/eb_vals['total_equity'],6),
-      'debt_to_assets_ratio':round(e_debt/eb_vals['total_assets'],6),
-      'debt_to_capital_ratio':round(e_debt/(e_debt+eb_vals['total_equity']),6),
-      'debt_to_ebitda_ratio':round(e_debt/e_ebitda,6),
-      'interest_coverage_ratio':round(ei_vals['income_before_income_taxes']/abs(ei_vals['interest_expense']),6),
-      'total_debt_musd':round(e_debt,6),'ebitda_proxy_musd':round(e_ebitda,6)
-     },
-     'assumptions':['2024 values selected from 2025/2024/2023 columns in Exxon 10-K statements.']
-    },indent = 2),encoding = 'utf-8')
+    exxon_output = _write_payload_json(
+        EOUT,
+        {
+            'company': 'Exxon Mobil Corporation',
+            'statement_year': 2024,
+            'units': 'USD millions unless ratio',
+            'source_pdf_url': EXXON_URL,
+            'source_pdf_path': str(EXXON_PDF.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 73, 'balance_sheet': 75, 'cash_flow_statement': 76},
+            'extracted_values': {'income_statement': ei_vals, 'balance_sheet': eb_vals, 'cash_flow_statement': ec_vals},
+            'metrics': {
+                'net_income_musd': round(ei_vals['net_income_attributable_exxonmobil'], 6),
+                'cost_to_income_ratio': round(ei_vals['total_costs_and_other_deductions'] / ei_vals['sales_and_operating_revenue'], 6),
+                'quick_ratio': round((eb_vals['cash_and_cash_equivalents'] + eb_vals['notes_and_accounts_receivable_net']) / eb_vals['total_current_liabilities'], 6),
+                'debt_to_equity_ratio': round(e_debt / eb_vals['total_equity'], 6),
+                'debt_to_assets_ratio': round(e_debt / eb_vals['total_assets'], 6),
+                'debt_to_capital_ratio': round(e_debt / (e_debt + eb_vals['total_equity']), 6),
+                'debt_to_ebitda_ratio': round(e_debt / e_ebitda, 6),
+                'interest_coverage_ratio': round(ei_vals['income_before_income_taxes'] / abs(ei_vals['interest_expense']), 6),
+                'total_debt_musd': round(e_debt, 6),
+                'ebitda_proxy_musd': round(e_ebitda, 6),
+            },
+            'assumptions': ['2024 values selected from 2025/2024/2023 columns in Exxon 10-K statements.'],
+        },
+    )
 
     VW_PDF = PROJECT_ROOT/'Question_1'/'data'/'raw'/'volkswagen_annual_report_2024.pdf'
     vr = PdfReader(str(VW_PDF))
@@ -1316,25 +1589,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     v_debt = vb_vals['financial_liabilities_non_current']+vb_vals['financial_liabilities_current']
     v_ebitda = vi_vals['operating_result']+vc_vals['depreciation_amortization_proxy']+vc_vals['depreciation_lease_assets_proxy']
     VOUT = PROJECT_ROOT/'Question_1'/'output'/'vw_2024_mini_metrics.json'
-    VOUT.write_text(json.dumps({
-     'company':'Volkswagen AG','statement_year':2024,'units':'EUR millions unless ratio',
-     'source_pdf_url':'https://annualreport2024.volkswagen-group.com/_assets/downloads/entire-vw-ar24.pdf',
-     'source_pdf_path':str(VW_PDF.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':472,'balance_sheet':475,'cash_flow_statement':478},
-     'extracted_values':{'income_statement':vi_vals,'balance_sheet':vb_vals,'cash_flow_statement':vc_vals},
-     'metrics':{
-       'net_income_musd':round(vi_vals['earnings_after_tax'],6),
-       'cost_to_income_ratio':round((vi_vals['cost_of_sales']+vi_vals['distribution_expenses']+vi_vals['administrative_expenses'])/vi_vals['sales_revenue'],6),
-       'quick_ratio':round((vb_vals['cash_and_cash_equivalents']+vb_vals['trade_receivables'])/vb_vals['total_current_liabilities_proxy'],6),
-       'debt_to_equity_ratio':round(v_debt/vb_vals['total_equity_proxy'],6),
-       'debt_to_assets_ratio':round(v_debt/vb_vals['total_assets'],6),
-       'debt_to_capital_ratio':round(v_debt/(v_debt+vb_vals['total_equity_proxy']),6),
-       'debt_to_ebitda_ratio':round(v_debt/v_ebitda,6),
-       'interest_coverage_ratio':round(vi_vals['earnings_before_tax']/abs(vi_vals['interest_expenses']),6),
-       'total_debt_musd':round(v_debt,6),'ebitda_proxy_musd':round(v_ebitda,6)
-     },
-     'assumptions':['VW current liabilities/equity use unlabeled subtotal lines in balance section.']
-    },indent = 2),encoding = 'utf-8')
+    vw_output = _write_payload_json(
+        VOUT,
+        {
+            'company': 'Volkswagen AG',
+            'statement_year': 2024,
+            'units': 'EUR millions unless ratio',
+            'source_pdf_url': 'https://annualreport2024.volkswagen-group.com/_assets/downloads/entire-vw-ar24.pdf',
+            'source_pdf_path': str(VW_PDF.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 472, 'balance_sheet': 475, 'cash_flow_statement': 478},
+            'extracted_values': {'income_statement': vi_vals, 'balance_sheet': vb_vals, 'cash_flow_statement': vc_vals},
+            'metrics': {
+                'net_income_musd': round(vi_vals['earnings_after_tax'], 6),
+                'cost_to_income_ratio': round((vi_vals['cost_of_sales'] + vi_vals['distribution_expenses'] + vi_vals['administrative_expenses']) / vi_vals['sales_revenue'], 6),
+                'quick_ratio': round((vb_vals['cash_and_cash_equivalents'] + vb_vals['trade_receivables']) / vb_vals['total_current_liabilities_proxy'], 6),
+                'debt_to_equity_ratio': round(v_debt / vb_vals['total_equity_proxy'], 6),
+                'debt_to_assets_ratio': round(v_debt / vb_vals['total_assets'], 6),
+                'debt_to_capital_ratio': round(v_debt / (v_debt + vb_vals['total_equity_proxy']), 6),
+                'debt_to_ebitda_ratio': round(v_debt / v_ebitda, 6),
+                'interest_coverage_ratio': round(vi_vals['earnings_before_tax'] / abs(vi_vals['interest_expenses']), 6),
+                'total_debt_musd': round(v_debt, 6),
+                'ebitda_proxy_musd': round(v_ebitda, 6),
+            },
+            'assumptions': ['VW current liabilities/equity use unlabeled subtotal lines in balance section.'],
+        },
+    )
 
     print('Saved:',EOUT); print('Saved:',VOUT)
 
@@ -1372,24 +1651,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     }
     m_debt = m['ltd_curr']+m['ltd_noncurr']+m['cp']; m_ebitda = m['oper']+m['dep']
     MOUT = PROJECT_ROOT/'Question_1'/'output'/'microsoft_2024_mini_metrics.json'
-    MOUT.write_text(json.dumps({
-     'company':'Microsoft Corporation','statement_year':2024,'units':'USD millions unless ratio',
-     'source_pdf_url':MSFT_URL,'source_pdf_path':str(MSFT_PATH.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':1,'balance_sheet':1,'cash_flow_statement':1},
-     'extracted_values':{'income_statement':m,'balance_sheet':m,'cash_flow_statement':{'depreciation_proxy':m['dep']}},
-     'metrics':{
-       'net_income_musd':round(m['net'],6),
-       'cost_to_income_ratio':round((m['cost']+m['rnd']+m['sm']+m['ga'])/m['revenue'],6),
-       'quick_ratio':round((m['cash']+m['short_inv']+m['ar'])/m['curr_liab'],6),
-       'debt_to_equity_ratio':round(m_debt/m['equity'],6),
-       'debt_to_assets_ratio':round(m_debt/m['assets'],6),
-       'debt_to_capital_ratio':round(m_debt/(m_debt+m['equity']),6),
-       'debt_to_ebitda_ratio':round(m_debt/m_ebitda,6),
-       'interest_coverage_ratio':round(m['oper']/m['interest'],6),
-       'total_debt_musd':round(m_debt,6),'ebitda_proxy_musd':round(m_ebitda,6)
-     },
-     'assumptions':['SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source.']
-    },indent = 2),encoding = 'utf-8')
+    microsoft_output = _write_payload_json(
+        MOUT,
+        {
+            'company': 'Microsoft Corporation',
+            'statement_year': 2024,
+            'units': 'USD millions unless ratio',
+            'source_pdf_url': MSFT_URL,
+            'source_pdf_path': str(MSFT_PATH.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 1, 'balance_sheet': 1, 'cash_flow_statement': 1},
+            'extracted_values': {'income_statement': m, 'balance_sheet': m, 'cash_flow_statement': {'depreciation_proxy': m['dep']}},
+            'metrics': {
+                'net_income_musd': round(m['net'], 6),
+                'cost_to_income_ratio': round((m['cost'] + m['rnd'] + m['sm'] + m['ga']) / m['revenue'], 6),
+                'quick_ratio': round((m['cash'] + m['short_inv'] + m['ar']) / m['curr_liab'], 6),
+                'debt_to_equity_ratio': round(m_debt / m['equity'], 6),
+                'debt_to_assets_ratio': round(m_debt / m['assets'], 6),
+                'debt_to_capital_ratio': round(m_debt / (m_debt + m['equity']), 6),
+                'debt_to_ebitda_ratio': round(m_debt / m_ebitda, 6),
+                'interest_coverage_ratio': round(m['oper'] / m['interest'], 6),
+                'total_debt_musd': round(m_debt, 6),
+                'ebitda_proxy_musd': round(m_ebitda, 6),
+            },
+            'assumptions': ['SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source.'],
+        },
+    )
 
     g = {
      'revenue':_pick_sec(gf,'RevenueFromContractWithCustomerExcludingAssessedTax',2024,'2024-12-31')/1e6,
@@ -1414,24 +1700,31 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     }
     g_debt = g['ltd_curr']+g['ltd_noncurr']+g['cp']; g_ebitda = g['oper']+g['dep']
     GOUT = PROJECT_ROOT/'Question_1'/'output'/'alphabet_2024_mini_metrics.json'
-    GOUT.write_text(json.dumps({
-     'company':'Alphabet Inc.','statement_year':2024,'units':'USD millions unless ratio',
-     'source_pdf_url':GOOG_URL,'source_pdf_path':str(GOOG_PATH.as_posix()),
-     'statement_pages_pdf_1_based':{'income_statement':1,'balance_sheet':1,'cash_flow_statement':1},
-     'extracted_values':{'income_statement':g,'balance_sheet':g,'cash_flow_statement':{'depreciation_proxy':g['dep']}},
-     'metrics':{
-       'net_income_musd':round(g['net'],6),
-       'cost_to_income_ratio':round((g['cost']+g['rnd']+g['sm']+g['ga'])/g['revenue'],6),
-       'quick_ratio':round((g['cash']+g['marketable']+g['ar'])/g['curr_liab'],6),
-       'debt_to_equity_ratio':round(g_debt/g['equity'],6),
-       'debt_to_assets_ratio':round(g_debt/g['assets'],6),
-       'debt_to_capital_ratio':round(g_debt/(g_debt+g['equity']),6),
-       'debt_to_ebitda_ratio':round(g_debt/g_ebitda,6),
-       'interest_coverage_ratio':round(g['oper']/g['interest'],6),
-       'total_debt_musd':round(g_debt,6),'ebitda_proxy_musd':round(g_ebitda,6)
-     },
-     'assumptions':['SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source.']
-    },indent = 2),encoding = 'utf-8')
+    alphabet_output = _write_payload_json(
+        GOUT,
+        {
+            'company': 'Alphabet Inc.',
+            'statement_year': 2024,
+            'units': 'USD millions unless ratio',
+            'source_pdf_url': GOOG_URL,
+            'source_pdf_path': str(GOOG_PATH.as_posix()),
+            'statement_pages_pdf_1_based': {'income_statement': 1, 'balance_sheet': 1, 'cash_flow_statement': 1},
+            'extracted_values': {'income_statement': g, 'balance_sheet': g, 'cash_flow_statement': {'depreciation_proxy': g['dep']}},
+            'metrics': {
+                'net_income_musd': round(g['net'], 6),
+                'cost_to_income_ratio': round((g['cost'] + g['rnd'] + g['sm'] + g['ga']) / g['revenue'], 6),
+                'quick_ratio': round((g['cash'] + g['marketable'] + g['ar']) / g['curr_liab'], 6),
+                'debt_to_equity_ratio': round(g_debt / g['equity'], 6),
+                'debt_to_assets_ratio': round(g_debt / g['assets'], 6),
+                'debt_to_capital_ratio': round(g_debt / (g_debt + g['equity']), 6),
+                'debt_to_ebitda_ratio': round(g_debt / g_ebitda, 6),
+                'interest_coverage_ratio': round(g['oper'] / g['interest'], 6),
+                'total_debt_musd': round(g_debt, 6),
+                'ebitda_proxy_musd': round(g_ebitda, 6),
+            },
+            'assumptions': ['SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source.'],
+        },
+    )
 
     print('Saved:',MOUT); print('Saved:',GOUT)
 
@@ -1446,49 +1739,413 @@ def extract_full_required_coverage(question_root: Path | None = None) -> dict[st
     }
 
 
-def refresh_manifest_and_cross(question_root: Path | None = None) -> dict[str, Any]:
+def _resolve_case_page(reader: PdfReader, page_cfg: dict[str, Any], page_name: str) -> tuple[int, str]:
+    """Resolve a page either by explicit page number or keyword match."""
+
+    if 'page_1_based' in page_cfg:
+        page_idx = int(page_cfg['page_1_based']) - 1
+        text = reader.pages[page_idx].extract_text() or ''
+
+        return page_idx, text
+
+    contains_all = page_cfg.get('contains_all', [])
+    contains_any = page_cfg.get('contains_any', [])
+
+    return _find_statement_page(
+        reader,
+        lambda t: all(token in t for token in contains_all) and (not contains_any or any(token in t for token in contains_any)),
+        page_name,
+    )
+
+
+def _extract_fields_from_case_lines(lines: list[str], field_specs: list[dict[str, Any]]) -> dict[str, float]:
+    """Extract configured numeric fields from one page worth of lines."""
+
+    extracted = {}
+
+    for spec in field_specs:
+        name = spec['name']
+        trailing_columns = int(spec.get('trailing_columns', 2))
+
+        if 'line_contains' in spec:
+            extracted[name] = _extract_amount(_find_line(lines, spec['line_contains']), trailing_columns)
+
+        elif 'first_line_token' in spec:
+            extracted[name] = _extract_amount(_first_line(lines, spec['first_line_token']), trailing_columns)
+
+        elif 'lookahead_token' in spec:
+            extracted[name] = _extract_lookahead(lines, spec['lookahead_token'], trailing_columns, int(spec.get('lookahead', 4)))
+
+        else:
+            raise KeyError(f"Unsupported field extractor spec: {spec}")
+
+    return extracted
+
+
+def _normalize_match_text(text: str) -> str:
+    """Normalize extracted PDF text for case-insensitive keyword matching."""
+
+    return re.sub(r'\s+', ' ', text).strip().lower()
+
+
+def _keyword_hits(text: str, spec: dict[str, Any]) -> list[str]:
+    """Return matched section keywords for one page."""
+
+    normalized = _normalize_match_text(text)
+    contains_all = list(spec.get('contains_all', []))
+    contains_any = list(spec.get('contains_any', []))
+
+    if contains_all and not all(token.lower() in normalized for token in contains_all):
+        return []
+
+    hits = [token for token in contains_all if token.lower() in normalized]
+    hits.extend(token for token in contains_any if token.lower() in normalized)
+
+    seen: set[str] = set()
+    ordered_hits: list[str] = []
+
+    for token in hits:
+        lowered = token.lower()
+
+        if lowered not in seen:
+            seen.add(lowered)
+            ordered_hits.append(token)
+
+    return ordered_hits
+
+
+def _extract_passage_windows(
+    lines: list[str],
+    keywords: list[str],
+    *,
+    page_number: int,
+    section_id: str,
+    line_window_before: int,
+    line_window_after: int,
+    max_chars: int,
+    max_passages: int,
+) -> list[dict[str, Any]]:
+    """Build short evidence passages around matched keywords on one page."""
+
+    passages: list[dict[str, Any]] = []
+    seen_text: set[str] = set()
+
+    for keyword in keywords:
+        lowered = keyword.lower()
+        anchor_positions = [idx for idx, line in enumerate(lines) if lowered in line.lower()]
+
+        for anchor_idx in anchor_positions:
+            start = max(0, anchor_idx - line_window_before)
+            end = min(len(lines), anchor_idx + line_window_after + 1)
+            text = re.sub(r'\s+', ' ', ' '.join(lines[start:end])).strip()
+
+            if not text:
+                continue
+
+            if len(text) > max_chars:
+                text = text[:max_chars].rsplit(' ', 1)[0].rstrip(' ,;:') + ' ...'
+
+            fingerprint = text.lower()
+
+            if fingerprint in seen_text:
+                continue
+
+            seen_text.add(fingerprint)
+            passages.append(
+                {
+                    'page_number': int(page_number),
+                    'section_id': section_id,
+                    'matched_keyword': keyword,
+                    'text': text,
+                }
+            )
+
+            if len(passages) >= max_passages:
+                return passages
+
+    return passages
+
+
+def load_case_registry(
+    question_root: Path | None = None,
+    registry_filename: str = 'bonus1_case_sources.json',
+) -> tuple[dict[str, Any], Path]:
+    """Load a generic PDF case registry."""
+
+    question_root = resolve_question_root(question_root)
+    registry_path = question_root / 'config' / registry_filename
+
+    return json.loads(registry_path.read_text(encoding = 'utf-8')), registry_path
+
+
+def extract_warning_candidates(
+    case_id: str,
+    question_root: Path | None = None,
+    *,
+    warning_config_filename: str = 'bonus2_warning_config.json',
+    registry_filename: str = 'bonus1_case_sources.json',
+) -> dict[str, Any]:
+    """Extract high-value warning passages from configured PDF sections."""
+
+    question_root = resolve_question_root(question_root)
+    project_root = question_root.parent
+    warning_config_path = question_root / 'config' / warning_config_filename
+    warning_cfg = json.loads(warning_config_path.read_text(encoding = 'utf-8'))
+    registry_cfg, registry_path = load_case_registry(question_root, registry_filename)
+    case_cfg = next(item for item in registry_cfg['cases'] if item['id'] == case_id)
+    pdf_path = project_root / case_cfg['pdf_path']
+    _ensure_file(case_cfg['pdf_url'], pdf_path, headers = {'User-Agent': 'Mozilla/5.0'}, verify = True)
+
+    retrieval_cfg = warning_cfg.get('retrieval', {})
+    max_pages_per_section = int(retrieval_cfg.get('max_pages_per_section', 3))
+    max_passages_per_section = int(retrieval_cfg.get('max_passages_per_section', 3))
+    max_total_passages = int(retrieval_cfg.get('max_total_passages', 12))
+    line_window_before = int(retrieval_cfg.get('line_window_before', 2))
+    line_window_after = int(retrieval_cfg.get('line_window_after', 18))
+    max_chars_per_passage = int(retrieval_cfg.get('max_chars_per_passage', 1600))
+
+    reader = PdfReader(str(pdf_path))
+    sections: list[dict[str, Any]] = []
+    all_passages: list[dict[str, Any]] = []
+
+    for spec in warning_cfg['section_specs']:
+        page_hits: list[dict[str, Any]] = []
+
+        for page_idx, page in enumerate(reader.pages):
+            text = page.extract_text() or ''
+            matched_keywords = _keyword_hits(text, spec)
+
+            if not matched_keywords:
+                continue
+
+            page_hits.append(
+                {
+                    'page_number': page_idx + 1,
+                    'match_count': len(matched_keywords),
+                    'matched_keywords': matched_keywords,
+                    'text': text,
+                }
+            )
+
+        page_hits = sorted(page_hits, key = lambda item: (-item['match_count'], item['page_number']))[:max_pages_per_section]
+        section_passages: list[dict[str, Any]] = []
+
+        for hit in page_hits:
+            lines = _normalized_lines(hit['text'])
+            passages = _extract_passage_windows(
+                lines,
+                hit['matched_keywords'],
+                page_number = hit['page_number'],
+                section_id = spec['id'],
+                line_window_before = line_window_before,
+                line_window_after = line_window_after,
+                max_chars = max_chars_per_passage,
+                max_passages = max_passages_per_section - len(section_passages),
+            )
+            section_passages.extend(passages)
+
+            if len(section_passages) >= max_passages_per_section:
+                break
+
+        for passage_idx, passage in enumerate(section_passages, start = 1):
+            passage['passage_id'] = f"{case_id}_{spec['id']}_{passage_idx}"
+
+        section_payload = {
+            'section_id': spec['id'],
+            'title': spec.get('title', spec['id'].replace('_', ' ').title()),
+            'page_hits': [{k: v for k, v in hit.items() if k != 'text'} for hit in page_hits],
+            'passages': section_passages,
+        }
+        sections.append(section_payload)
+        all_passages.extend(section_passages)
+
+    all_passages = all_passages[:max_total_passages]
+    retained_ids = {passage['passage_id'] for passage in all_passages}
+
+    for section in sections:
+        section['passages'] = [passage for passage in section['passages'] if passage['passage_id'] in retained_ids]
+
+    sections = [section for section in sections if section['page_hits'] or section['passages']]
+
+    return {
+        'case_id': case_cfg['id'],
+        'company_name': case_cfg['company_name'],
+        'statement_year': case_cfg['statement_year'],
+        'distress_event': case_cfg.get('distress_event'),
+        'distress_event_year': case_cfg.get('distress_event_year'),
+        'pdf_url': case_cfg['pdf_url'],
+        'pdf_path': str(pdf_path.as_posix()),
+        'warning_config_path': str(warning_config_path.as_posix()),
+        'case_registry_path': str(registry_path.as_posix()),
+        'sections': sections,
+        'candidate_passages': all_passages,
+        'section_count': len(sections),
+        'candidate_passage_count': len(all_passages),
+    }
+
+
+def _compute_generic_case_metrics(canonical_values: dict[str, Any]) -> dict[str, float | None]:
+    """Compute a generic set of balance-sheet metrics from canonical case values."""
+
+    revenue = _clean_numeric(canonical_values.get('revenue'))
+    cash = _clean_numeric(canonical_values.get('cash'))
+    marketable = _clean_numeric(canonical_values.get('marketable'))
+    trade_receivables = _clean_numeric(canonical_values.get('trade_receivables')) or _clean_numeric(canonical_values.get('receivables'))
+    current_liabilities = _clean_numeric(canonical_values.get('current_liabilities'))
+    total_debt = _clean_numeric(canonical_values.get('total_debt'))
+    assets = _clean_numeric(canonical_values.get('assets'))
+    equity = _clean_numeric(canonical_values.get('equity'))
+    operating_income = _clean_numeric(canonical_values.get('operating_income'))
+    finance_costs = _clean_numeric(canonical_values.get('finance_costs'))
+    cost_of_sales = _clean_numeric(canonical_values.get('cost_of_sales'))
+    selling_marketing = _clean_numeric(canonical_values.get('selling_marketing_costs'))
+    administrative = _clean_numeric(canonical_values.get('administrative_expenses'))
+    other_operating = _clean_numeric(canonical_values.get('other_operating_expenses'))
+    net_income = _clean_numeric(canonical_values.get('net_income'))
+    quick_assets = _sum_numeric(cash, marketable, trade_receivables)
+    cost_components = [component for component in [cost_of_sales, selling_marketing, administrative, other_operating] if component is not None]
+    cost_to_income = None
+
+    if revenue is not None and revenue != 0 and cost_components:
+        cost_to_income = sum(abs(component) for component in cost_components) / revenue
+
+    debt_to_equity = None
+
+    if total_debt is not None and equity is not None and equity > 0:
+        debt_to_equity = total_debt / equity
+
+    debt_to_capital = None
+
+    if total_debt is not None and equity is not None and equity > 0 and (total_debt + equity) > 0:
+        debt_to_capital = total_debt / (total_debt + equity)
+
+    interest_coverage = None
+
+    if operating_income is not None and finance_costs is not None and finance_costs != 0:
+        interest_coverage = operating_income / abs(finance_costs)
+
+    metrics = {
+        'net_income_musd': _round_or_none(net_income),
+        'cost_to_income_ratio': _round_or_none(cost_to_income),
+        'quick_ratio': _round_or_none(_safe_div(quick_assets, current_liabilities)),
+        'debt_to_equity_ratio': _round_or_none(debt_to_equity),
+        'debt_to_assets_ratio': _round_or_none(_safe_div(total_debt, assets)),
+        'debt_to_capital_ratio': _round_or_none(debt_to_capital),
+        'debt_to_ebitda_ratio': None,
+        'interest_coverage_ratio': _round_or_none(interest_coverage),
+        'total_debt_musd': _round_or_none(total_debt),
+        'ebitda_proxy_musd': None,
+    }
+
+    return metrics
+
+
+def extract_configured_pdf_case(
+    case_id: str,
+    question_root: Path | None = None,
+    registry_filename: str = 'bonus1_case_sources.json',
+) -> dict[str, Any]:
+    """Extract a PDF annual-report case using config only, without case-specific code paths."""
 
     QUESTION_ROOT = resolve_question_root(question_root)
     PROJECT_ROOT = QUESTION_ROOT.parent
-    MANIFEST_PATH = PROJECT_ROOT / 'Question_1' / 'config' / 'annual_report_manifest_2026q1.json'
-    CROSS_OUTPUT_PATH = PROJECT_ROOT / 'Question_1' / 'output' / 'mini_cross_company_metrics.json'
-    manifest_live = json.loads(MANIFEST_PATH.read_text(encoding = 'utf-8'))
+    registry_path = QUESTION_ROOT / 'config' / registry_filename
+    registry_cfg = json.loads(registry_path.read_text(encoding = 'utf-8'))
+    case_cfg = next(item for item in registry_cfg['cases'] if item['id'] == case_id)
+    pdf_path = PROJECT_ROOT / case_cfg['pdf_path']
+    output_path = PROJECT_ROOT / case_cfg['output_path']
+    _ensure_file(case_cfg['pdf_url'], pdf_path, headers = {'User-Agent': 'Mozilla/5.0'}, verify = True)
+
+    reader = PdfReader(str(pdf_path))
+    section_pages: dict[str, int] = {}
+    section_data: dict[str, dict[str, float]] = {}
+
+    for section_name, section_cfg in case_cfg['sections'].items():
+        page_idx, text = _resolve_case_page(reader, section_cfg['page_match'], f"{case_id}:{section_name}")
+        section_pages[section_name] = page_idx + 1
+        section_lines = _normalized_lines(text)
+        section_data[section_name] = _extract_fields_from_case_lines(section_lines, section_cfg['fields'])
+
+    extracted_values = {}
+
+    for target_section, source_sections in case_cfg['payload_section_map'].items():
+        merged: dict[str, float] = {}
+
+        for source_section in source_sections:
+            merged.update(section_data[source_section])
+
+        extracted_values[target_section] = merged
+
+    payload_stub = {
+        'company': case_cfg['company_name'],
+        'statement_year': case_cfg['statement_year'],
+        'units': case_cfg['currency'],
+        'source_pdf_url': case_cfg['pdf_url'],
+        'source_pdf_path': str(pdf_path.as_posix()),
+        'statement_pages_pdf_1_based': {
+            target_section: section_pages[section_name]
+            for target_section, section_name in case_cfg['statement_page_sections'].items()
+        },
+        'extracted_values': extracted_values,
+        'metrics': {},
+        'assumptions': list(case_cfg.get('assumptions', [])),
+        'bonus1_case_metadata': {
+            'case_id': case_cfg['id'],
+            'registry_path': str(registry_path.as_posix()),
+            'section_pages_pdf_1_based': section_pages,
+        },
+    }
+    canonical_values = _build_canonical_values(payload_stub)
+    payload_stub['metrics'] = _compute_generic_case_metrics(canonical_values)
+    output_payload = _write_payload_json(output_path, payload_stub)
+    print('Saved:', output_path)
+
+    return output_payload
+
+
+def refresh_manifest_and_cross(question_root: Path | None = None) -> dict[str, Any]:
+
+    paths = resolve_question_paths(question_root)
+    project_root = paths['project_root']
+    manifest_path = paths['report_sources_path']
+    cross_output_path = paths['cross_output_path']
+    manifest_live = json.loads(manifest_path.read_text(encoding = 'utf-8'))
     patch = {
      'exxon_2024':{'pdf_url':'https://investor.exxonmobil.com/sec-filings/all-sec-filings/content/0000034088-26-000045/0000034088-26-000045.pdf','pdf_path':'Question_1/data/raw/exxon_2024_10k.pdf'},
      'microsoft_2024':{'pdf_url':'https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm','pdf_path':'Question_1/data/raw/microsoft_2024_10k.html'},
      'alphabet_2024':{'pdf_url':'https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm','pdf_path':'Question_1/data/raw/alphabet_2024_10k.html'},
     }
-    for item in manifest_live['companies']:
+    for item in manifest_live['reports']:
 
         if item['id'] in patch:
             item.update(patch[item['id']])
-        pdf_path = PROJECT_ROOT/item['pdf_path']; out_path = PROJECT_ROOT/item['output_path']
+        pdf_path = project_root / item['pdf_path']; out_path = project_root / item['output_path']
 
         if pdf_path.exists() and out_path.exists():
             item['status'] = 'complete'
-    manifest_live['manifest_version'] = '2026q1-v2'
-    MANIFEST_PATH.write_text(json.dumps(manifest_live,indent = 2),encoding = 'utf-8')
+    manifest_live['version'] = '2026q1-v2'
+    manifest_path.write_text(json.dumps(manifest_live,indent = 2),encoding = 'utf-8')
 
     cross = {}
-    for item in manifest_live['companies']:
+    for item in manifest_live['reports']:
 
         if not item.get('required_now',False):
 
             continue
 
-        out_path = PROJECT_ROOT/item['output_path']
+        out_path = project_root / item['output_path']
 
         if out_path.exists():
             cross[item['id']] = json.loads(out_path.read_text(encoding = 'utf-8'))
-    CROSS_OUTPUT_PATH.write_text(json.dumps(cross,indent = 2),encoding = 'utf-8')
+    cross_output_path.write_text(json.dumps(cross,indent = 2),encoding = 'utf-8')
 
     rows = []
     for cid,payload in cross.items():
         m = payload.get('metrics',{})
         rows.append({'id':cid,'company':payload.get('company'),'net_income':m.get('net_income_musd'),'cost_to_income':m.get('cost_to_income_ratio'),'quick_ratio':m.get('quick_ratio'),'debt_to_equity':m.get('debt_to_equity_ratio'),'debt_to_assets':m.get('debt_to_assets_ratio'),'debt_to_capital':m.get('debt_to_capital_ratio'),'debt_to_ebitda':m.get('debt_to_ebitda_ratio'),'interest_coverage':m.get('interest_coverage_ratio')})
     summary = pd.DataFrame(rows).sort_values('id').reset_index(drop = True)
-    print('Saved manifest:',MANIFEST_PATH)
-    print('Saved cross:',CROSS_OUTPUT_PATH)
+    print('Saved manifest:',manifest_path)
+    print('Saved cross:',cross_output_path)
     summary
 
     return {
@@ -1496,17 +2153,53 @@ def refresh_manifest_and_cross(question_root: Path | None = None) -> dict[str, A
         'manifest_live': manifest_live,
         'cross_payload': cross,
         'summary': summary,
-        'manifest_path': MANIFEST_PATH,
-        'cross_output_path': CROSS_OUTPUT_PATH,
+        'manifest_path': manifest_path,
+        'cross_output_path': cross_output_path,
     }
+
+
+def canonicalize_existing_outputs(question_root: Path | None = None) -> dict[str, Any]:
+    """Backfill canonical_values for existing annual-report JSON outputs."""
+
+    paths = resolve_question_paths(question_root)
+    project_root = paths['project_root']
+    manifest_cfg = json.loads(paths['report_sources_path'].read_text(encoding = 'utf-8'))
+    rows = []
+
+    for item in manifest_cfg['reports']:
+        output_path = project_root / item['output_path']
+
+        if not output_path.exists():
+            rows.append({'id': item['id'], 'output_exists': False, 'canonicalized': False})
+            continue
+
+        payload = json.loads(output_path.read_text(encoding = 'utf-8'))
+        finalized = _write_payload_json(output_path, payload)
+        rows.append(
+            {
+                'id': item['id'],
+                'output_exists': True,
+                'canonicalized': isinstance(finalized.get('canonical_values'), dict),
+            }
+        )
+
+    summary = pd.DataFrame(rows).sort_values('id').reset_index(drop = True)
+    print('Canonicalized annual-report outputs:')
+    print(summary.to_string(index = False))
+
+    return {'summary': summary}
 
 
 __all__ = [
     "build_cross_summary",
+    "canonicalize_existing_outputs",
+    "extract_configured_pdf_case",
     "extract_full_required_coverage",
     "extract_gm_pilot",
     "extract_jpm_pilot",
     "extract_lvmh_extension",
+    "extract_warning_candidates",
+    "load_case_registry",
     "refresh_manifest_and_cross",
     "refresh_manifest_progress",
     "resolve_question_root",

@@ -1,0 +1,325 @@
+{
+  "case_id": "intu_2019",
+  "company_name": "intu properties plc",
+  "statement_year": 2019,
+  "model": "gpt-5.4-mini",
+  "reasoning": "medium",
+  "warning_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus2_warning_config.json",
+  "schema_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_warning_schema.json",
+  "candidate_passage_count": 9,
+  "section_count": 4,
+  "candidate_passages": [
+    {
+      "page_number": 102,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "basis for opinion",
+      "text": "statements is applicable law and United Kingdom Accounting Stan dards, including FRS 101 \u2018Reduced Disclosure Framework\u2019 (United Kingdom Generally Accepted Accounting Practice). Basis for opinion We conducted our audit in accordance with International Standard s on Auditing (UK) (ISAs (UK)) and applicable law. Our responsi bilities under those standards are further described in the auditor\u2019s resp onsibilities for the audit of the financial statements section of our report. We are independent of the Group and the Company in accordance with the ethical requirements that are relevant to our audit of t he financial statements in the UK, including the Financial Reporting Council\u2019s (the FRC\u2019s) Ethical Standard as applied to listed p ublic interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. The non-audit service s provided to the Group and Company for the year are disclosed in note 8 to the financial statements. We confirm that the non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. We believe that the audit evidence we have obtained is sufficient and appropriate to prov ide a basis for our opinion. Material uncertainty relating to going concern We draw attention to note 1 in the financial statements which in dicates that a material uncertainty exists that may cast signif icant doubt on the Group\u2019s and the Company\u2019s abilit y to continue as a going concern. The Group has a number of secured financing facilities that contain covenants requiring the Group to maintain ...",
+      "passage_id": "intu_2019_basis_for_opinion_1"
+    },
+    {
+      "page_number": 10,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "uncertainty in relation to intu\u2019s ability to continue as a going concern. However we have options including alternative capital structures and further disposals to provide liquidity, and will seek to negotiate covenant waivers where appropriate. These would address potential covenant remedies and the upcoming refinancing activities, with the first material debt maturities in early 2021.",
+      "passage_id": "intu_2019_going_concern_1"
+    },
+    {
+      "page_number": 32,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "accompanying these financial statements indicate a material uncertainty in relation to intu\u2019s ability to continue as a going concern we have options including alternative capital structures and further disposals to put us on a stronger financial footing. Income statement \u00a3m Notes 2019 2018 Change Net rental income A 401.6 450.5 (48.9) Administration expenses B (40.5) (44.0) 3.5 Net finance costs C (224.6) (220.4) (4.2) Tax on underlying profit D (17.6) (0.7) (16.9) Other underlying amounts2 8.3 7.7 0.6 Underlying earnings1 127.2 193.1 (65.9) Revaluation of investment and development property E (1,979.7) (1,405.0) (574.7) Change in fair value of financial instruments F (75.3) 86.3 (161.6) Other finance charges \u2013 exceptional G (37.7) (28.4) (9.3) Other non-underlying amounts 3 14.6 21.8 (7. 2) IFRS loss for the year attributable to owners of intu properties plc",
+      "passage_id": "intu_2019_going_concern_2"
+    },
+    {
+      "page_number": 103,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "liquidity",
+      "text": "external debt of over \u00a31.1 billion would be required in order to reduce the debt to assets ratio to the directors\u2019 preferred level of 50 per cent. In the current unpredictable retail environment, the Group\u2019s liquidity position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance from our industry and valuation specialists. \u2014 We assessed external retail and real estate industry reports in order to assess the completeness and reasonableness of Management\u2019s sensitivity analysis.",
+      "passage_id": "intu_2019_debt_liquidity_1"
+    },
+    {
+      "page_number": 103,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "refinancing",
+      "text": "position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance from our industry and valuation specialists. \u2014 We assessed external retail and real estate industry reports in order to assess the completeness and reasonableness of Management\u2019s sensitivity analysis. intu Puerto Venecia disposal The directors have included the net proceeds of \u00a395 million from the intu Puerto Venecia disposal, which has not yet completed, within their",
+      "passage_id": "intu_2019_debt_liquidity_2"
+    },
+    {
+      "page_number": 103,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "refinance",
+      "text": "become immediately due and payable in full. Financing The Group may not be able to refinance its borrowings at the same level as currently outstanding. At 31 December 2019, a reduction in net external debt of over \u00a31.1 billion would be required in order to reduce the debt to assets ratio to the directors\u2019 preferred level of 50 per cent. In the current unpredictable retail environment, the Group\u2019s liquidity position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance",
+      "passage_id": "intu_2019_debt_liquidity_3"
+    },
+    {
+      "page_number": 32,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "ther non-underlying amounts includes losses on disposal of subsidiaries, gains on sale of investment and development property, write-down on recognition of joint ventures and other assets classified as held for sale, impairment of goodwill, impairment of investment in associates, impairment of loan to associate, exceptional administration expenses, exceptional tax, and any non-underlying amounts attributable to non-controlling interests. The IFRS loss for the year attributable to owners of intu properties plc increased by \u00a3818.7 million to \u00a31,950.9 million, with the IFRS basic loss per share increasing by 60.8 pence. Underlying earnings decreased by \u00a365.9 million to \u00a3127.2 million, with a corresponding reduction in underlying EPS of 4.9 pence. The key drivers of these variances are discussed below. A Net rental income Net rental income decreased \u00a348.9 million in the year to \u00a3401.6 million. This was due primarily to the 9.1 per cent reduction in like-for-like net rental income of \u00a339.6 million and the impact of disposals of \u00a310.5 million (see APM \u2013 like-for-like amounts in presentation of information on page 160 for further details). The key components of the like-for-like net rental income movement were: Robert Allen",
+      "passage_id": "intu_2019_impairment_valuation_1"
+    },
+    {
+      "page_number": 32,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "write-down",
+      "text": "O ther non-underlying amounts includes losses on disposal of subsidiaries, gains on sale of investment and development property, write-down on recognition of joint ventures and other assets classified as held for sale, impairment of goodwill, impairment of investment in associates, impairment of loan to associate, exceptional administration expenses, exceptional tax, and any non-underlying amounts attributable to non-controlling interests. The IFRS loss for the year attributable to owners of intu properties plc increased by \u00a3818.7 million to \u00a31,950.9 million, with the IFRS basic loss per share increasing by 60.8 pence. Underlying earnings decreased by \u00a365.9 million to \u00a3127.2 million, with a corresponding reduction in underlying EPS of 4.9 pence. The key drivers of these variances are discussed below. A Net rental income Net rental income decreased \u00a348.9 million in the year to \u00a3401.6 million. This was due primarily to the 9.1 per cent reduction in like-for-like net rental income of \u00a339.6 million and the impact of disposals of \u00a310.5 million (see APM \u2013 like-for-like amounts in presentation of information on page 160 for further details). The key components of the like-for-like net rental income movement were:",
+      "passage_id": "intu_2019_impairment_valuation_2"
+    },
+    {
+      "page_number": 111,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "Gain on sale of investment and development property 3.9 1.4 Write-down on recognition of joint ventures and other assets classified as held for sale 32 (38.0) \u2013 Impairment of goodwill (4.0) \u2013 Impairment of investme nt in associates 18 (7.4) \u2013 Impairment of loan to associate (5.5) \u2013 Administration expenses \u2013 ongoing (39.5) (42.9) Administration expenses \u2013 exceptional 5 (3.4) (13.1) Operating loss 6 (1,542.7) (992.1) Finance costs 9 (220.9) (216.7) Finance income 9 16.6 14.8 Other finance charges \u2013 exceptional 9 (36.9) (32.9) Change in fair value of financial instruments 9 (72.9) 87.3 Net finance costs 9 (314.1) (147.5) Loss before tax, joint ventures and associates (1,856.8) (1,139.6) Share of post-tax loss of joint ventures 16 (158.9) (42.1) Share of post-tax (loss)/profit of associates 18 (0.3) 2.3 Loss before tax (2,016.0) (1,179.4) Current tax \u2013 ongoing 10 (16.0) (0.1) Current tax \u2013 exceptional 10 (6.4) \u2013 Deferred tax 10 16.6 5.8 Taxation 10 (5.8) 5.7",
+      "passage_id": "intu_2019_impairment_valuation_3"
+    }
+  ],
+  "sections": [
+    {
+      "section_id": "basis_for_opinion",
+      "title": "Basis for Opinion",
+      "page_hits": [
+        {
+          "page_number": 102,
+          "match_count": 1,
+          "matched_keywords": [
+            "basis for opinion"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 102,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "basis for opinion",
+          "text": "statements is applicable law and United Kingdom Accounting Stan dards, including FRS 101 \u2018Reduced Disclosure Framework\u2019 (United Kingdom Generally Accepted Accounting Practice). Basis for opinion We conducted our audit in accordance with International Standard s on Auditing (UK) (ISAs (UK)) and applicable law. Our responsi bilities under those standards are further described in the auditor\u2019s resp onsibilities for the audit of the financial statements section of our report. We are independent of the Group and the Company in accordance with the ethical requirements that are relevant to our audit of t he financial statements in the UK, including the Financial Reporting Council\u2019s (the FRC\u2019s) Ethical Standard as applied to listed p ublic interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. The non-audit service s provided to the Group and Company for the year are disclosed in note 8 to the financial statements. We confirm that the non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. We believe that the audit evidence we have obtained is sufficient and appropriate to prov ide a basis for our opinion. Material uncertainty relating to going concern We draw attention to note 1 in the financial statements which in dicates that a material uncertainty exists that may cast signif icant doubt on the Group\u2019s and the Company\u2019s abilit y to continue as a going concern. The Group has a number of secured financing facilities that contain covenants requiring the Group to maintain ...",
+          "passage_id": "intu_2019_basis_for_opinion_1"
+        }
+      ]
+    },
+    {
+      "section_id": "going_concern",
+      "title": "Going Concern",
+      "page_hits": [
+        {
+          "page_number": 7,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 10,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 32,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 10,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "uncertainty in relation to intu\u2019s ability to continue as a going concern. However we have options including alternative capital structures and further disposals to provide liquidity, and will seek to negotiate covenant waivers where appropriate. These would address potential covenant remedies and the upcoming refinancing activities, with the first material debt maturities in early 2021.",
+          "passage_id": "intu_2019_going_concern_1"
+        },
+        {
+          "page_number": 32,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "accompanying these financial statements indicate a material uncertainty in relation to intu\u2019s ability to continue as a going concern we have options including alternative capital structures and further disposals to put us on a stronger financial footing. Income statement \u00a3m Notes 2019 2018 Change Net rental income A 401.6 450.5 (48.9) Administration expenses B (40.5) (44.0) 3.5 Net finance costs C (224.6) (220.4) (4.2) Tax on underlying profit D (17.6) (0.7) (16.9) Other underlying amounts2 8.3 7.7 0.6 Underlying earnings1 127.2 193.1 (65.9) Revaluation of investment and development property E (1,979.7) (1,405.0) (574.7) Change in fair value of financial instruments F (75.3) 86.3 (161.6) Other finance charges \u2013 exceptional G (37.7) (28.4) (9.3) Other non-underlying amounts 3 14.6 21.8 (7. 2) IFRS loss for the year attributable to owners of intu properties plc",
+          "passage_id": "intu_2019_going_concern_2"
+        }
+      ]
+    },
+    {
+      "section_id": "debt_liquidity",
+      "title": "Debt and Liquidity",
+      "page_hits": [
+        {
+          "page_number": 103,
+          "match_count": 9,
+          "matched_keywords": [
+            "liquidity",
+            "refinancing",
+            "refinance",
+            "maturity",
+            "borrowings",
+            "default",
+            "defaults",
+            "covenant",
+            "waiver"
+          ]
+        },
+        {
+          "page_number": 38,
+          "match_count": 7,
+          "matched_keywords": [
+            "refinancing",
+            "refinance",
+            "maturity",
+            "borrowings",
+            "covenant",
+            "waiver",
+            "repayment"
+          ]
+        },
+        {
+          "page_number": 65,
+          "match_count": 7,
+          "matched_keywords": [
+            "liquidity",
+            "refinancing",
+            "refinance",
+            "maturity",
+            "borrowings",
+            "covenant",
+            "waiver"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 103,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "liquidity",
+          "text": "external debt of over \u00a31.1 billion would be required in order to reduce the debt to assets ratio to the directors\u2019 preferred level of 50 per cent. In the current unpredictable retail environment, the Group\u2019s liquidity position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance from our industry and valuation specialists. \u2014 We assessed external retail and real estate industry reports in order to assess the completeness and reasonableness of Management\u2019s sensitivity analysis.",
+          "passage_id": "intu_2019_debt_liquidity_1"
+        },
+        {
+          "page_number": 103,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "refinancing",
+          "text": "position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance from our industry and valuation specialists. \u2014 We assessed external retail and real estate industry reports in order to assess the completeness and reasonableness of Management\u2019s sensitivity analysis. intu Puerto Venecia disposal The directors have included the net proceeds of \u00a395 million from the intu Puerto Venecia disposal, which has not yet completed, within their",
+          "passage_id": "intu_2019_debt_liquidity_2"
+        },
+        {
+          "page_number": 103,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "refinance",
+          "text": "become immediately due and payable in full. Financing The Group may not be able to refinance its borrowings at the same level as currently outstanding. At 31 December 2019, a reduction in net external debt of over \u00a31.1 billion would be required in order to reduce the debt to assets ratio to the directors\u2019 preferred level of 50 per cent. In the current unpredictable retail environment, the Group\u2019s liquidity position and available resources are impacted by a reduced ability to refinance debt facilities on maturity at the same amount as this will be dependent on asset valuations at the refinancing date. \u2014 With assistance from our specialist debt advisory team, we reviewed key loan and bond documentation to understand the principal terms, including financial cove nants, and performed a review of the Group\u2019s existing and forecast compliance with debt covenants and any associated equity cures/cash traps. \u2014 We challenged the forecast cash flows and assumptions made by Management with particular regard to the current market conditions with assistance from our industry specialists, including in respect of Company Voluntary Arrangements (CVAs). \u2014 We assessed Management\u2019s fore cast property valuations and challenged the assumptions made by Management with assistance",
+          "passage_id": "intu_2019_debt_liquidity_3"
+        }
+      ]
+    },
+    {
+      "section_id": "impairment_valuation",
+      "title": "Impairment and Valuation",
+      "page_hits": [
+        {
+          "page_number": 32,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "write-down"
+          ]
+        },
+        {
+          "page_number": 111,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "write-down"
+          ]
+        },
+        {
+          "page_number": 122,
+          "match_count": 2,
+          "matched_keywords": [
+            "impairment",
+            "expected credit loss"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 32,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "ther non-underlying amounts includes losses on disposal of subsidiaries, gains on sale of investment and development property, write-down on recognition of joint ventures and other assets classified as held for sale, impairment of goodwill, impairment of investment in associates, impairment of loan to associate, exceptional administration expenses, exceptional tax, and any non-underlying amounts attributable to non-controlling interests. The IFRS loss for the year attributable to owners of intu properties plc increased by \u00a3818.7 million to \u00a31,950.9 million, with the IFRS basic loss per share increasing by 60.8 pence. Underlying earnings decreased by \u00a365.9 million to \u00a3127.2 million, with a corresponding reduction in underlying EPS of 4.9 pence. The key drivers of these variances are discussed below. A Net rental income Net rental income decreased \u00a348.9 million in the year to \u00a3401.6 million. This was due primarily to the 9.1 per cent reduction in like-for-like net rental income of \u00a339.6 million and the impact of disposals of \u00a310.5 million (see APM \u2013 like-for-like amounts in presentation of information on page 160 for further details). The key components of the like-for-like net rental income movement were: Robert Allen",
+          "passage_id": "intu_2019_impairment_valuation_1"
+        },
+        {
+          "page_number": 32,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "write-down",
+          "text": "O ther non-underlying amounts includes losses on disposal of subsidiaries, gains on sale of investment and development property, write-down on recognition of joint ventures and other assets classified as held for sale, impairment of goodwill, impairment of investment in associates, impairment of loan to associate, exceptional administration expenses, exceptional tax, and any non-underlying amounts attributable to non-controlling interests. The IFRS loss for the year attributable to owners of intu properties plc increased by \u00a3818.7 million to \u00a31,950.9 million, with the IFRS basic loss per share increasing by 60.8 pence. Underlying earnings decreased by \u00a365.9 million to \u00a3127.2 million, with a corresponding reduction in underlying EPS of 4.9 pence. The key drivers of these variances are discussed below. A Net rental income Net rental income decreased \u00a348.9 million in the year to \u00a3401.6 million. This was due primarily to the 9.1 per cent reduction in like-for-like net rental income of \u00a339.6 million and the impact of disposals of \u00a310.5 million (see APM \u2013 like-for-like amounts in presentation of information on page 160 for further details). The key components of the like-for-like net rental income movement were:",
+          "passage_id": "intu_2019_impairment_valuation_2"
+        },
+        {
+          "page_number": 111,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "Gain on sale of investment and development property 3.9 1.4 Write-down on recognition of joint ventures and other assets classified as held for sale 32 (38.0) \u2013 Impairment of goodwill (4.0) \u2013 Impairment of investme nt in associates 18 (7.4) \u2013 Impairment of loan to associate (5.5) \u2013 Administration expenses \u2013 ongoing (39.5) (42.9) Administration expenses \u2013 exceptional 5 (3.4) (13.1) Operating loss 6 (1,542.7) (992.1) Finance costs 9 (220.9) (216.7) Finance income 9 16.6 14.8 Other finance charges \u2013 exceptional 9 (36.9) (32.9) Change in fair value of financial instruments 9 (72.9) 87.3 Net finance costs 9 (314.1) (147.5) Loss before tax, joint ventures and associates (1,856.8) (1,139.6) Share of post-tax loss of joint ventures 16 (158.9) (42.1) Share of post-tax (loss)/profit of associates 18 (0.3) 2.3 Loss before tax (2,016.0) (1,179.4) Current tax \u2013 ongoing 10 (16.0) (0.1) Current tax \u2013 exceptional 10 (6.4) \u2013 Deferred tax 10 16.6 5.8 Taxation 10 (5.8) 5.7",
+          "passage_id": "intu_2019_impairment_valuation_3"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "overall_risk_level": "critical",
+    "executive_summary": "The passages show a material going-concern uncertainty, refinancing and covenant pressure on a large debt stack, and significant impairment/write-down activity. These are material warning signals rather than neutral disclosure.",
+    "top_warning_tags": [
+      "going_concern",
+      "covenant_default",
+      "refinancing_risk",
+      "impairment_loss"
+    ],
+    "warnings": [
+      {
+        "passage_id": "intu_2019_basis_for_opinion_1",
+        "section_id": "basis_for_opinion",
+        "page_number": 102,
+        "risk_tag": "going_concern",
+        "severity": "critical",
+        "is_material_warning": true,
+        "why_it_matters": "The auditor explicitly highlights a material uncertainty that may cast significant doubt on continuation as a going concern.",
+        "rationale": "This is direct auditor warning language, not just management commentary, and indicates serious uncertainty about the company\u2019s ability to keep operating.",
+        "evidence_quote": "material uncertainty exists that may cast significant doubt"
+      },
+      {
+        "passage_id": "intu_2019_going_concern_1",
+        "section_id": "going_concern",
+        "page_number": 10,
+        "risk_tag": "covenant_default",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "The company says it may need covenant waivers, which signals dependence on lender relief to avoid remedies.",
+        "rationale": "The passage links going-concern concern to covenant waivers and potential covenant remedies, which is a clear debt distress signal.",
+        "evidence_quote": "negotiate covenant waivers where appropriate"
+      },
+      {
+        "passage_id": "intu_2019_debt_liquidity_3",
+        "section_id": "debt_liquidity",
+        "page_number": 103,
+        "risk_tag": "refinancing_risk",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "The group may not be able to refinance borrowings on acceptable terms, with a large debt reduction needed and potential immediate repayment risk.",
+        "rationale": "This is explicit refinancing pressure tied to a large debt stack and near-term maturity risk, which is a material warning for creditors and equity holders.",
+        "evidence_quote": "may not be able to refinance its borrowings"
+      },
+      {
+        "passage_id": "intu_2019_impairment_valuation_3",
+        "section_id": "impairment_valuation",
+        "page_number": 111,
+        "risk_tag": "impairment_loss",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "The passage reports multiple impairments and write-downs, indicating substantial value erosion in assets and investments.",
+        "rationale": "Several assets are written down or impaired in one note, including goodwill, associates, and a loan to associate, which is material negative valuation evidence.",
+        "evidence_quote": "Impairment of goodwill"
+      }
+    ]
+  }
+}

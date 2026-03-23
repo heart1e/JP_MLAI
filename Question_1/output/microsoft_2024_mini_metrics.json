@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "USD millions unless ratio",
   "source_pdf_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/microsoft_2024_10k.html",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/microsoft_2024_10k.html",
   "statement_pages_pdf_1_based": {
     "income_statement": 1,
     "balance_sheet": 1,
@@ -70,5 +70,26 @@
   },
   "assumptions": [
     "SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 512163.0,
+    "liabilities": 243686.0,
+    "equity": 268477.0,
+    "current_liabilities": 125286.0,
+    "cash": 18315.0,
+    "marketable": 57228.0,
+    "receivables": 56924.0,
+    "inventory": null,
+    "prepayments_current": null,
+    "revenue": 245122.0,
+    "operating_income": 109433.0,
+    "net_income": 88136.0,
+    "debt_current": 2249.0,
+    "debt_noncurrent": 42688.0,
+    "total_debt": 51630.0,
+    "cash_like_assets": 75543.0,
+    "liquid_assets": 132467.0,
+    "current_assets_proxy": 132467.0,
+    "is_bank_like": false
+  }
 }

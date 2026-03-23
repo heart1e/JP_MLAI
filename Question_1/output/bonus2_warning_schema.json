@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "properties": {
+    "overall_risk_level": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "top_warning_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "qualified_opinion",
+          "going_concern",
+          "internal_control",
+          "liquidity_stress",
+          "refinancing_risk",
+          "covenant_default",
+          "impairment_loss",
+          "legal_regulatory",
+          "other_warning"
+        ]
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "passage_id": {
+            "type": "string"
+          },
+          "section_id": {
+            "type": "string"
+          },
+          "page_number": {
+            "type": "integer"
+          },
+          "risk_tag": {
+            "type": "string",
+            "enum": [
+              "qualified_opinion",
+              "going_concern",
+              "internal_control",
+              "liquidity_stress",
+              "refinancing_risk",
+              "covenant_default",
+              "impairment_loss",
+              "legal_regulatory",
+              "other_warning"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "is_material_warning": {
+            "type": "boolean"
+          },
+          "why_it_matters": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence_quote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "passage_id",
+          "section_id",
+          "page_number",
+          "risk_tag",
+          "severity",
+          "is_material_warning",
+          "why_it_matters",
+          "rationale",
+          "evidence_quote"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "overall_risk_level",
+    "executive_summary",
+    "top_warning_tags",
+    "warnings"
+  ],
+  "additionalProperties": false
+}

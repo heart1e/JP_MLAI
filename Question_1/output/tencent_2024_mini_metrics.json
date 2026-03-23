@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "RMB millions unless ratio",
   "source_pdf_url": "https://static.www.tencent.com/uploads/2025/04/08/1132b72b565389d1b913aea60a648d73.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/tencent_2024_annual_report.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/tencent_2024_annual_report.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 124,
     "balance_sheet": 126,
@@ -49,5 +49,26 @@
   },
   "assumptions": [
     "Current liabilities uses subtotal line 396,909 in Tencent statement section."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 1780995.0,
+    "liabilities": 727099.0,
+    "equity": 1053896.0,
+    "current_liabilities": 396909.0,
+    "cash": 132519.0,
+    "marketable": null,
+    "receivables": 48203.0,
+    "inventory": 440.0,
+    "prepayments_current": null,
+    "revenue": 660257.0,
+    "operating_income": 208099.0,
+    "net_income": 196467.0,
+    "debt_current": 52885.0,
+    "debt_noncurrent": 146521.0,
+    "total_debt": 338615.0,
+    "cash_like_assets": 132519.0,
+    "liquid_assets": 180722.0,
+    "current_assets_proxy": 181162.0,
+    "is_bank_like": false
+  }
 }

@@ -1,0 +1,123 @@
+{
+  "version": "2026q1-v1",
+  "methodology": {
+    "principle": "Use annual-report-only quantitative warning signals. These are screening flags, not proof of fraud.",
+    "score_aggregation": "Add weighted points across triggered rules and map the total into low/moderate/high/severe warning bands.",
+    "note": "Rules are intentionally numeric and reproducible; no subjective narrative heuristics are used in the score."
+  },
+  "rules": [
+    {
+      "id": "negative_equity",
+      "metric": "equity_proxy",
+      "operator": "<=",
+      "threshold": 0.0,
+      "points": 4,
+      "severity": "critical",
+      "description": "Negative or zero equity."
+    },
+    {
+      "id": "weak_current_ratio",
+      "metric": "current_ratio",
+      "operator": "<",
+      "threshold": 0.75,
+      "points": 2,
+      "severity": "high",
+      "description": "Current ratio below 0.75x."
+    },
+    {
+      "id": "weak_cash_to_debt",
+      "metric": "cash_to_debt_ratio",
+      "operator": "<",
+      "threshold": 0.05,
+      "points": 2,
+      "severity": "high",
+      "description": "Cash-like assets below 5% of total debt."
+    },
+    {
+      "id": "negative_interest_coverage",
+      "metric": "interest_coverage_ratio",
+      "operator": "<",
+      "threshold": 0.0,
+      "points": 2,
+      "severity": "high",
+      "description": "Negative operating income relative to financing cost."
+    },
+    {
+      "id": "negative_operating_cashflow",
+      "metric": "net_cash_used_operating_ratio",
+      "operator": "<",
+      "threshold": 0.0,
+      "points": 2,
+      "severity": "high",
+      "description": "Operating cash flow is negative relative to revenue."
+    },
+    {
+      "id": "restricted_cash_trap",
+      "metric": "restricted_cash_share",
+      "operator": ">",
+      "threshold": 0.5,
+      "points": 1,
+      "severity": "moderate",
+      "description": "More than half of total cash is restricted."
+    },
+    {
+      "id": "receivables_vs_revenue",
+      "metric": "receivables_to_revenue_ratio",
+      "operator": ">",
+      "threshold": 0.8,
+      "points": 1,
+      "severity": "moderate",
+      "description": "Receivables exceed 80% of annual revenue."
+    },
+    {
+      "id": "other_receivables_vs_assets",
+      "metric": "other_receivables_to_assets_ratio",
+      "operator": ">",
+      "threshold": 0.1,
+      "points": 1,
+      "severity": "moderate",
+      "description": "Other receivables exceed 10% of total assets."
+    },
+    {
+      "id": "write_down_burden",
+      "metric": "write_down_to_revenue_ratio",
+      "operator": ">",
+      "threshold": 0.05,
+      "points": 2,
+      "severity": "high",
+      "description": "Inventory/property write-downs exceed 5% of annual revenue."
+    },
+    {
+      "id": "impairment_vs_revenue",
+      "metric": "impairment_to_revenue_ratio",
+      "operator": ">",
+      "threshold": 0.05,
+      "points": 1,
+      "severity": "moderate",
+      "description": "Financial-asset impairment losses exceed 5% of annual revenue."
+    },
+    {
+      "id": "short_term_debt_pressure",
+      "metric": "current_borrowings_to_total_debt_ratio",
+      "operator": ">",
+      "threshold": 0.75,
+      "points": 2,
+      "severity": "high",
+      "description": "More than 75% of debt is current."
+    },
+    {
+      "id": "trade_payables_vs_revenue",
+      "metric": "trade_payables_to_revenue_ratio",
+      "operator": ">",
+      "threshold": 1.5,
+      "points": 1,
+      "severity": "moderate",
+      "description": "Trade payables exceed 1.5x annual revenue."
+    }
+  ],
+  "warning_bands": {
+    "low_max_points": 1,
+    "moderate_max_points": 3,
+    "high_max_points": 6
+  }
+}

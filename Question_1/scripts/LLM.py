@@ -10,19 +10,22 @@ import tempfile
 import webbrowser
 from pathlib import Path
 from typing import Any
-
 import numpy as np
 import pandas as pd
 
 
 def resolve_question_root(question_root: Path | None = None) -> Path:
+
     if question_root is not None:
+
         return question_root.resolve()
     
+
     return Path(__file__).resolve().parents[1]
 
 
 def find_codex_executable() -> str:
+
     ext_root = Path.home() / '.vscode' / 'extensions'
     patterns = [
         'openai.chatgpt-*/bin/windows-x86_64/codex.exe',
@@ -30,46 +33,118 @@ def find_codex_executable() -> str:
         'openai.chatgpt-*/bin/darwin-arm64/codex',
         'openai.chatgpt-*/bin/darwin-x86_64/codex',
     ]
+
     candidates = []
+
     for pattern in patterns:
         candidates.extend(sorted(ext_root.glob(pattern), reverse = True))
+
     direct = shutil.which('codex')
+
     if direct and 'WindowsApps' not in direct:
         candidates.append(Path(direct))
+
     for candidate in candidates:
+
         if candidate.exists():
+
             return str(candidate)
+
     raise FileNotFoundError('Could not locate a Codex executable.')
 
 
+def probe_codex_environment(
+    *,
+    codex_home: Path | None = None,
+    codex_path: str | None = None,
+) -> dict[str, Any]:
+    """Return a non-throwing Codex environment snapshot for notebook preflight checks."""
+
+    resolved_home = Path(codex_home or (Path.home() / '.codex-free-test'))
+    result: dict[str, Any] = {
+        'codex_found': False,
+        'codex_path': None,
+        'codex_home': str(resolved_home),
+        'logged_in': False,
+        'ready': False,
+        'codex_version': None,
+        'login_status': '',
+        'message': '',
+    }
+
+    try:
+        resolved_path = codex_path or find_codex_executable()
+
+    except FileNotFoundError as exc:
+        result['message'] = str(exc)
+
+        return result
+
+    result['codex_found'] = True
+    result['codex_path'] = resolved_path
+    env = os.environ.copy()
+    env['CODEX_HOME'] = str(resolved_home)
+
+    version = _run_cmd([resolved_path, '--version'], env = env)
+    version_text = (version.stdout or version.stderr or '').strip()
+    result['codex_version'] = version_text or None
+
+    status = _run_cmd([resolved_path, 'login', 'status'], env = env)
+    status_text = (status.stdout or status.stderr or '').strip()
+    result['login_status'] = status_text
+    result['logged_in'] = status.returncode == 0
+    result['ready'] = bool(result['codex_found']) and bool(result['logged_in'])
+
+    if result['ready']:
+        result['message'] = 'Codex executable found and login is active.'
+
+    elif result['codex_found']:
+        result['message'] = 'Codex executable found, but login is not active for the isolated CODEX_HOME.'
+
+    return result
+
+
 def _run_cmd(args: list[str], *, env: dict[str, str], capture_output: bool = True) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(args, env = env, text = True, capture_output = capture_output)
+
+    return subprocess.run(
+        args,
+        env = env,
+        text = True,
+        encoding = 'utf-8',
+        errors = 'replace',
+        capture_output = capture_output,
+    )
 
 
 def _slug_model(model: str) -> str:
+
     return model.lower().replace('-', '').replace('.', '')
 
 
 def run_sign_in_smoke_test(
-    *,
-    test_codex_home: Path | None = None,
-    reset_test_home: bool = False,
-    do_login: bool = False,
-    auto_open_browser: bool = True,
-    smoke_prompt: str = 'Reply with exactly one line: Codex ChatGPT auth OK',
-    login_url: str = 'https://auth.openai.com/codex/device',
-    codex_path: str | None = None,
-    echo: bool = True,
-) -> dict[str, Any]:
+                            *,
+                            test_codex_home: Path | None = None,
+                            reset_test_home: bool = False,
+                            do_login: bool = False,
+                            auto_open_browser: bool = True,
+                            smoke_prompt: str = 'Reply with exactly one line: Codex ChatGPT auth OK',
+                            login_url: str = 'https://auth.openai.com/codex/device',
+                            codex_path: str | None = None,
+                            echo: bool = True,
+                        ) -> dict[str, Any]:
+
     codex_path = codex_path or find_codex_executable()
     test_home = Path(test_codex_home or (Path.home() / '.codex-free-test'))
 
     logs: list[str] = []
 
     def emit(message: str) -> None:
+
         logs.append(message)
+
         if echo:
             print(message)
+
 
     if reset_test_home and test_home.exists():
         shutil.rmtree(test_home)
@@ -84,6 +159,7 @@ def run_sign_in_smoke_test(
 
     status = _run_cmd([codex_path, 'login', 'status'], env = env)
     status_text = (status.stdout or status.stderr or '').strip()
+
     if status_text:
         emit('login_status:')
         emit(status_text)
@@ -91,24 +167,35 @@ def run_sign_in_smoke_test(
     if do_login:
         emit('Starting device auth for the isolated test home.')
         emit(f'Open this URL if the browser does not pop automatically: {login_url}')
+
         if auto_open_browser:
             webbrowser.open(login_url)
+
         process = subprocess.Popen(
             [codex_path, 'login', '--device-auth'],
             env = env,
             text = True,
+            encoding = 'utf-8',
+            errors = 'replace',
             stdout = subprocess.PIPE,
             stderr = subprocess.STDOUT,
             bufsize = 1,
         )
+
         assert process.stdout is not None
+
         for raw_line in process.stdout:
             emit(raw_line.rstrip())
+
         return_code = process.wait()
+
         if return_code != 0:
+
             raise RuntimeError(f'Device auth failed with code {return_code}')
+        
         status = _run_cmd([codex_path, 'login', 'status'], env = env)
         status_text = (status.stdout or status.stderr or '').strip()
+
         if status_text:
             emit('post_login_status:')
             emit(status_text)
@@ -123,9 +210,11 @@ def run_sign_in_smoke_test(
 
     if status.returncode != 0:
         emit('Not logged in under the isolated test home.')
+
         return result
 
     last_message_path = test_home / 'codex_chatgpt_smoke_last_message.txt'
+
     if last_message_path.exists():
         last_message_path.unlink()
 
@@ -140,6 +229,7 @@ def run_sign_in_smoke_test(
         str(last_message_path),
         smoke_prompt,
     ]
+
     smoke = _run_cmd(cmd, env = env)
     result['smoke_returncode'] = smoke.returncode
     result['smoke_stdout'] = smoke.stdout
@@ -148,6 +238,7 @@ def run_sign_in_smoke_test(
     if smoke.stdout.strip():
         emit('stdout:')
         emit(smoke.stdout.strip())
+
     if smoke.stderr.strip():
         emit('stderr:')
         emit(smoke.stderr.strip())
@@ -158,29 +249,35 @@ def run_sign_in_smoke_test(
         result['last_message'] = last_message
         emit('last_message:')
         emit(last_message.strip())
+
     else:
         result['last_message'] = None
         emit('No last message file was produced.')
+
 
     return result
 
 
 def _series_to_native_mn(row: pd.Series, cols: list[str]) -> dict[str, float]:
+
     return {col: round(float(row[col]) / 1e6, 2) for col in cols}
 
 
 def _series_to_feature_dict(row: pd.Series, cols: list[str]) -> dict[str, float]:
+
     return {col: round(float(row[col]), 6) for col in cols}
 
 
 def build_prompt_payload(
-    example_rows: pd.DataFrame,
-    target_row: pd.Series,
-    *,
-    feature_cols: list[str],
-    prev_cols: list[str],
-) -> dict[str, Any]:
+                        example_rows: pd.DataFrame,
+                        target_row: pd.Series,
+                        *,
+                        feature_cols: list[str],
+                        prev_cols: list[str],
+                    ) -> dict[str, Any]:
+
     examples = []
+
     for ex_date, ex_row in example_rows.iterrows():
         examples.append({
             'date': str(pd.Timestamp(ex_date).date()),
@@ -195,7 +292,9 @@ def build_prompt_payload(
             },
         })
 
+
     return {
+
         'task': 'Forecast current-period Total Liabilities and Total Equity from lagged balance-sheet state and financial drivers.',
         'units': "All monetary values are in the company's native reporting currency, millions.",
         'return_format': 'JSON only',
@@ -212,36 +311,49 @@ def build_prompt_payload(
 
 
 def build_codex_prompt(
-    example_rows: pd.DataFrame,
-    target_row: pd.Series,
-    *,
-    feature_cols: list[str],
-    prev_cols: list[str],
-) -> str:
+                        example_rows: pd.DataFrame,
+                        target_row: pd.Series,
+                        *,
+                        feature_cols: list[str],
+                        prev_cols: list[str],
+                    ) -> str:
+
     payload = build_prompt_payload(
         example_rows,
         target_row,
         feature_cols = feature_cols,
         prev_cols = prev_cols,
     )
+
+
     return json.dumps(payload, indent = 2, ensure_ascii = False)
 
 
 def _run_codex_json(
-    *,
-    prompt: str,
-    schema_path: Path,
-    output_path: Path,
-    codex_path: str,
-    codex_home: Path,
-    model: str,
-    reasoning: str,
-    timeout_seconds: int = 240,
-) -> dict[str, Any]:
+                    *,
+                    prompt: str,
+                    schema_path: Path,
+                    output_path: Path,
+                    codex_path: str,
+                    codex_home: Path,
+                    model: str,
+                    reasoning: str,
+                    timeout_seconds: int = 240,
+                ) -> dict[str, Any]:
+
     env = os.environ.copy()
     env['CODEX_HOME'] = str(codex_home)
-    status = subprocess.run([codex_path, 'login', 'status'], env = env, text = True, capture_output = True)
+    status = subprocess.run(
+        [codex_path, 'login', 'status'],
+        env = env,
+        text = True,
+        encoding = 'utf-8',
+        errors = 'replace',
+        capture_output = True,
+    )
+
     if status.returncode != 0:
+
         raise RuntimeError('The isolated Codex test home is not logged in. Run the sign-in cell with DO_LOGIN = True first.')
 
     if output_path.exists():
@@ -264,30 +376,44 @@ def _run_codex_json(
         str(output_path),
         prompt,
     ]
-    result = subprocess.run(cmd, env = env, text = True, capture_output = True, timeout = timeout_seconds)
+
+    result = subprocess.run(
+        cmd,
+        env = env,
+        text = True,
+        encoding = 'utf-8',
+        errors = 'replace',
+        capture_output = True,
+        timeout = timeout_seconds,
+    )
+
     if result.returncode != 0:
+
         raise RuntimeError(f'Codex forecast call failed. stdout={result.stdout} stderr={result.stderr}')
+
+
     return json.loads(output_path.read_text(encoding = 'utf-8').strip())
 
 
 def build_llm_context(
-    *,
-    question_root: Path | None,
-    aligned: pd.DataFrame,
-    train_mask,
-    val_mask,
-    test_mask,
-    bs_predicate,
-    target_le: list[str],
-    feature_cols: list[str],
-    prev_cols: list[str],
-    model: str = 'gpt-5.4-mini',
-    reasoning: str = 'medium',
-    max_examples: int = 2,
-    force_rerun: bool = False,
-    llm_weight_grid: list[float] | None = None,
-    codex_home: Path | None = None,
-) -> dict[str, Any]:
+                        *,
+                        question_root: Path | None,
+                        aligned: pd.DataFrame,
+                        train_mask,
+                        val_mask,
+                        test_mask,
+                        bs_predicate,
+                        target_le: list[str],
+                        feature_cols: list[str],
+                        prev_cols: list[str],
+                        model: str = 'gpt-5.4-mini',
+                        reasoning: str = 'medium',
+                        max_examples: int = 2,
+                        force_rerun: bool = False,
+                        llm_weight_grid: list[float] | None = None,
+                        codex_home: Path | None = None,
+                    ) -> dict[str, Any]:
+
     question_root = resolve_question_root(question_root)
     output_dir = question_root / 'output'
     output_dir.mkdir(parents = True, exist_ok = True)
@@ -312,7 +438,9 @@ def build_llm_context(
     }
     schema_path.write_text(json.dumps(schema, indent = 2), encoding = 'utf-8')
 
+
     return {
+
         'question_root': question_root,
         'output_dir': output_dir,
         'model': model,
@@ -341,34 +469,41 @@ def build_llm_context(
 
 
 def _forecast_llm_split(
-    *,
-    split_frame: pd.DataFrame,
-    aligned_train: pd.DataFrame,
-    feature_cols: list[str],
-    prev_cols: list[str],
-    cache_path: Path,
-    split_name: str,
-    codex_path: str,
-    schema_path: Path,
-    codex_home: Path,
-    model: str,
-    reasoning: str,
-    max_examples: int,
-    force_rerun: bool,
-) -> pd.DataFrame:
+                        *,
+                        split_frame: pd.DataFrame,
+                        aligned_train: pd.DataFrame,
+                        feature_cols: list[str],
+                        prev_cols: list[str],
+                        cache_path: Path,
+                        split_name: str,
+                        codex_path: str,
+                        schema_path: Path,
+                        codex_home: Path,
+                        model: str,
+                        reasoning: str,
+                        max_examples: int,
+                        force_rerun: bool,
+                    ) -> pd.DataFrame:
+
     cached_preds: dict[str, Any] = {}
+
     if cache_path.exists() and not force_rerun:
         cached_preds = {item['row_key']: item for item in json.loads(cache_path.read_text(encoding = 'utf-8'))}
 
     rows = []
+
     for row_pos, (row_idx, row) in enumerate(split_frame.iterrows()):
         row_key = f"{row['ticker']}|{pd.Timestamp(row_idx).date()}"
+
         if row_key in cached_preds and not force_rerun:
             rows.append(cached_preds[row_key])
+
             continue
 
         ticker_history = aligned_train[aligned_train['ticker'] == row['ticker']].sort_index().tail(max_examples)
+
         if ticker_history.empty:
+
             raise RuntimeError(f'No train examples available for {row_key}')
 
         prompt = build_codex_prompt(
@@ -398,16 +533,20 @@ def _forecast_llm_split(
             'reasoning': reasoning,
             'split': split_name,
         })
+
         print(f'Completed {split_name}: {row_key}')
 
     rows = sorted(rows, key = lambda item: (item['ticker'], item['date']))
     cache_path.write_text(json.dumps(rows, indent = 2), encoding = 'utf-8')
     pred = pd.DataFrame(rows)
     pred['date'] = pd.to_datetime(pred['date'])
+
+
     return pred.sort_values(['ticker', 'date']).reset_index(drop = True)
 
 
 def build_part1_view(split_frame: pd.DataFrame, split_pred: pd.DataFrame) -> pd.DataFrame:
+
     base = split_frame.reset_index().rename(columns = {'index': 'date'}).copy()
     base['date'] = pd.to_datetime(base['date'])
     base = base.sort_values(['ticker', 'date']).reset_index(drop = True)
@@ -417,13 +556,17 @@ def build_part1_view(split_frame: pd.DataFrame, split_pred: pd.DataFrame) -> pd.
         'Total Equity': 'part1_total_equity',
     })
     pred['date'] = pd.to_datetime(pred['date'])
+
+
     return pd.concat([
+
         base[['ticker', 'date']],
         pred[['part1_total_liabilities', 'part1_total_equity']],
     ], axis = 1)
 
 
 def build_comparison_base(split_frame: pd.DataFrame, split_pred: pd.DataFrame, llm_pred: pd.DataFrame) -> pd.DataFrame:
+
     base = split_frame.reset_index().rename(columns = {'index': 'date'}).copy()
     base['date'] = pd.to_datetime(base['date'])
     base = base.sort_values(['ticker', 'date']).reset_index(drop = True)
@@ -432,10 +575,13 @@ def build_comparison_base(split_frame: pd.DataFrame, split_pred: pd.DataFrame, l
     out = out.merge(llm_pred, on = ['ticker', 'date'], how = 'left')
     out['llm_total_liabilities'] = out['pred_total_liabilities']
     out['llm_total_equity'] = out['pred_total_equity']
+
+
     return out
 
 
 def run_llm_baseline(context: dict[str, Any], codex_path: str | None = None) -> dict[str, Any]:
+
     codex_path = codex_path or find_codex_executable()
     llm_val_pred = _forecast_llm_split(
         split_frame = context['aligned_val'],
@@ -452,6 +598,7 @@ def run_llm_baseline(context: dict[str, Any], codex_path: str | None = None) -> 
         max_examples = context['max_examples'],
         force_rerun = context['force_rerun'],
     )
+
     llm_test_pred = _forecast_llm_split(
         split_frame = context['aligned_test'],
         aligned_train = context['aligned_train'],
@@ -476,28 +623,34 @@ def run_llm_baseline(context: dict[str, Any], codex_path: str | None = None) -> 
         'comparison_val': build_comparison_base(context['aligned_val'], context['part1_val_pred'], llm_val_pred),
         'comparison_test': build_comparison_base(context['aligned_test'], context['part1_test_pred'], llm_test_pred),
     })
+
+
     return context
 
 
 def run_llm_robustness(
-    context: dict[str, Any],
-    *,
-    runs: int = 5,
-    timeout_seconds: int = 600,
-    max_retries: int = 2,
-    force_rerun: bool = False,
-    preferred_ticker: str = 'AAPL',
-) -> tuple[dict[str, Any], pd.DataFrame]:
+                        context: dict[str, Any],
+                        *,
+                        runs: int = 5,
+                        timeout_seconds: int = 600,
+                        max_retries: int = 2,
+                        force_rerun: bool = False,
+                        preferred_ticker: str = 'AAPL',
+                    ) -> tuple[dict[str, Any], pd.DataFrame]:
+
     robustness_path = context['robustness_path']
     codex_path = context.get('codex_path') or find_codex_executable()
 
     if robustness_path.exists() and not force_rerun:
         artifact = json.loads(robustness_path.read_text(encoding = 'utf-8'))
+
         return artifact, pd.DataFrame([artifact['summary']])
 
     robustness_pool = context['aligned_test'][context['aligned_test']['ticker'] == preferred_ticker]
+
     if robustness_pool.empty:
         robustness_target = context['aligned_test'].sort_values(['ticker']).iloc[0]
+
     else:
         robustness_target = robustness_pool.sort_index().iloc[0]
 
@@ -508,12 +661,24 @@ def run_llm_robustness(
         feature_cols = context['feature_cols'],
         prev_cols = context['prev_cols'],
     )
-    codex_cli_version = subprocess.run([codex_path, '--version'], text = True, capture_output = True, check = True).stdout.strip()
+
+    codex_cli_version = subprocess.run(
+        [codex_path, '--version'],
+        text = True,
+        encoding = 'utf-8',
+        errors = 'replace',
+        capture_output = True,
+        check = True,
+    ).stdout.strip()
 
     def run_with_retry(prompt: str, output_path: Path) -> dict[str, Any]:
+
         for attempt in range(1, max_retries + 1):
+
             try:
+
                 return _run_codex_json(
+
                     prompt = prompt,
                     schema_path = context['schema_path'],
                     output_path = output_path,
@@ -523,12 +688,18 @@ def run_llm_robustness(
                     reasoning = context['reasoning'],
                     timeout_seconds = timeout_seconds,
                 )
+
             except subprocess.TimeoutExpired:
+
                 if attempt == max_retries:
+
                     raise
+
         raise RuntimeError('Unexpected robustness execution state')
 
+
     robustness_rows = []
+
     for run_id in range(1, runs + 1):
         tmp_output = Path(tempfile.gettempdir()) / f'codex_llm_robustness_{run_id}.json'
         payload = run_with_retry(robustness_prompt, tmp_output)
@@ -570,14 +741,214 @@ def run_llm_robustness(
         'summary': json.loads(robustness_summary.to_json(orient = 'records'))[0],
     }
     robustness_path.write_text(json.dumps(artifact, indent = 2), encoding = 'utf-8')
+
+
     return artifact, robustness_summary
 
 
+def build_bonus2_warning_prompt(
+    retrieval_payload: dict[str, Any],
+    warning_config: dict[str, Any],
+) -> str:
+    """Build a structured prompt for Bonus 2 warning classification."""
+
+    prompt_payload = {
+        'task': (
+            'Review the candidate annual-report passages and identify only the material warning signals. '
+            'Use the provided risk tags and severity scale. Ignore neutral disclosure.'
+        ),
+        'decision_rules': [
+            'Use only the supplied passages. Do not infer facts not present in the text.',
+            'Return only material warnings. If a passage is not actually a warning, omit it from warnings.',
+            'Prefer direct auditor, liquidity, going-concern, covenant, default, impairment, or control language.',
+            'Treat refinancing dependence, maturity pressure, defaulted liabilities, covenant waivers, material uncertainties, major restatements, and large impairments as warnings when clearly supported by the text.',
+            'Keep evidence_quote short and verbatim from the passage.',
+            'overall_risk_level should summarize the case, not the single worst sentence.',
+        ],
+        'allowed_risk_tags': warning_config['risk_tags'],
+        'severity_levels': warning_config['severity_levels'],
+        'case': {
+            'case_id': retrieval_payload['case_id'],
+            'company_name': retrieval_payload['company_name'],
+            'statement_year': retrieval_payload['statement_year'],
+        },
+        'candidate_passages': [
+            {
+                'passage_id': item['passage_id'],
+                'section_id': item['section_id'],
+                'page_number': item['page_number'],
+                'matched_keyword': item['matched_keyword'],
+                'text': item['text'],
+            }
+            for item in retrieval_payload.get('candidate_passages', [])
+        ],
+    }
+
+    return json.dumps(prompt_payload, indent = 2, ensure_ascii = False)
+
+
+def _build_bonus2_warning_schema(
+    *,
+    schema_path: Path,
+    warning_config: dict[str, Any],
+) -> Path:
+    """Persist a strict schema for Bonus 2 warning output."""
+
+    risk_tag_ids = [item['id'] for item in warning_config['risk_tags']]
+    severity_levels = list(warning_config['severity_levels'])
+    schema = {
+        'type': 'object',
+        'properties': {
+            'overall_risk_level': {'type': 'string', 'enum': severity_levels},
+            'executive_summary': {'type': 'string'},
+            'top_warning_tags': {
+                'type': 'array',
+                'items': {'type': 'string', 'enum': risk_tag_ids},
+            },
+            'warnings': {
+                'type': 'array',
+                'items': {
+                    'type': 'object',
+                    'properties': {
+                        'passage_id': {'type': 'string'},
+                        'section_id': {'type': 'string'},
+                        'page_number': {'type': 'integer'},
+                        'risk_tag': {'type': 'string', 'enum': risk_tag_ids},
+                        'severity': {'type': 'string', 'enum': severity_levels},
+                        'is_material_warning': {'type': 'boolean'},
+                        'why_it_matters': {'type': 'string'},
+                        'rationale': {'type': 'string'},
+                        'evidence_quote': {'type': 'string'},
+                    },
+                    'required': [
+                        'passage_id',
+                        'section_id',
+                        'page_number',
+                        'risk_tag',
+                        'severity',
+                        'is_material_warning',
+                        'why_it_matters',
+                        'rationale',
+                        'evidence_quote',
+                    ],
+                    'additionalProperties': False,
+                },
+            },
+        },
+        'required': ['overall_risk_level', 'executive_summary', 'top_warning_tags', 'warnings'],
+        'additionalProperties': False,
+    }
+    schema_path.write_text(json.dumps(schema, indent = 2), encoding = 'utf-8')
+
+    return schema_path
+
+
+def run_bonus2_warning_analysis(
+    retrieval_payload: dict[str, Any],
+    *,
+    question_root: Path | None = None,
+    warning_config_filename: str = 'bonus2_warning_config.json',
+    model: str = 'gpt-5.4-mini',
+    reasoning: str = 'medium',
+    codex_home: Path | None = None,
+    codex_path: str | None = None,
+    force_rerun: bool = False,
+    timeout_seconds: int = 360,
+) -> dict[str, Any]:
+    """Run Codex on retrieved warning passages and persist a structured artifact."""
+
+    question_root = resolve_question_root(question_root)
+    output_dir = question_root / 'output'
+    output_dir.mkdir(parents = True, exist_ok = True)
+    warning_config_path = question_root / 'config' / warning_config_filename
+    warning_config = json.loads(warning_config_path.read_text(encoding = 'utf-8'))
+    schema_path = _build_bonus2_warning_schema(
+        schema_path = output_dir / 'bonus2_warning_schema.json',
+        warning_config = warning_config,
+    )
+    case_id = retrieval_payload['case_id']
+    output_path = output_dir / f'bonus2_{case_id}_warning_analysis.json'
+
+    if output_path.exists() and not force_rerun:
+        return json.loads(output_path.read_text(encoding = 'utf-8'))
+
+    prompt = build_bonus2_warning_prompt(retrieval_payload, warning_config)
+    codex_path = codex_path or find_codex_executable()
+    codex_home = Path(codex_home or (Path.home() / '.codex-free-test'))
+    tmp_output_path = Path(tempfile.gettempdir()) / f'bonus2_{case_id}_warning_tmp.json'
+    raw_output = _run_codex_json(
+        prompt = prompt,
+        schema_path = schema_path,
+        output_path = tmp_output_path,
+        codex_path = codex_path,
+        codex_home = codex_home,
+        model = model,
+        reasoning = reasoning,
+        timeout_seconds = timeout_seconds,
+    )
+
+    passage_lookup = {
+        item['passage_id']: item
+        for item in retrieval_payload.get('candidate_passages', [])
+    }
+    severity_rank = {name: idx for idx, name in enumerate(warning_config['severity_levels'])}
+    cleaned_warnings = []
+
+    for item in raw_output.get('warnings', []):
+        source = passage_lookup.get(item['passage_id'])
+
+        if source is None:
+            continue
+
+        cleaned_item = dict(item)
+        cleaned_item['section_id'] = source['section_id']
+        cleaned_item['page_number'] = int(source['page_number'])
+        cleaned_warnings.append(cleaned_item)
+
+    cleaned_warnings = sorted(
+        cleaned_warnings,
+        key = lambda item: (
+            severity_rank.get(item['severity'], len(severity_rank)),
+            item['page_number'],
+            item['passage_id'],
+        ),
+    )
+
+    artifact = {
+        'case_id': case_id,
+        'company_name': retrieval_payload['company_name'],
+        'statement_year': retrieval_payload['statement_year'],
+        'model': model,
+        'reasoning': reasoning,
+        'warning_config_path': str(warning_config_path.as_posix()),
+        'schema_path': str(schema_path.as_posix()),
+        'candidate_passage_count': retrieval_payload.get('candidate_passage_count', len(passage_lookup)),
+        'section_count': retrieval_payload.get('section_count', len(retrieval_payload.get('sections', []))),
+        'candidate_passages': retrieval_payload.get('candidate_passages', []),
+        'sections': retrieval_payload.get('sections', []),
+        'analysis': {
+            'overall_risk_level': raw_output['overall_risk_level'],
+            'executive_summary': raw_output['executive_summary'],
+            'top_warning_tags': raw_output['top_warning_tags'],
+            'warnings': cleaned_warnings,
+        },
+    }
+    output_path.write_text(json.dumps(artifact, indent = 2), encoding = 'utf-8')
+
+    if tmp_output_path.exists():
+        tmp_output_path.unlink()
+
+    return artifact
+
+
 __all__ = [
+    'build_bonus2_warning_prompt',
     'build_comparison_base',
     'build_llm_context',
     'build_part1_view',
     'find_codex_executable',
+    'probe_codex_environment',
+    'run_bonus2_warning_analysis',
     'run_llm_baseline',
     'run_llm_robustness',
     'run_sign_in_smoke_test',

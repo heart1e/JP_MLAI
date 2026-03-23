@@ -1,0 +1,920 @@
+{
+  "version": "2026q1-v3",
+  "cases": [
+    {
+      "id": "evergrande_2022",
+      "company_name": "China Evergrande Group",
+      "statement_year": 2022,
+      "currency": "RMB millions unless ratio",
+      "source_type": "pdf",
+      "pdf_url": "https://www.hkexnews.hk/listedco/listconews/sehk/2023/0830/2023083002327.pdf",
+      "pdf_path": "Question_1/data/raw/evergrande_annual_report_2022.pdf",
+      "output_path": "Question_1/output/evergrande_2022_mini_metrics.json",
+      "statement_page_sections": {
+        "income_statement": "income_statement",
+        "balance_sheet": "balance_sheet_assets",
+        "cash_flow_statement": "cash_flow_statement"
+      },
+      "payload_section_map": {
+        "income_statement": [
+          "income_statement",
+          "loss_attribution"
+        ],
+        "balance_sheet": [
+          "balance_sheet_assets",
+          "balance_sheet_liabilities",
+          "trade_and_other_receivables_note",
+          "borrowings_note",
+          "trade_payables_note"
+        ],
+        "cash_flow_statement": [
+          "cash_flow_statement"
+        ]
+      },
+      "sections": {
+        "income_statement": {
+          "page_match": {
+            "contains_all": [
+              "CONSOLIDATED STATEMENT OF PROFIT OR",
+              "Revenue 5",
+              "Operating loss"
+            ]
+          },
+          "fields": [
+            {
+              "name": "revenue",
+              "line_contains": "Revenue 5",
+              "trailing_columns": 2
+            },
+            {
+              "name": "cost_of_sales",
+              "line_contains": "Cost of sales 29",
+              "trailing_columns": 2
+            },
+            {
+              "name": "gross_profit_loss",
+              "line_contains": "Gross profit/(loss)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "write_down_properties",
+              "lookahead_token": "Write down of properties under development and completed",
+              "lookahead": 2,
+              "trailing_columns": 2
+            },
+            {
+              "name": "impairment_losses_on_financial_assets",
+              "line_contains": "Impairment losses on financial assets",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_losses_net",
+              "line_contains": "Other losses, net 27",
+              "trailing_columns": 2
+            },
+            {
+              "name": "selling_and_marketing_costs",
+              "line_contains": "Selling and marketing costs 29",
+              "trailing_columns": 2
+            },
+            {
+              "name": "administrative_expenses",
+              "line_contains": "Administrative expenses 29",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_operating_expenses",
+              "line_contains": "Other operating expenses 29",
+              "trailing_columns": 2
+            },
+            {
+              "name": "operating_income",
+              "line_contains": "Operating loss",
+              "trailing_columns": 2
+            },
+            {
+              "name": "finance_costs_net",
+              "line_contains": "Finance costs, net 31",
+              "trailing_columns": 2
+            },
+            {
+              "name": "losses_before_income_tax",
+              "line_contains": "Losses before income tax",
+              "trailing_columns": 2
+            },
+            {
+              "name": "net_income",
+              "line_contains": "Losses for the year",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "loss_attribution": {
+          "page_match": {
+            "contains_all": [
+              "Loss attributable to:",
+              "Shareholders of the Company"
+            ]
+          },
+          "fields": [
+            {
+              "name": "loss_attributable_to_shareholders",
+              "line_contains": "Shareholders of the Company",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet_assets": {
+          "page_match": {
+            "contains_all": [
+              "CONSOLIDATED STATEMENT OF",
+              "Total assets",
+              "Deficiency in equity"
+            ]
+          },
+          "fields": [
+            {
+              "name": "inventories",
+              "line_contains": "Inventories",
+              "trailing_columns": 2
+            },
+            {
+              "name": "properties_under_development",
+              "line_contains": "Properties under development 11",
+              "trailing_columns": 2
+            },
+            {
+              "name": "completed_properties_held_for_sale",
+              "line_contains": "Completed properties held for sale 11",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_and_other_receivables",
+              "line_contains": "Trade and other receivables 12",
+              "trailing_columns": 2
+            },
+            {
+              "name": "prepayments",
+              "line_contains": "Prepayments 13 131,443 153,330",
+              "trailing_columns": 2
+            },
+            {
+              "name": "restricted_cash",
+              "line_contains": "Restricted cash 18",
+              "trailing_columns": 2
+            },
+            {
+              "name": "cash_and_cash_equivalents",
+              "line_contains": "Cash and cash equivalents 19",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_assets",
+              "line_contains": "Total assets 1,838,338 2,107,096",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_equity",
+              "line_contains": "Deficiency in equity",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet_liabilities": {
+          "page_match": {
+            "contains_all": [
+              "CONSOLIDATED STATEMENT OF",
+              "Total liabilities",
+              "Net current liabilities"
+            ]
+          },
+          "fields": [
+            {
+              "name": "non_current_borrowings",
+              "line_contains": "Borrowings 22 25,268 4,724",
+              "trailing_columns": 2
+            },
+            {
+              "name": "current_borrowings",
+              "line_contains": "Borrowings 22 587,123 602,653",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_and_other_payables",
+              "line_contains": "Trade and other payables 25",
+              "trailing_columns": 2
+            },
+            {
+              "name": "contract_liabilities",
+              "line_contains": "Contract liabilities 25",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_current_liabilities",
+              "line_contains": "2,352,923 2,521,136",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_liabilities",
+              "line_contains": "Total liabilities 2,437,412 2,580,150",
+              "trailing_columns": 2
+            },
+            {
+              "name": "net_current_liabilities",
+              "line_contains": "Net current liabilities",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "trade_and_other_receivables_note": {
+          "page_match": {
+            "contains_all": [
+              "12 TRADE AND OTHER RECEIVABLES",
+              "Other receivables",
+              "230,238 207,634"
+            ]
+          },
+          "fields": [
+            {
+              "name": "trade_and_other_receivables_current",
+              "line_contains": "Current portion 228,911 204,809",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_receivables",
+              "line_contains": "Trade receivables (a)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_receivables",
+              "line_contains": "Other receivables (b)",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "borrowings_note": {
+          "page_match": {
+            "contains_all": [
+              "22 BORROWINGS",
+              "Total borrowings",
+              "Current portion of non-current borrowings"
+            ]
+          },
+          "fields": [
+            {
+              "name": "borrowings_non_current_total",
+              "line_contains": "557,104 522,522",
+              "trailing_columns": 2
+            },
+            {
+              "name": "current_portion_of_non_current_borrowings",
+              "line_contains": "Current portion of non-current borrowings 531,836 517,798",
+              "trailing_columns": 2
+            },
+            {
+              "name": "borrowings_current_total",
+              "line_contains": "587,123 602,653",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_borrowings",
+              "line_contains": "Total borrowings 612,391 607,377",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "trade_payables_note": {
+          "page_match": {
+            "contains_all": [
+              "25 TRADE AND OTHER PAYABLES AND CONTRACT LIABILITIES",
+              "603,324",
+              "721,021"
+            ]
+          },
+          "fields": [
+            {
+              "name": "trade_payables",
+              "first_line_token": "603,324 614,208",
+              "trailing_columns": 2
+            },
+            {
+              "name": "contract_liabilities_note",
+              "line_contains": "Total 721,021 974,347 185,746",
+              "trailing_columns": 3
+            }
+          ]
+        },
+        "cash_flow_statement": {
+          "page_match": {
+            "contains_all": [
+              "CONSOLIDATED STATEMENT OF",
+              "Net cash used in operating activities",
+              "Interest paid"
+            ]
+          },
+          "fields": [
+            {
+              "name": "net_cash_generated_from_operations",
+              "line_contains": "Net cash generated from operations 35",
+              "trailing_columns": 2
+            },
+            {
+              "name": "interest_paid",
+              "line_contains": "Interest paid",
+              "trailing_columns": 2
+            },
+            {
+              "name": "net_cash_used_in_operating_activities",
+              "line_contains": "Net cash used in operating activities",
+              "trailing_columns": 2
+            }
+          ]
+        }
+      },
+      "assumptions": [
+        "Metrics are computed by the generic PDF-case engine from canonicalized extracted fields.",
+        "Debt-to-equity and debt-to-capital are suppressed when equity is non-positive.",
+        "Debt-to-EBITDA is left null when no positive comparable EBITDA proxy is available."
+      ],
+      "cohorts": [
+        "bankruptcy_oos"
+      ],
+      "distress_event": "default and restructuring process",
+      "distress_event_year": 2023
+    },
+    {
+      "id": "thomas_cook_2018",
+      "company_name": "Thomas Cook Group plc",
+      "statement_year": 2018,
+      "currency": "GBP millions unless ratio",
+      "source_type": "pdf",
+      "pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_TCG_2018.pdf",
+      "pdf_path": "Question_1/data/raw/thomas_cook_2018.pdf",
+      "output_path": "Question_1/output/thomas_cook_2018_mini_metrics.json",
+      "cohorts": [
+        "bankruptcy_oos"
+      ],
+      "distress_event": "compulsory liquidation / collapse",
+      "distress_event_year": 2019,
+      "statement_page_sections": {
+        "income_statement": "income_statement",
+        "balance_sheet": "balance_sheet_assets",
+        "cash_flow_statement": "cash_flow_statement"
+      },
+      "payload_section_map": {
+        "income_statement": [
+          "income_statement"
+        ],
+        "balance_sheet": [
+          "balance_sheet_assets",
+          "balance_sheet_current_liabilities",
+          "balance_sheet_non_current_liabilities",
+          "liquidity_note"
+        ],
+        "cash_flow_statement": [
+          "cash_flow_statement"
+        ]
+      },
+      "sections": {
+        "income_statement": {
+          "page_match": {
+            "page_1_based": 122
+          },
+          "fields": [
+            {
+              "name": "revenue",
+              "line_contains": "Revenue 4",
+              "trailing_columns": 4
+            },
+            {
+              "name": "cost_of_sales",
+              "line_contains": "Cost of providing tourism services",
+              "trailing_columns": 4
+            },
+            {
+              "name": "gross_profit",
+              "line_contains": "Gross profit",
+              "trailing_columns": 4
+            },
+            {
+              "name": "administrative_expenses",
+              "line_contains": "Personnel expenses",
+              "trailing_columns": 4
+            },
+            {
+              "name": "other_operating_expenses",
+              "line_contains": "Net operating expenses",
+              "trailing_columns": 4
+            },
+            {
+              "name": "operating_income",
+              "line_contains": "Profit from operations",
+              "trailing_columns": 4
+            },
+            {
+              "name": "finance_costs",
+              "line_contains": "Finance costs 8",
+              "trailing_columns": 4
+            },
+            {
+              "name": "net_income",
+              "line_contains": "(Loss)/Profit for the year",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet_assets": {
+          "page_match": {
+            "page_1_based": 125
+          },
+          "fields": [
+            {
+              "name": "inventories",
+              "line_contains": "Inventories 15 44 42",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_and_other_receivables_current",
+              "line_contains": "Trade and other receivables 16 811 725",
+              "trailing_columns": 2
+            },
+            {
+              "name": "cash_and_cash_equivalents",
+              "line_contains": "Cash and cash equivalents 17 1,039 1,407",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_assets",
+              "line_contains": "Total assets 6,569 6,605",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet_current_liabilities": {
+          "page_match": {
+            "page_1_based": 125
+          },
+          "fields": [
+            {
+              "name": "trade_and_other_payables",
+              "line_contains": "Trade and other payables 18 (2,314) (2,349)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "current_borrowings",
+              "line_contains": "Borrowings 19 (184) (245)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_current_liabilities",
+              "first_line_token": "(4,222) (4,339)",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet_non_current_liabilities": {
+          "page_match": {
+            "page_1_based": 126
+          },
+          "fields": [
+            {
+              "name": "non_current_borrowings",
+              "line_contains": "Long-term borrowings 19 (1,028) (1,047)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_liabilities",
+              "line_contains": "Total liabilities (6,278) (6,349)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_equity",
+              "line_contains": "Total equity 291 256",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "liquidity_note": {
+          "page_match": {
+            "page_1_based": 152
+          },
+          "fields": [
+            {
+              "name": "trade_payables",
+              "line_contains": "Trade payables  1,679  1,691",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_payables",
+              "line_contains": "Other payables  136  163",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "cash_flow_statement": {
+          "page_match": {
+            "page_1_based": 124
+          },
+          "fields": [
+            {
+              "name": "net_cash_generated_from_operations",
+              "line_contains": "Net cash from operating activities 139 496",
+              "trailing_columns": 2
+            },
+            {
+              "name": "interest_paid",
+              "line_contains": "Interest paid (135) (144)",
+              "trailing_columns": 2
+            }
+          ]
+        }
+      },
+      "assumptions": [
+        "The same generic PDF-case engine is used; only page numbers and line matchers differ by report.",
+        "Liability-side line items are normalized to positive stock values by the canonicalization layer.",
+        "Restricted cash is not separately extracted for Thomas Cook because the note discloses restricted components narratively rather than as a single total line."
+      ]
+    },
+    {
+      "id": "debenhams_2018",
+      "company_name": "Debenhams plc",
+      "statement_year": 2018,
+      "currency": "GBP millions unless ratio",
+      "source_type": "pdf",
+      "pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_DEB_2018.pdf",
+      "pdf_path": "Question_1/data/raw/debenhams_2018.pdf",
+      "output_path": "Question_1/output/debenhams_2018_mini_metrics.json",
+      "cohorts": [
+        "bankruptcy_oos"
+      ],
+      "distress_event": "administration / liquidation process",
+      "distress_event_year": 2019,
+      "statement_page_sections": {
+        "income_statement": "income_statement",
+        "balance_sheet": "balance_sheet",
+        "cash_flow_statement": "cash_flow_statement"
+      },
+      "payload_section_map": {
+        "income_statement": [
+          "income_statement"
+        ],
+        "balance_sheet": [
+          "balance_sheet",
+          "payables_note",
+          "borrowings_note"
+        ],
+        "cash_flow_statement": [
+          "cash_flow_statement"
+        ]
+      },
+      "sections": {
+        "income_statement": {
+          "page_match": {
+            "page_1_based": 92
+          },
+          "fields": [
+            {
+              "name": "revenue",
+              "line_contains": "Revenue  3, 4",
+              "trailing_columns": 4
+            },
+            {
+              "name": "cost_of_sales",
+              "line_contains": "Cost of sales",
+              "trailing_columns": 4
+            },
+            {
+              "name": "gross_profit",
+              "line_contains": "Gross profit",
+              "trailing_columns": 4
+            },
+            {
+              "name": "selling_and_marketing_costs",
+              "line_contains": "Distribution costs",
+              "trailing_columns": 4
+            },
+            {
+              "name": "administrative_expenses",
+              "line_contains": "Administrative expenses",
+              "trailing_columns": 4
+            },
+            {
+              "name": "operating_income",
+              "line_contains": "Operating (loss)/profit 6",
+              "trailing_columns": 4
+            },
+            {
+              "name": "finance_costs",
+              "line_contains": "Finance costs 10",
+              "trailing_columns": 4
+            },
+            {
+              "name": "net_income",
+              "lookahead_token": "(Loss)/profit for the financial period",
+              "lookahead": 3,
+              "trailing_columns": 4
+            }
+          ]
+        },
+        "balance_sheet": {
+          "page_match": {
+            "page_1_based": 94
+          },
+          "fields": [
+            {
+              "name": "inventories",
+              "line_contains": "Inventories  18  396.0 374.1",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_and_other_receivables_current",
+              "line_contains": "Trade and other receivables 19  81.3 82.9",
+              "trailing_columns": 2
+            },
+            {
+              "name": "cash_and_cash_equivalents",
+              "line_contains": "Cash and cash equivalents  20  42.7 40.0",
+              "trailing_columns": 2
+            },
+            {
+              "name": "current_borrowings",
+              "line_contains": "Borrowings 22  (165.6) (116.4)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_and_other_payables",
+              "line_contains": "Trade and other payables 21  (615.6) (579.6)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_current_liabilities",
+              "first_line_token": "(807.0) (728.0)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "non_current_borrowings",
+              "line_contains": "Borrowings 22  (198.4) (199.5)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_non_current_liabilities",
+              "first_line_token": "(671.5) (620.2)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_equity",
+              "line_contains": "Total equity  489.4 917.6",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "payables_note": {
+          "page_match": {
+            "page_1_based": 122
+          },
+          "fields": [
+            {
+              "name": "trade_payables",
+              "line_contains": "Trade payables 433.0 387.6",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_payables",
+              "line_contains": "Other payables 77.8 82.4",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "borrowings_note": {
+          "page_match": {
+            "page_1_based": 123
+          },
+          "fields": [
+            {
+              "name": "current_borrowings_note",
+              "line_contains": "Total current borrowings 165.6 116.4",
+              "trailing_columns": 2
+            },
+            {
+              "name": "non_current_borrowings_note",
+              "line_contains": "Total non-current borrowings 198.4 199.5",
+              "trailing_columns": 2
+            },
+            {
+              "name": "total_borrowings",
+              "line_contains": "Total current and non-current borrowings 364.0 315.9",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "cash_flow_statement": {
+          "page_match": {
+            "page_1_based": 96
+          },
+          "fields": [
+            {
+              "name": "net_cash_generated_from_operations",
+              "line_contains": "Net cash generated from operating activities  127.8 173.0",
+              "trailing_columns": 2
+            }
+          ]
+        }
+      },
+      "assumptions": [
+        "The balance sheet does not print an explicit total assets line on the extracted page; the canonical layer infers assets from liabilities plus equity when needed.",
+        "Borrowings and payables presented in parentheses are normalized into positive stock values upstream.",
+        "Interest paid is not separately extracted because the cash flow statement provides finance costs but not a standalone cash interest line."
+      ]
+    },
+    {
+      "id": "intu_2019",
+      "company_name": "intu properties plc",
+      "statement_year": 2019,
+      "currency": "GBP millions unless ratio",
+      "source_type": "pdf",
+      "pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_INTU_2019.pdf",
+      "pdf_path": "Question_1/data/raw/intu_2019.pdf",
+      "output_path": "Question_1/output/intu_2019_mini_metrics.json",
+      "cohorts": [
+        "bankruptcy_oos"
+      ],
+      "distress_event": "administration process",
+      "distress_event_year": 2020,
+      "statement_page_sections": {
+        "income_statement": "income_statement",
+        "balance_sheet": "balance_sheet",
+        "cash_flow_statement": "cash_flow_statement"
+      },
+      "payload_section_map": {
+        "income_statement": [
+          "income_statement"
+        ],
+        "balance_sheet": [
+          "balance_sheet",
+          "liquidity_note",
+          "borrowings_note"
+        ],
+        "cash_flow_statement": [
+          "cash_flow_statement"
+        ]
+      },
+      "sections": {
+        "income_statement": {
+          "page_match": {
+            "page_1_based": 111
+          },
+          "fields": [
+            {
+              "name": "revenue",
+              "line_contains": "Revenue 3 542.3 581.1",
+              "trailing_columns": 2
+            },
+            {
+              "name": "administrative_expenses",
+              "line_contains": "ongoing  (39.5) (42.9)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "other_operating_expenses",
+              "line_contains": "exceptional 5 (3.4) (13.1)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "operating_income",
+              "line_contains": "Operating loss 6 (1,542.7) (992.1)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "finance_costs",
+              "line_contains": "Finance costs 9 (220.9) (216.7)",
+              "trailing_columns": 2
+            },
+            {
+              "name": "net_income",
+              "line_contains": "Loss for the year  (2,021.8) (1,173.7)",
+              "trailing_columns": 2
+            }
+          ]
+        },
+        "balance_sheet": {
+          "page_match": {
+            "page_1_based": 113
+          },
+          "fields": [
+            {
+              "name": "trade_and_other_receivables",
+              "line_contains": "Trade and other receivables 19 130.0 138.0  855.3 727.4",
+              "trailing_columns": 4
+            },
+            {
+              "name": "cash_and_cash_equivalents",
+              "line_contains": "Cash and cash equivalents 20 203.5 239.5  0.2 0.4",
+              "trailing_columns": 4
+            },
+            {
+              "name": "total_assets",
+              "line_contains": "Total assets  7,117.1 9,442.5  2,708.6 3,456.2",
+              "trailing_columns": 4
+            },
+            {
+              "name": "trade_and_other_payables",
+              "line_contains": "Trade and other payables 22 (243.3) (278.4)  (376.7) (387.9)",
+              "trailing_columns": 4
+            },
+            {
+              "name": "total_current_liabilities",
+              "first_line_token": "(368.7) (368.5)  (382.4) (387.9)",
+              "trailing_columns": 4
+            },
+            {
+              "name": "total_liabilities",
+              "line_contains": "Total liabilities  (5,271.1) (5,618.1)  (804.7) (786.4)",
+              "trailing_columns": 4
+            },
+            {
+              "name": "total_equity",
+              "line_contains": "Total equit",
+              "trailing_columns": 4
+            }
+          ]
+        },
+        "liquidity_note": {
+          "page_match": {
+            "page_1_based": 140
+          },
+          "fields": [
+            {
+              "name": "trade_receivables",
+              "line_contains": "Trade receivables 39.9 35.8 2.4 1.3",
+              "trailing_columns": 4
+            },
+            {
+              "name": "other_receivables",
+              "line_contains": "Other receivables 17.0 16.3 6.1 4.5",
+              "trailing_columns": 4
+            },
+            {
+              "name": "restricted_cash",
+              "line_contains": "Restricted cash 17.9 1.1",
+              "trailing_columns": 2
+            },
+            {
+              "name": "trade_payables",
+              "line_contains": "Trade payables 8.4 3.2 1.3 0.5",
+              "trailing_columns": 4
+            },
+            {
+              "name": "other_payables",
+              "line_contains": "Other payables 6.8 2.5 0.2 0.2",
+              "trailing_columns": 4
+            }
+          ]
+        },
+        "borrowings_note": {
+          "page_match": {
+            "page_1_based": 141
+          },
+          "fields": [
+            {
+              "name": "current_borrowings",
+              "line_contains": "Current borrowings, exclud ing finance leases",
+              "trailing_columns": 4
+            },
+            {
+              "name": "non_current_borrowings",
+              "line_contains": "4,663.2 4,600.6 4,984.2 5,186.5",
+              "trailing_columns": 4
+            },
+            {
+              "name": "total_borrowings",
+              "line_contains": "Total borrowings   4,734.3 4,676.8 5,035.3 5,242.0",
+              "trailing_columns": 4
+            }
+          ]
+        },
+        "cash_flow_statement": {
+          "page_match": {
+            "page_1_based": 116
+          },
+          "fields": [
+            {
+              "name": "net_cash_generated_from_operations",
+              "line_contains": "Cash generated from operations 33 321.4 319.7",
+              "trailing_columns": 2
+            },
+            {
+              "name": "interest_paid",
+              "line_contains": "Interest paid  (255.4) (236.1)",
+              "trailing_columns": 2
+            }
+          ]
+        }
+      },
+      "assumptions": [
+        "This case uses the audited IFRS primary statements and notes, not the unaudited proportionately consolidated APM pages.",
+        "Liability stock values are normalized to positive magnitudes in the canonical layer before ratio calculation.",
+        "For the cash-flow proxy, the extractor uses cash generated from operations to preserve comparability with the other bankruptcy cases."
+      ]
+    }
+  ]
+}

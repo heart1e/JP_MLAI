@@ -1,0 +1,380 @@
+{
+  "methodology": {
+    "principle": "Use annual-report-only quantitative warning signals. These are screening flags, not proof of fraud.",
+    "score_aggregation": "Add weighted points across triggered rules and map the total into low/moderate/high/severe warning bands.",
+    "note": "Rules are intentionally numeric and reproducible; no subjective narrative heuristics are used in the score."
+  },
+  "config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_shenanigans_config.json",
+  "scans": [
+    {
+      "id": "gm_2023",
+      "company": "General Motors Company",
+      "statement_year": 2023,
+      "warning_band": "moderate",
+      "total_points": 2,
+      "trigger_count": 1,
+      "triggered_rules": [
+        {
+          "id": "weak_current_ratio",
+          "metric": "current_ratio",
+          "value": 0.5855789083593625,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "Current ratio below 0.75x."
+        }
+      ],
+      "derived_features": {
+        "equity_proxy": 68189.0,
+        "current_ratio": 0.5855789083593625,
+        "cash_to_debt_ratio": 0.21739594713366903,
+        "interest_coverage_ratio": 10.206367,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.07203128455208854,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.003515660295216895,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "lvmh_2024",
+      "company": "LVMH Moet Hennessy Louis Vuitton SE",
+      "statement_year": 2024,
+      "warning_band": "moderate",
+      "total_points": 2,
+      "trigger_count": 1,
+      "triggered_rules": [
+        {
+          "id": "weak_current_ratio",
+          "metric": "current_ratio",
+          "value": 0.20843162291427705,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "Current ratio below 0.75x."
+        }
+      ],
+      "derived_features": {
+        "equity_proxy": 69287.0,
+        "current_ratio": 0.20843162291427705,
+        "cash_to_debt_ratio": 0.4197977508499695,
+        "interest_coverage_ratio": 19.860294,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": null,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.4729753290907506,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "tencent_2024",
+      "company": "Tencent Holdings Limited",
+      "statement_year": 2024,
+      "warning_band": "moderate",
+      "total_points": 2,
+      "trigger_count": 1,
+      "triggered_rules": [
+        {
+          "id": "weak_current_ratio",
+          "metric": "current_ratio",
+          "value": 0.4564320788896195,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "Current ratio below 0.75x."
+        }
+      ],
+      "derived_features": {
+        "equity_proxy": 1053896.0,
+        "current_ratio": 0.4564320788896195,
+        "cash_to_debt_ratio": 0.39135596473871503,
+        "interest_coverage_ratio": 17.369084,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.07300642022727513,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.15618032278546432,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "alibaba_2024",
+      "company": "Alibaba Group Holding Limited",
+      "statement_year": 2024,
+      "warning_band": "low",
+      "total_points": 0,
+      "trigger_count": 0,
+      "triggered_rules": [],
+      "derived_features": {
+        "equity_proxy": 1101871.0,
+        "current_ratio": 1.5530370788622727,
+        "cash_to_debt_ratio": 2.992692181571181,
+        "interest_coverage_ratio": 14.263244,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": null,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.07465334707453038,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "jpm_2024",
+      "company": "JPMorgan Chase & Co.",
+      "statement_year": 2024,
+      "warning_band": "low",
+      "total_points": 0,
+      "trigger_count": 0,
+      "triggered_rules": [],
+      "derived_features": {
+        "equity_proxy": 344758.0,
+        "current_ratio": null,
+        "cash_to_debt_ratio": 0.12829683307199233,
+        "interest_coverage_ratio": 0.740809,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": null,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": null,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "exxon_2024",
+      "company": "Exxon Mobil Corporation",
+      "statement_year": 2024,
+      "warning_band": "low",
+      "total_points": 0,
+      "trigger_count": 0,
+      "triggered_rules": [],
+      "derived_features": {
+        "equity_proxy": 270606.0,
+        "current_ratio": 0.9488386647133287,
+        "cash_to_debt_ratio": 0.5521217933349317,
+        "interest_coverage_ratio": 49.069277,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.1287586920444396,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.11879645169024215,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "vw_2024",
+      "company": "Volkswagen AG",
+      "statement_year": 2024,
+      "warning_band": "moderate",
+      "total_points": 2,
+      "trigger_count": 1,
+      "triggered_rules": [
+        {
+          "id": "weak_current_ratio",
+          "metric": "current_ratio",
+          "value": 0.5443537797354393,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "Current ratio below 0.75x."
+        }
+      ],
+      "derived_features": {
+        "equity_proxy": 196731.0,
+        "current_ratio": 0.5443537797354393,
+        "cash_to_debt_ratio": 0.15859509369059474,
+        "interest_coverage_ratio": 4.876959,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.06508427381597753,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.4605617893506401,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "microsoft_2024",
+      "company": "Microsoft Corporation",
+      "statement_year": 2024,
+      "warning_band": "low",
+      "total_points": 0,
+      "trigger_count": 0,
+      "triggered_rules": [],
+      "derived_features": {
+        "equity_proxy": 268477.0,
+        "current_ratio": 1.0573168590265472,
+        "cash_to_debt_ratio": 1.4631609529343406,
+        "interest_coverage_ratio": 37.28552,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.23222721746722041,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.04355994576796436,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "alphabet_2024",
+      "company": "Alphabet Inc.",
+      "statement_year": 2024,
+      "warning_band": "low",
+      "total_points": 0,
+      "trigger_count": 0,
+      "triggered_rules": [],
+      "derived_features": {
+        "equity_proxy": 325084.0,
+        "current_ratio": 1.6606112968739482,
+        "cash_to_debt_ratio": 6.744958397969257,
+        "interest_coverage_ratio": 419.365672,
+        "net_cash_used_operating_ratio": null,
+        "restricted_cash_share": null,
+        "receivables_to_revenue_ratio": 0.1495351667628522,
+        "other_receivables_to_assets_ratio": null,
+        "write_down_to_revenue_ratio": null,
+        "impairment_to_revenue_ratio": null,
+        "current_borrowings_to_total_debt_ratio": 0.07044140459737695,
+        "trade_payables_to_revenue_ratio": null
+      }
+    },
+    {
+      "id": "evergrande_2022",
+      "company": "China Evergrande Group",
+      "statement_year": 2022,
+      "warning_band": "severe",
+      "total_points": 19,
+      "trigger_count": 11,
+      "triggered_rules": [
+        {
+          "id": "negative_equity",
+          "metric": "equity_proxy",
+          "value": -599074.0,
+          "threshold": 0.0,
+          "points": 4,
+          "severity": "critical",
+          "description": "Negative or zero equity."
+        },
+        {
+          "id": "weak_current_ratio",
+          "metric": "current_ratio",
+          "value": 0.09935599252504225,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "Current ratio below 0.75x."
+        },
+        {
+          "id": "weak_cash_to_debt",
+          "metric": "cash_to_debt_ratio",
+          "value": 0.00707717781613381,
+          "threshold": 0.05,
+          "points": 2,
+          "severity": "high",
+          "description": "Cash-like assets below 5% of total debt."
+        },
+        {
+          "id": "negative_interest_coverage",
+          "metric": "interest_coverage_ratio",
+          "value": -1.356472,
+          "threshold": 0.0,
+          "points": 2,
+          "severity": "high",
+          "description": "Negative operating income relative to financing cost."
+        },
+        {
+          "id": "negative_operating_cashflow",
+          "metric": "net_cash_used_operating_ratio",
+          "value": -0.05310192248345047,
+          "threshold": 0.0,
+          "points": 2,
+          "severity": "high",
+          "description": "Operating cash flow is negative relative to revenue."
+        },
+        {
+          "id": "restricted_cash_trap",
+          "metric": "restricted_cash_share",
+          "value": 0.6970290108353723,
+          "threshold": 0.5,
+          "points": 1,
+          "severity": "moderate",
+          "description": "More than half of total cash is restricted."
+        },
+        {
+          "id": "receivables_vs_revenue",
+          "metric": "receivables_to_revenue_ratio",
+          "value": 0.9949753767380807,
+          "threshold": 0.8,
+          "points": 1,
+          "severity": "moderate",
+          "description": "Receivables exceed 80% of annual revenue."
+        },
+        {
+          "id": "other_receivables_vs_assets",
+          "metric": "other_receivables_to_assets_ratio",
+          "value": 0.1153732338666774,
+          "threshold": 0.1,
+          "points": 1,
+          "severity": "moderate",
+          "description": "Other receivables exceed 10% of total assets."
+        },
+        {
+          "id": "impairment_vs_revenue",
+          "metric": "impairment_to_revenue_ratio",
+          "value": 0.05382779798928138,
+          "threshold": 0.05,
+          "points": 1,
+          "severity": "moderate",
+          "description": "Financial-asset impairment losses exceed 5% of annual revenue."
+        },
+        {
+          "id": "short_term_debt_pressure",
+          "metric": "current_borrowings_to_total_debt_ratio",
+          "value": 0.9587387796358863,
+          "threshold": 0.75,
+          "points": 2,
+          "severity": "high",
+          "description": "More than 75% of debt is current."
+        },
+        {
+          "id": "trade_payables_vs_revenue",
+          "metric": "trade_payables_to_revenue_ratio",
+          "value": 2.622383914251066,
+          "threshold": 1.5,
+          "points": 1,
+          "severity": "moderate",
+          "description": "Trade payables exceed 1.5x annual revenue."
+        }
+      ],
+      "derived_features": {
+        "equity_proxy": -599074.0,
+        "current_ratio": 0.09935599252504225,
+        "cash_to_debt_ratio": 0.00707717781613381,
+        "interest_coverage_ratio": -1.356472,
+        "net_cash_used_operating_ratio": -0.05310192248345047,
+        "restricted_cash_share": 0.6970290108353723,
+        "receivables_to_revenue_ratio": 0.9949753767380807,
+        "other_receivables_to_assets_ratio": 0.1153732338666774,
+        "write_down_to_revenue_ratio": 0.007323953457036429,
+        "impairment_to_revenue_ratio": 0.05382779798928138,
+        "current_borrowings_to_total_debt_ratio": 0.9587387796358863,
+        "trade_payables_to_revenue_ratio": 2.622383914251066
+      }
+    }
+  ]
+}

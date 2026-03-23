@@ -1,0 +1,111 @@
+{
+  "company": "intu properties plc",
+  "statement_year": 2019,
+  "units": "GBP millions unless ratio",
+  "source_pdf_url": "https://www.annualreports.com/HostedData/AnnualReports/PDF/LSE_INTU_2019.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/intu_2019.pdf",
+  "statement_pages_pdf_1_based": {
+    "income_statement": 111,
+    "balance_sheet": 113,
+    "cash_flow_statement": 116
+  },
+  "extracted_values": {
+    "income_statement": {
+      "revenue": 542.3,
+      "administrative_expenses": -39.5,
+      "other_operating_expenses": -3.4,
+      "operating_income": -1542.7,
+      "finance_costs": -220.9,
+      "net_income": -2021.8
+    },
+    "balance_sheet": {
+      "trade_and_other_receivables": 130.0,
+      "cash_and_cash_equivalents": 203.5,
+      "total_assets": 7117.1,
+      "trade_and_other_payables": -243.3,
+      "total_current_liabilities": -368.7,
+      "total_liabilities": -5271.1,
+      "total_equity": 1846.0,
+      "trade_receivables": 39.9,
+      "other_receivables": 17.0,
+      "restricted_cash": 17.9,
+      "trade_payables": 8.4,
+      "other_payables": 6.8,
+      "current_borrowings": 65.8,
+      "non_current_borrowings": 4663.2,
+      "total_borrowings": 4734.3
+    },
+    "cash_flow_statement": {
+      "net_cash_generated_from_operations": 321.4,
+      "interest_paid": -255.4
+    }
+  },
+  "metrics": {
+    "net_income_musd": -2021.8,
+    "cost_to_income_ratio": 0.079108,
+    "quick_ratio": 0.660157,
+    "debt_to_equity_ratio": 2.561755,
+    "debt_to_assets_ratio": 0.664456,
+    "debt_to_capital_ratio": 0.71924,
+    "debt_to_ebitda_ratio": null,
+    "interest_coverage_ratio": -6.983703,
+    "total_debt_musd": 4729.0,
+    "ebitda_proxy_musd": null
+  },
+  "assumptions": [
+    "This case uses the audited IFRS primary statements and notes, not the unaudited proportionately consolidated APM pages.",
+    "Liability stock values are normalized to positive magnitudes in the canonical layer before ratio calculation.",
+    "For the cash-flow proxy, the extractor uses cash generated from operations to preserve comparability with the other bankruptcy cases."
+  ],
+  "bonus1_case_metadata": {
+    "case_id": "intu_2019",
+    "registry_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus1_case_sources.json",
+    "section_pages_pdf_1_based": {
+      "income_statement": 111,
+      "balance_sheet": 113,
+      "liquidity_note": 140,
+      "borrowings_note": 141,
+      "cash_flow_statement": 116
+    }
+  },
+  "canonical_values": {
+    "assets": 7117.1,
+    "liabilities": 5271.1,
+    "equity": 1846.0,
+    "current_liabilities": 368.7,
+    "non_current_liabilities": null,
+    "cash": 203.5,
+    "restricted_cash": 17.9,
+    "marketable": null,
+    "receivables": 130.0,
+    "trade_receivables": 39.9,
+    "other_receivables": 17.0,
+    "inventory": null,
+    "prepayments_current": null,
+    "trade_payables": 8.4,
+    "other_payables": 243.3,
+    "contract_liabilities": null,
+    "revenue": 542.3,
+    "cost_of_sales": null,
+    "selling_marketing_costs": null,
+    "administrative_expenses": -39.5,
+    "other_operating_expenses": -3.4,
+    "gross_profit": null,
+    "operating_income": -1542.7,
+    "net_income": -2021.8,
+    "debt_current": 65.8,
+    "debt_noncurrent": 4663.2,
+    "current_borrowings": 65.8,
+    "non_current_borrowings": 4663.2,
+    "finance_costs": -220.9,
+    "operating_cashflow": 321.4,
+    "interest_paid": -255.4,
+    "write_down_properties": null,
+    "impairment_financial_assets": null,
+    "total_debt": 4729.0,
+    "cash_like_assets": 203.5,
+    "liquid_assets": 333.5,
+    "current_assets_proxy": 333.5,
+    "is_bank_like": false
+  }
+}

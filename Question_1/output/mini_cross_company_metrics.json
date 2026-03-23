@@ -4,7 +4,7 @@
     "statement_year": 2023,
     "units": "USD millions unless ratio",
     "source_pdf_url": "https://investor.gm.com/static-files/1fff6f59-551f-4fe0-bca9-74bfc9a56aeb",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/gm_annual_report_2023.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/gm_annual_report_2023.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 61,
       "balance_sheet": 62,
@@ -64,7 +64,7 @@
     "statement_year": 2024,
     "units": "EUR millions unless ratio",
     "source_pdf_url": "https://lvmh-com.cdn.prismic.io/lvmh-com/Z5kVBpbqstJ999KR_Financialdocuments-December31%2C2024.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/lvmh_financial_documents_2024.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/lvmh_financial_documents_2024.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 24,
       "balance_sheet": 26,
@@ -122,7 +122,7 @@
     "statement_year": 2024,
     "units": "RMB millions unless ratio",
     "source_pdf_url": "https://static.www.tencent.com/uploads/2025/04/08/1132b72b565389d1b913aea60a648d73.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/tencent_2024_annual_report.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/tencent_2024_annual_report.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 124,
       "balance_sheet": 126,
@@ -175,7 +175,7 @@
     "statement_year": 2024,
     "units": "RMB millions unless ratio",
     "source_pdf_url": "https://data.alibabagroup.com/ecms-files/1514443390/5788a02d-696c-412a-ad2a-386d19b21769/Alibaba%20Group%20Holding%20Limited%20Fiscal%20Year%202024%20Annual%20Report.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/alibaba_fy2024_annual_report.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/alibaba_fy2024_annual_report.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 254,
       "balance_sheet": 256,
@@ -228,7 +228,7 @@
     "statement_year": 2024,
     "units": "USD millions unless ratio",
     "source_pdf_url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2024.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/jpm_annual_report_2024.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/jpm_annual_report_2024.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 206,
       "balance_sheet": 208,
@@ -279,7 +279,7 @@
     "statement_year": 2024,
     "units": "USD millions unless ratio",
     "source_pdf_url": "https://investor.exxonmobil.com/sec-filings/all-sec-filings/content/0000034088-26-000045/0000034088-26-000045.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/exxon_2024_10k.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/exxon_2024_10k.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 73,
       "balance_sheet": 75,
@@ -328,7 +328,7 @@
     "statement_year": 2024,
     "units": "EUR millions unless ratio",
     "source_pdf_url": "https://annualreport2024.volkswagen-group.com/_assets/downloads/entire-vw-ar24.pdf",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/volkswagen_annual_report_2024.pdf",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/volkswagen_annual_report_2024.pdf",
     "statement_pages_pdf_1_based": {
       "income_statement": 472,
       "balance_sheet": 475,
@@ -382,7 +382,7 @@
     "statement_year": 2024,
     "units": "USD millions unless ratio",
     "source_pdf_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/microsoft_2024_10k.html",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/microsoft_2024_10k.html",
     "statement_pages_pdf_1_based": {
       "income_statement": 1,
       "balance_sheet": 1,
@@ -456,7 +456,7 @@
     "statement_year": 2024,
     "units": "USD millions unless ratio",
     "source_pdf_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
-    "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/alphabet_2024_10k.html",
+    "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/alphabet_2024_10k.html",
     "statement_pages_pdf_1_based": {
       "income_statement": 1,
       "balance_sheet": 1,

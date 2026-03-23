@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "USD millions unless ratio",
   "source_pdf_url": "https://investor.exxonmobil.com/sec-filings/all-sec-filings/content/0000034088-26-000045/0000034088-26-000045.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/exxon_2024_10k.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/exxon_2024_10k.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 73,
     "balance_sheet": 75,
@@ -45,5 +45,26 @@
   },
   "assumptions": [
     "2024 values selected from 2025/2024/2023 columns in Exxon 10-K statements."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 453475.0,
+    "liabilities": 182869.0,
+    "equity": 270606.0,
+    "current_liabilities": 70307.0,
+    "cash": 23029.0,
+    "marketable": null,
+    "receivables": 43681.0,
+    "inventory": null,
+    "prepayments_current": null,
+    "revenue": 339247.0,
+    "operating_income": null,
+    "net_income": 33680.0,
+    "debt_current": 4955.0,
+    "debt_noncurrent": 36755.0,
+    "total_debt": 41710.0,
+    "cash_like_assets": 23029.0,
+    "liquid_assets": 66710.0,
+    "current_assets_proxy": 66710.0,
+    "is_bank_like": false
+  }
 }

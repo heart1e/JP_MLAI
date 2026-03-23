@@ -1,0 +1,337 @@
+{
+  "case_id": "debenhams_2018",
+  "company_name": "Debenhams plc",
+  "statement_year": 2018,
+  "model": "gpt-5.4-mini",
+  "reasoning": "medium",
+  "warning_config_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/config/bonus2_warning_config.json",
+  "schema_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/output/bonus2_warning_schema.json",
+  "candidate_passage_count": 11,
+  "section_count": 4,
+  "candidate_passages": [
+    {
+      "page_number": 82,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "basis for opinion",
+      "text": "statements, which include a description of the significant accounting policies. Our opinion is consistent with our reporting to the Audit Committee. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under ISAs (UK) are further described in the Auditors\u2019 responsibilities for the audit of the financial statements section of our report. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Independence We remained independent of the Group in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, which includes the FRC\u2019s Ethical Standard, as applicable to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. To the best of our knowledge and belief, we declare that non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. Other than those disclosed in note 6 to the financial statements, we have provided no non-audit services to the Group or the Company in the period from 3 September 2017 to 1 September 2018. INDEPENDENT AUDITORS\u2019 REPORT TO THE MEMBERS OF DEBENHAMS PLC Financial statements 80 Debenhams plc Annual Report & Accounts 2018",
+      "passage_id": "debenhams_2018_basis_for_opinion_1"
+    },
+    {
+      "page_number": 83,
+      "section_id": "basis_for_opinion",
+      "matched_keyword": "basis for opinion",
+      "text": "statements, which include a description of the significant accounting policies. Our opinion is consistent with our reporting to the Audit Committee. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under ISAs (UK) are further described in the Auditors\u2019 responsibilities for the audit of the financial statements section of our report. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Independence We remained independent of the Group in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, which includes the FRC\u2019s Ethical Standard, as applicable to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. To the best of our knowledge and belief, we declare that non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. Other than those disclosed in note 6 to the financial statements, we have provided no non-audit services to the Group or the Company in the period from 3 September 2017 to 1 September 2018. 81 Debenhams plc Annual Report & Accounts 2018 Our audit approach Overview \u2022 Overall Group materiality: \u00a34.1 million (2017: \u00a34.8 million), based on 5% of three year average profit before tax and exceptional items.",
+      "passage_id": "debenhams_2018_basis_for_opinion_2"
+    },
+    {
+      "page_number": 83,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "\u2022 The entities where we performed full scope audits accounted for 100% of retail revenue and profit before tax and exceptional items. \u2022 Ability of the Group to continue as a going concern (Group and Company). \u2022 Goodwill and store asset impairment assessment (Group and Company). \u2022 Risk of fraud in revenue recognition in relation to manual adjustments posted to revenue and the cut-off of wholesale invoicing to franchises (Group). \u2022 Inventory valuation using the retail method and provisioning for out of season inventory (Group). \u2022 Defined benefit pension plans (Group). \u2022 Exceptional items (Group). The scope of our audit As part of designing our audit, we determined materiality and assessed the risks of material misstatement in the financial statements. In particular, we looked at where the directors made subjective judgements, for example in respect of significant accounting estimates that involved making assumptions and considering future events that are inherently uncertain. We gained an understanding of the legal and regulatory framework applicable to the Group and the industry in which it operates, and considered the risk of acts by the Group which were contrary to applicable laws and regulations, including fraud. We designed audit procedures at Group and significant component level to respond to the risk, recognising that the risk of not detecting a material misstatement due to fraud is higher than the risk of not detecting one resulting from error, as fraud may involve deliberate concealment by, for example, forgery or intentional misrepresentations, or through ...",
+      "passage_id": "debenhams_2018_going_concern_1"
+    },
+    {
+      "page_number": 84,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "Debenhams plc Annual Report & Accounts 2018 Key audit matter How our audit addressed the key audit matter Ability of the Group to continue as a going concern Refer to Note 2 to the financial statements for the directors\u2019 assessment of going concern, note 5 for the directors\u2019 disclosures for the critical accounting estimates and judgements and page 56 for the views of the Audit Committee. During the year ended 1 September 2018, the Group made a loss after tax and exceptional items of \u00a3461.0 million and as a reaction to trading updates, saw a reduction in the cover offered by credit insurers to its suppliers. The directors performed a going concern assessment, based on their latest budgets and forecasts, and taking into account the Group\u2019s current facilities (\u00a3200 million bond and \u00a3320 million RCF) and covenants included within those facilities. The directors\u2019 assessment included a number of downside trading and working capital sensitivities and identified mitigating actions that could be taken to reduce cash expenditure if necessary. The directors concluded that",
+      "passage_id": "debenhams_2018_going_concern_2"
+    },
+    {
+      "page_number": 84,
+      "section_id": "going_concern",
+      "matched_keyword": "going concern",
+      "text": "Ability of the Group to continue as a going concern Refer to Note 2 to the financial statements for the directors\u2019 assessment of going concern, note 5 for the directors\u2019 disclosures for the critical accounting estimates and judgements and page 56 for the views of the Audit Committee. During the year ended 1 September 2018, the Group made a loss after tax and exceptional items of \u00a3461.0 million and as a reaction to trading updates, saw a reduction in the cover offered by credit insurers to its suppliers. The directors performed a going concern assessment, based on their latest budgets and forecasts, and taking into account the Group\u2019s current facilities (\u00a3200 million bond and \u00a3320 million RCF) and covenants included within those facilities. The directors\u2019 assessment included a number of downside trading and working capital sensitivities and identified mitigating actions that could be taken to reduce cash expenditure if necessary. The directors concluded that it was appropriate to prepare the financial statements on a going concern basis.",
+      "passage_id": "debenhams_2018_going_concern_3"
+    },
+    {
+      "page_number": 123,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "refinance",
+      "text": "\u00a31.4 million) and are stated net of unamortised issue costs of \u00a31.6 million (2017: \u00a32.1 million). Interest on the senior notes is payable semi-annually. At 1 September 2018, the Group\u2019s drawings under credit facilities outstanding comprised revolving credit facility drawings of \u00a3161.0 million (2017: \u00a395.0 million). During the 2016 financial year, the Company refinanced its \u00a3350.0 million revolving credit facility, choosing to reduce the facility size to \u00a3320.0 million in the process and extending the maturity from October 2018 to June 2020. The amended revolving credit facility contains an option to request an extension to June 2021. During the year ended 1 September 2018, the Company made an amendment to its revolving credit facility to increase headroom on the fixed charge covenant, \u00a30.8 million of debt amendment fees were incurred in this process. During the current and prior financial years, the Group has complied with its covenants relating to its credit facilities. The amortisation charge relating to the issue costs of the revolving credit facility was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.7 million). The amortisation charge relating to the issue costs of the senior notes was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.6 million). Finance lease obligations Finance lease obligations relate mainly to software, leased under hire purchase contracts. The minimum lease payments under finance leases fall due as follows: 1 September 2018 \u00a3m 2 September 2017 \u00a3m Not later than one year 1.5 1.7",
+      "passage_id": "debenhams_2018_debt_liquidity_1"
+    },
+    {
+      "page_number": 123,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "maturity",
+      "text": "At 1 September 2018, the Group\u2019s drawings under credit facilities outstanding comprised revolving credit facility drawings of \u00a3161.0 million (2017: \u00a395.0 million). During the 2016 financial year, the Company refinanced its \u00a3350.0 million revolving credit facility, choosing to reduce the facility size to \u00a3320.0 million in the process and extending the maturity from October 2018 to June 2020. The amended revolving credit facility contains an option to request an extension to June 2021. During the year ended 1 September 2018, the Company made an amendment to its revolving credit facility to increase headroom on the fixed charge covenant, \u00a30.8 million of debt amendment fees were incurred in this process. During the current and prior financial years, the Group has complied with its covenants relating to its credit facilities. The amortisation charge relating to the issue costs of the revolving credit facility was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.7 million). The amortisation charge relating to the issue costs of the senior notes was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.6 million). Finance lease obligations Finance lease obligations relate mainly to software, leased under hire purchase contracts. The minimum lease payments under finance leases fall due as follows: 1 September 2018 \u00a3m 2 September 2017 \u00a3m Not later than one year 1.5 1.7 Later than one year but not later than five years \u2013 1.6",
+      "passage_id": "debenhams_2018_debt_liquidity_2"
+    },
+    {
+      "page_number": 123,
+      "section_id": "debt_liquidity",
+      "matched_keyword": "borrowings",
+      "text": "121 Debenhams plc Annual Report & Accounts 2018 22 BORROWINGS 1 September 2018 \u00a3m 2 September 2017 \u00a3m Current Bank overdraft 3.8 20.3 Revolving credit facility1 158.9 93.1 Senior notes2 1.4 1.4 Lease obligations 1.5 1.6 Total current borrowings 165.6 116.4 Non-current Senior notes2 198.4 197.9 Lease obligations \u2013 1.6 Total non-current borrowings 198.4 199.5 Total current and non-current borrowings 364.0 315.9 1 Revolving credit facility is stated net of unamortised issue costs of \u00a32.2 million (2017: \u00a31.9 million) and includes accrued interest of \u00a30.1 million (2017: \u00a3nil).",
+      "passage_id": "debenhams_2018_debt_liquidity_3"
+    },
+    {
+      "page_number": 34,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "operational costs within the online channel and lower profitability, or even impairment, of store assets Potential impact \u2022 Could significantly delay or prevent the achievement of Debenhams\u2019 business plan and could have a material adverse effect on Debenhams\u2019 business, financial condition or results of operations Potential impact \u2022 Place pressure on margins and profitability or require the Group to divert financial and management resources from more beneficial uses \u2022 Additional unplanned costs required to transfer operations between providers or additional operational costs from a new provider \u2022 Changes in exclusivity arrangements with designers or any decline in their",
+      "passage_id": "debenhams_2018_impairment_valuation_1"
+    },
+    {
+      "page_number": 35,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "operational costs within the online channel and lower profitability, or even impairment, of store assets Potential impact \u2022 Could significantly delay or prevent the achievement of Debenhams\u2019 business plan and could have a material adverse effect on Debenhams\u2019 business, financial condition or results of operations Potential impact \u2022 Place pressure on margins and profitability or require the Group to divert financial and management resources from more beneficial uses \u2022 Additional unplanned costs required to transfer operations between providers or additional operational costs from a new provider \u2022 Changes in exclusivity arrangements with designers or any decline in their",
+      "passage_id": "debenhams_2018_impairment_valuation_2"
+    },
+    {
+      "page_number": 38,
+      "section_id": "impairment_valuation",
+      "matched_keyword": "impairment",
+      "text": "4 Gross margin: GTV less the value of cost of goods sold, as a percentage of GTV. 5 EBITDA is earnings before interest, taxation, depreciation and amortisation. 6 Before exceptional items, comprising costs associated with the strategic review, warehouse restructuring, provisions for impairment losses and onerous lease commitments, write-off of intangible assets and the impairment of goodwill. FINANCIAL REVIEW CONTINUED Strategic report 36 Debenhams plc Annual Report & Accounts 2018",
+      "passage_id": "debenhams_2018_impairment_valuation_3"
+    }
+  ],
+  "sections": [
+    {
+      "section_id": "basis_for_opinion",
+      "title": "Basis for Opinion",
+      "page_hits": [
+        {
+          "page_number": 82,
+          "match_count": 1,
+          "matched_keywords": [
+            "basis for opinion"
+          ]
+        },
+        {
+          "page_number": 83,
+          "match_count": 1,
+          "matched_keywords": [
+            "basis for opinion"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 82,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "basis for opinion",
+          "text": "statements, which include a description of the significant accounting policies. Our opinion is consistent with our reporting to the Audit Committee. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under ISAs (UK) are further described in the Auditors\u2019 responsibilities for the audit of the financial statements section of our report. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Independence We remained independent of the Group in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, which includes the FRC\u2019s Ethical Standard, as applicable to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. To the best of our knowledge and belief, we declare that non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. Other than those disclosed in note 6 to the financial statements, we have provided no non-audit services to the Group or the Company in the period from 3 September 2017 to 1 September 2018. INDEPENDENT AUDITORS\u2019 REPORT TO THE MEMBERS OF DEBENHAMS PLC Financial statements 80 Debenhams plc Annual Report & Accounts 2018",
+          "passage_id": "debenhams_2018_basis_for_opinion_1"
+        },
+        {
+          "page_number": 83,
+          "section_id": "basis_for_opinion",
+          "matched_keyword": "basis for opinion",
+          "text": "statements, which include a description of the significant accounting policies. Our opinion is consistent with our reporting to the Audit Committee. Basis for opinion We conducted our audit in accordance with International Standards on Auditing (UK) (\u201cISAs (UK)\u201d) and applicable law. Our responsibilities under ISAs (UK) are further described in the Auditors\u2019 responsibilities for the audit of the financial statements section of our report. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Independence We remained independent of the Group in accordance with the ethical requirements that are relevant to our audit of the financial statements in the UK, which includes the FRC\u2019s Ethical Standard, as applicable to listed public interest entities, and we have fulfilled our other ethical responsibilities in accordance with these requirements. To the best of our knowledge and belief, we declare that non-audit services prohibited by the FRC\u2019s Ethical Standard were not provided to the Group or the Company. Other than those disclosed in note 6 to the financial statements, we have provided no non-audit services to the Group or the Company in the period from 3 September 2017 to 1 September 2018. 81 Debenhams plc Annual Report & Accounts 2018 Our audit approach Overview \u2022 Overall Group materiality: \u00a34.1 million (2017: \u00a34.8 million), based on 5% of three year average profit before tax and exceptional items.",
+          "passage_id": "debenhams_2018_basis_for_opinion_2"
+        }
+      ]
+    },
+    {
+      "section_id": "going_concern",
+      "title": "Going Concern",
+      "page_hits": [
+        {
+          "page_number": 83,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 84,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        },
+        {
+          "page_number": 85,
+          "match_count": 2,
+          "matched_keywords": [
+            "going concern",
+            "continue as a going concern"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 83,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "\u2022 The entities where we performed full scope audits accounted for 100% of retail revenue and profit before tax and exceptional items. \u2022 Ability of the Group to continue as a going concern (Group and Company). \u2022 Goodwill and store asset impairment assessment (Group and Company). \u2022 Risk of fraud in revenue recognition in relation to manual adjustments posted to revenue and the cut-off of wholesale invoicing to franchises (Group). \u2022 Inventory valuation using the retail method and provisioning for out of season inventory (Group). \u2022 Defined benefit pension plans (Group). \u2022 Exceptional items (Group). The scope of our audit As part of designing our audit, we determined materiality and assessed the risks of material misstatement in the financial statements. In particular, we looked at where the directors made subjective judgements, for example in respect of significant accounting estimates that involved making assumptions and considering future events that are inherently uncertain. We gained an understanding of the legal and regulatory framework applicable to the Group and the industry in which it operates, and considered the risk of acts by the Group which were contrary to applicable laws and regulations, including fraud. We designed audit procedures at Group and significant component level to respond to the risk, recognising that the risk of not detecting a material misstatement due to fraud is higher than the risk of not detecting one resulting from error, as fraud may involve deliberate concealment by, for example, forgery or intentional misrepresentations, or through ...",
+          "passage_id": "debenhams_2018_going_concern_1"
+        },
+        {
+          "page_number": 84,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "Debenhams plc Annual Report & Accounts 2018 Key audit matter How our audit addressed the key audit matter Ability of the Group to continue as a going concern Refer to Note 2 to the financial statements for the directors\u2019 assessment of going concern, note 5 for the directors\u2019 disclosures for the critical accounting estimates and judgements and page 56 for the views of the Audit Committee. During the year ended 1 September 2018, the Group made a loss after tax and exceptional items of \u00a3461.0 million and as a reaction to trading updates, saw a reduction in the cover offered by credit insurers to its suppliers. The directors performed a going concern assessment, based on their latest budgets and forecasts, and taking into account the Group\u2019s current facilities (\u00a3200 million bond and \u00a3320 million RCF) and covenants included within those facilities. The directors\u2019 assessment included a number of downside trading and working capital sensitivities and identified mitigating actions that could be taken to reduce cash expenditure if necessary. The directors concluded that",
+          "passage_id": "debenhams_2018_going_concern_2"
+        },
+        {
+          "page_number": 84,
+          "section_id": "going_concern",
+          "matched_keyword": "going concern",
+          "text": "Ability of the Group to continue as a going concern Refer to Note 2 to the financial statements for the directors\u2019 assessment of going concern, note 5 for the directors\u2019 disclosures for the critical accounting estimates and judgements and page 56 for the views of the Audit Committee. During the year ended 1 September 2018, the Group made a loss after tax and exceptional items of \u00a3461.0 million and as a reaction to trading updates, saw a reduction in the cover offered by credit insurers to its suppliers. The directors performed a going concern assessment, based on their latest budgets and forecasts, and taking into account the Group\u2019s current facilities (\u00a3200 million bond and \u00a3320 million RCF) and covenants included within those facilities. The directors\u2019 assessment included a number of downside trading and working capital sensitivities and identified mitigating actions that could be taken to reduce cash expenditure if necessary. The directors concluded that it was appropriate to prepare the financial statements on a going concern basis.",
+          "passage_id": "debenhams_2018_going_concern_3"
+        }
+      ]
+    },
+    {
+      "section_id": "debt_liquidity",
+      "title": "Debt and Liquidity",
+      "page_hits": [
+        {
+          "page_number": 123,
+          "match_count": 5,
+          "matched_keywords": [
+            "refinance",
+            "maturity",
+            "borrowings",
+            "covenant",
+            "repayment"
+          ]
+        },
+        {
+          "page_number": 125,
+          "match_count": 5,
+          "matched_keywords": [
+            "liquidity",
+            "liquidity risk",
+            "maturity",
+            "borrowings",
+            "covenant"
+          ]
+        },
+        {
+          "page_number": 155,
+          "match_count": 5,
+          "matched_keywords": [
+            "refinance",
+            "maturity",
+            "borrowings",
+            "covenant",
+            "repayment"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 123,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "refinance",
+          "text": "\u00a31.4 million) and are stated net of unamortised issue costs of \u00a31.6 million (2017: \u00a32.1 million). Interest on the senior notes is payable semi-annually. At 1 September 2018, the Group\u2019s drawings under credit facilities outstanding comprised revolving credit facility drawings of \u00a3161.0 million (2017: \u00a395.0 million). During the 2016 financial year, the Company refinanced its \u00a3350.0 million revolving credit facility, choosing to reduce the facility size to \u00a3320.0 million in the process and extending the maturity from October 2018 to June 2020. The amended revolving credit facility contains an option to request an extension to June 2021. During the year ended 1 September 2018, the Company made an amendment to its revolving credit facility to increase headroom on the fixed charge covenant, \u00a30.8 million of debt amendment fees were incurred in this process. During the current and prior financial years, the Group has complied with its covenants relating to its credit facilities. The amortisation charge relating to the issue costs of the revolving credit facility was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.7 million). The amortisation charge relating to the issue costs of the senior notes was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.6 million). Finance lease obligations Finance lease obligations relate mainly to software, leased under hire purchase contracts. The minimum lease payments under finance leases fall due as follows: 1 September 2018 \u00a3m 2 September 2017 \u00a3m Not later than one year 1.5 1.7",
+          "passage_id": "debenhams_2018_debt_liquidity_1"
+        },
+        {
+          "page_number": 123,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "maturity",
+          "text": "At 1 September 2018, the Group\u2019s drawings under credit facilities outstanding comprised revolving credit facility drawings of \u00a3161.0 million (2017: \u00a395.0 million). During the 2016 financial year, the Company refinanced its \u00a3350.0 million revolving credit facility, choosing to reduce the facility size to \u00a3320.0 million in the process and extending the maturity from October 2018 to June 2020. The amended revolving credit facility contains an option to request an extension to June 2021. During the year ended 1 September 2018, the Company made an amendment to its revolving credit facility to increase headroom on the fixed charge covenant, \u00a30.8 million of debt amendment fees were incurred in this process. During the current and prior financial years, the Group has complied with its covenants relating to its credit facilities. The amortisation charge relating to the issue costs of the revolving credit facility was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.7 million). The amortisation charge relating to the issue costs of the senior notes was \u00a30.5 million for the year ended 1 September 2018 (2017: \u00a30.6 million). Finance lease obligations Finance lease obligations relate mainly to software, leased under hire purchase contracts. The minimum lease payments under finance leases fall due as follows: 1 September 2018 \u00a3m 2 September 2017 \u00a3m Not later than one year 1.5 1.7 Later than one year but not later than five years \u2013 1.6",
+          "passage_id": "debenhams_2018_debt_liquidity_2"
+        },
+        {
+          "page_number": 123,
+          "section_id": "debt_liquidity",
+          "matched_keyword": "borrowings",
+          "text": "121 Debenhams plc Annual Report & Accounts 2018 22 BORROWINGS 1 September 2018 \u00a3m 2 September 2017 \u00a3m Current Bank overdraft 3.8 20.3 Revolving credit facility1 158.9 93.1 Senior notes2 1.4 1.4 Lease obligations 1.5 1.6 Total current borrowings 165.6 116.4 Non-current Senior notes2 198.4 197.9 Lease obligations \u2013 1.6 Total non-current borrowings 198.4 199.5 Total current and non-current borrowings 364.0 315.9 1 Revolving credit facility is stated net of unamortised issue costs of \u00a32.2 million (2017: \u00a31.9 million) and includes accrued interest of \u00a30.1 million (2017: \u00a3nil).",
+          "passage_id": "debenhams_2018_debt_liquidity_3"
+        }
+      ]
+    },
+    {
+      "section_id": "impairment_valuation",
+      "title": "Impairment and Valuation",
+      "page_hits": [
+        {
+          "page_number": 34,
+          "match_count": 1,
+          "matched_keywords": [
+            "impairment"
+          ]
+        },
+        {
+          "page_number": 35,
+          "match_count": 1,
+          "matched_keywords": [
+            "impairment"
+          ]
+        },
+        {
+          "page_number": 38,
+          "match_count": 1,
+          "matched_keywords": [
+            "impairment"
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "page_number": 34,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "operational costs within the online channel and lower profitability, or even impairment, of store assets Potential impact \u2022 Could significantly delay or prevent the achievement of Debenhams\u2019 business plan and could have a material adverse effect on Debenhams\u2019 business, financial condition or results of operations Potential impact \u2022 Place pressure on margins and profitability or require the Group to divert financial and management resources from more beneficial uses \u2022 Additional unplanned costs required to transfer operations between providers or additional operational costs from a new provider \u2022 Changes in exclusivity arrangements with designers or any decline in their",
+          "passage_id": "debenhams_2018_impairment_valuation_1"
+        },
+        {
+          "page_number": 35,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "operational costs within the online channel and lower profitability, or even impairment, of store assets Potential impact \u2022 Could significantly delay or prevent the achievement of Debenhams\u2019 business plan and could have a material adverse effect on Debenhams\u2019 business, financial condition or results of operations Potential impact \u2022 Place pressure on margins and profitability or require the Group to divert financial and management resources from more beneficial uses \u2022 Additional unplanned costs required to transfer operations between providers or additional operational costs from a new provider \u2022 Changes in exclusivity arrangements with designers or any decline in their",
+          "passage_id": "debenhams_2018_impairment_valuation_2"
+        },
+        {
+          "page_number": 38,
+          "section_id": "impairment_valuation",
+          "matched_keyword": "impairment",
+          "text": "4 Gross margin: GTV less the value of cost of goods sold, as a percentage of GTV. 5 EBITDA is earnings before interest, taxation, depreciation and amortisation. 6 Before exceptional items, comprising costs associated with the strategic review, warehouse restructuring, provisions for impairment losses and onerous lease commitments, write-off of intangible assets and the impairment of goodwill. FINANCIAL REVIEW CONTINUED Strategic report 36 Debenhams plc Annual Report & Accounts 2018",
+          "passage_id": "debenhams_2018_impairment_valuation_3"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "overall_risk_level": "high",
+    "executive_summary": "The material warnings are concentrated in three areas: a severe going-concern assessment linked to large losses and reduced supplier credit insurance cover, refinancing and covenant-headroom pressure on the revolving credit facility, and material impairment-related exceptional items including goodwill and intangible write-offs. Neutral audit boilerplate has been excluded.",
+    "top_warning_tags": [
+      "going_concern",
+      "refinancing_risk",
+      "impairment_loss"
+    ],
+    "warnings": [
+      {
+        "passage_id": "debenhams_2018_going_concern_2",
+        "section_id": "going_concern",
+        "page_number": 84,
+        "risk_tag": "going_concern",
+        "severity": "high",
+        "is_material_warning": true,
+        "why_it_matters": "This signals severe trading stress and that the directors had to perform a formal going-concern assessment using downside sensitivities and mitigating actions.",
+        "rationale": "The passage states a very large loss after tax and exceptional items and notes reduced cover from credit insurers to suppliers, both of which are material distress indicators in a going-concern context.",
+        "evidence_quote": "made a loss after tax and exceptional items of \u00a3461.0 million"
+      },
+      {
+        "passage_id": "debenhams_2018_impairment_valuation_3",
+        "section_id": "impairment_valuation",
+        "page_number": 38,
+        "risk_tag": "impairment_loss",
+        "severity": "medium",
+        "is_material_warning": true,
+        "why_it_matters": "Exceptional items included impairment losses and a goodwill impairment, which can indicate significant asset value deterioration and earnings strain.",
+        "rationale": "The passage explicitly lists impairment losses, write-off of intangible assets, and impairment of goodwill as exceptional items, making this a concrete warning signal.",
+        "evidence_quote": "the impairment of goodwill"
+      },
+      {
+        "passage_id": "debenhams_2018_debt_liquidity_1",
+        "section_id": "debt_liquidity",
+        "page_number": 123,
+        "risk_tag": "refinancing_risk",
+        "severity": "medium",
+        "is_material_warning": true,
+        "why_it_matters": "The company had to refinance and amend its revolving credit facility, including a covenant-headroom increase, which points to ongoing financing pressure.",
+        "rationale": "The text shows dependency on refinancing to extend maturity and a subsequent amendment to increase fixed-charge covenant headroom, even though the group says it complied with covenants.",
+        "evidence_quote": "refinanced its \u00a3350.0 million revolving credit facility"
+      }
+    ]
+  }
+}

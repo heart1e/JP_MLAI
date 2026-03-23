@@ -1,0 +1,69 @@
+{
+  "version": "bonus3-v1",
+  "market_data": {
+    "benchmark_maturity_years": 5,
+    "horizon_months": 1,
+    "par_value": 100.0,
+    "holdout_months": 24,
+    "bootstrap_draws": 500,
+    "fred_series": {
+      "DGS2": "2-Year Treasury Constant Maturity Rate",
+      "DGS5": "5-Year Treasury Constant Maturity Rate",
+      "DGS10": "10-Year Treasury Constant Maturity Rate",
+      "AAA10Y": "Moody's Seasoned Aaa Corporate Bond Yield Relative to 10-Year Treasury",
+      "BAMLC0A4CBBB": "ICE BofA BBB US Corporate Index Option-Adjusted Spread",
+      "BAMLH0A0HYM2": "ICE BofA US High Yield Index Option-Adjusted Spread"
+    },
+    "target_bucket_map": {
+      "A": "AAA10Y",
+      "B": "BAMLC0A4CBBB",
+      "C": "BAMLC0A4CBBB",
+      "D": "BAMLH0A0HYM2"
+    }
+  },
+  "borrower_adjustments": {
+    "rating_addon_bps": {
+      "A": 0.0,
+      "B": 60.0,
+      "C": 180.0,
+      "D": 350.0
+    },
+    "normalized_score_scale_bps": 75.0,
+    "normalized_score_clip_bps": [
+      -40.0,
+      120.0
+    ],
+    "distress_flag_bps": 20.0,
+    "shenanigans_point_bps": 8.0,
+    "warning_count_bps": 12.0,
+    "severity_addon_bps": {
+      "low": 0.0,
+      "medium": 25.0,
+      "high": 60.0,
+      "critical": 120.0
+    }
+  },
+  "decision_layer": {
+    "decline_rating": [
+      "D"
+    ],
+    "manual_review_rating": [
+      "C"
+    ],
+    "decline_warning_severity": [
+      "critical"
+    ],
+    "manual_review_warning_severity": [
+      "high"
+    ],
+    "decline_distress_flag_count": 3,
+    "manual_review_distress_flag_count": 2,
+    "decline_shenanigans_points": 8,
+    "manual_review_shenanigans_points": 4,
+    "messages": {
+      "quote": "Within this MVP, the borrower remains in the quotable range; the spread can be used as an indicative pricing starting point.",
+      "manual_review": "Indicative quote only. The borrower should be escalated to credit committee / senior underwriter review before any real offer.",
+      "decline": "Indicative distressed quote only. In normal banking workflow this name would likely be declined or restructured rather than automatically priced."
+    }
+  }
+}

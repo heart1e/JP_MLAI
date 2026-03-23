@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "USD millions unless ratio",
   "source_pdf_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/alphabet_2024_10k.html",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/alphabet_2024_10k.html",
   "statement_pages_pdf_1_based": {
     "income_statement": 1,
     "balance_sheet": 1,
@@ -70,5 +70,26 @@
   },
   "assumptions": [
     "SEC XBRL tag-based extraction; page placeholders set to 1 for non-PDF source."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 450256.0,
+    "liabilities": 125172.0,
+    "equity": 325084.0,
+    "current_liabilities": 89122.0,
+    "cash": 23466.0,
+    "marketable": 72191.0,
+    "receivables": 52340.0,
+    "inventory": null,
+    "prepayments_current": null,
+    "revenue": 350018.0,
+    "operating_income": 112390.0,
+    "net_income": 100118.0,
+    "debt_current": 999.0,
+    "debt_noncurrent": 10883.0,
+    "total_debt": 14182.0,
+    "cash_like_assets": 95657.0,
+    "liquid_assets": 147997.0,
+    "current_assets_proxy": 147997.0,
+    "is_bank_like": false
+  }
 }

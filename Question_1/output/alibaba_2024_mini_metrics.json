@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "RMB millions unless ratio",
   "source_pdf_url": "https://data.alibabagroup.com/ecms-files/1514443390/5788a02d-696c-412a-ad2a-386d19b21769/Alibaba%20Group%20Holding%20Limited%20Fiscal%20Year%202024%20Annual%20Report.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/alibaba_fy2024_annual_report.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/alibaba_fy2024_annual_report.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 254,
     "balance_sheet": 256,
@@ -49,5 +49,26 @@
   },
   "assumptions": [
     "Current receivable proxy uses prepayments/receivables/other assets line item in Alibaba report."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 1764829.0,
+    "liabilities": 652230.0,
+    "equity": 1101871.0,
+    "current_liabilities": 421507.0,
+    "cash": 248125.0,
+    "marketable": 262955.0,
+    "receivables": null,
+    "inventory": null,
+    "prepayments_current": 143536.0,
+    "revenue": 941168.0,
+    "operating_income": 113350.0,
+    "net_income": 71332.0,
+    "debt_current": 12749.0,
+    "debt_noncurrent": 55686.0,
+    "total_debt": 170776.0,
+    "cash_like_assets": 511080.0,
+    "liquid_assets": 511080.0,
+    "current_assets_proxy": 654616.0,
+    "is_bank_like": false
+  }
 }

@@ -1,0 +1,265 @@
+{
+  "seed": 3,
+  "paths": {
+    "yfinance_raw_dir": "data/yfinance",
+    "yfinance_clean_dir": "data/clean/yfinance",
+    "sec_raw_dir": "data/sec",
+    "sec_clean_dir": "data/clean/sec",
+    "annual_report_raw_dir": "data/raw",
+    "annual_report_output_dir": "output"
+  },
+  "tickers": {
+    "universe": [
+      "AAPL",
+      "GOOG",
+      "700",
+      "1810",
+      "IBM",
+      "TSLA",
+      "9633",
+      "9987",
+      "9988",
+      "IBKR",
+      "KO",
+      "MCD",
+      "EL",
+      "BRK B",
+      "NESN"
+    ],
+    "primary": "AAPL",
+    "special_map": {
+      "700": "0700.HK",
+      "1810": "1810.HK",
+      "9633": "9633.HK",
+      "9987": "9987.HK",
+      "9988": "9988.HK",
+      "BRK B": "BRK-B",
+      "NESN": "NESN.SW"
+    },
+    "fiscal_year_end_months": {
+      "AAPL": 9,
+      "GOOG": 12,
+      "700": 12,
+      "1810": 12,
+      "IBM": 12,
+      "TSLA": 12,
+      "9633": 12,
+      "9987": 12,
+      "9988": 3,
+      "IBKR": 12,
+      "KO": 12,
+      "MCD": 12,
+      "EL": 6,
+      "BRK B": 12,
+      "NESN": 12
+    },
+    "sec_cik_overrides": {
+      "AAPL": "0000320193"
+    }
+  },
+  "fetch": {
+    "yfinance": {
+      "sleep_seconds": 0.5
+    },
+    "sec": {
+      "fields": {
+        "total_assets": [
+          "Assets"
+        ],
+        "total_liabilities": [
+          "Liabilities"
+        ],
+        "total_equity": [
+          "StockholdersEquity",
+          "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+        ],
+        "total_revenue": [
+          "Revenues",
+          "SalesRevenueNet",
+          "RevenueFromContractWithCustomerExcludingAssessedTax"
+        ],
+        "net_income": [
+          "NetIncomeLoss",
+          "NetIncomeLossAvailableToCommonStockholdersBasic"
+        ]
+      },
+      "allowed_forms": {
+        "yearly": [
+          "10-K",
+          "10-K/A",
+          "20-F",
+          "40-F"
+        ],
+        "quarterly": [
+          "10-Q",
+          "10-Q/A"
+        ]
+      },
+      "years_default": 10
+    }
+  },
+  "training": {
+    "target_freq": "yearly",
+    "aliases": {
+      "balance_sheet": {
+        "Total Assets": [
+          "Total Assets",
+          "TotalAssets"
+        ],
+        "Total Liabilities": [
+          "Total Liab",
+          "Total Liabilities",
+          "Total Liabilities Net Minority Interest",
+          "TotalLiabilitiesNetMinorityInterest",
+          "TotalLiabilities"
+        ],
+        "Total Equity": [
+          "Total Stockholder Equity",
+          "Total Equity Gross Minority Interest",
+          "Stockholders Equity",
+          "TotalEquityGrossMinorityInterest",
+          "StockholdersEquity"
+        ],
+        "Accounts Receivable": [
+          "Accounts Receivable",
+          "AccountsReceivable"
+        ],
+        "Accounts Payable": [
+          "Accounts Payable",
+          "AccountsPayable"
+        ],
+        "Net PPE": [
+          "Net PPE",
+          "NetPPE"
+        ],
+        "Retained Earnings": [
+          "Retained Earnings",
+          "RetainedEarnings"
+        ],
+        "Inventory": [
+          "Inventory",
+          "Inventories"
+        ]
+      },
+      "income_statement": {
+        "Total Revenue": [
+          "Total Revenue",
+          "Operating Revenue",
+          "TotalRevenue",
+          "OperatingRevenue",
+          "Revenues",
+          "total_revenue"
+        ],
+        "Cost Of Revenue": [
+          "Cost Of Revenue",
+          "Cost of Revenue",
+          "CostOfRevenue",
+          "ReconciledCostOfRevenue",
+          "cost_of_revenue"
+        ],
+        "Operating Income": [
+          "Operating Income",
+          "OperatingIncome",
+          "OperatingIncomeLoss"
+        ],
+        "Net Income": [
+          "Net Income",
+          "NetIncome",
+          "NetIncomeLoss",
+          "NetIncomeLossAvailableToCommonStockholdersBasic",
+          "net_income"
+        ]
+      }
+    },
+    "targets": {
+      "balance_sheet": [
+        "Total Assets",
+        "Total Liabilities",
+        "Total Equity"
+      ],
+      "liabilities_equity": [
+        "Total Liabilities",
+        "Total Equity"
+      ],
+      "net_income": "Net Income",
+      "state": [
+        "Accounts Receivable",
+        "Accounts Payable",
+        "Inventory",
+        "Net PPE",
+        "Total Liabilities",
+        "Total Equity",
+        "Retained Earnings"
+      ]
+    },
+    "required_columns": {
+      "balance_sheet": [
+        "Accounts Payable",
+        "Accounts Receivable",
+        "Inventory",
+        "Net PPE",
+        "Retained Earnings",
+        "Total Assets",
+        "Total Equity",
+        "Total Liabilities"
+      ],
+      "income_statement": [
+        "Total Revenue",
+        "Cost Of Revenue",
+        "Operating Income",
+        "Net Income"
+      ]
+    }
+  },
+  "visualization": {
+    "plot_theme": {
+      "figure_face": "#0b0f17",
+      "axes_face": "#141925",
+      "panel_face": "#1a2130",
+      "grid": "#313a4d",
+      "spine": "#465065",
+      "text": "#f3f4f6",
+      "muted": "#b8c0cc",
+      "legend_face": "#101621"
+    },
+    "series_colors": {
+      "actual": "#e5e7eb",
+      "pred": "#56ccf2",
+      "train": "#f6c85f",
+      "val": "#ff6b6b"
+    },
+    "grid_alpha": 0.32,
+    "grid_linestyle": "--",
+    "legend_frame_alpha": 0.92,
+    "title_fontsize": 14,
+    "panel_title_fontsize": 11
+  },
+  "execution": {
+    "part2": {
+      "run_gm_pilot_extraction": false,
+      "run_lvmh_extension_extraction": false,
+      "run_manifest_progress_refresh": false,
+      "run_jpm_pilot_extraction": false,
+      "run_full_coverage_extraction": false,
+      "run_manifest_cross_refresh": false
+    },
+    "llm": {
+      "run_sign_in_smoke_test": false,
+      "run_baseline": false,
+      "run_weight_search_refresh": false,
+      "run_robustness": false
+    },
+    "bonus1": {
+      "run_rating_baseline": false,
+      "run_evergrande_case": false,
+      "run_shenanigans_scan": false,
+      "run_bankruptcy_oos": false
+    },
+    "bonus2": {
+      "run_warning_analysis": false
+    },
+    "bonus3": {
+      "run_pricing_mvp": false
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "statement_year": 2024,
   "units": "EUR millions unless ratio",
   "source_pdf_url": "https://lvmh-com.cdn.prismic.io/lvmh-com/Z5kVBpbqstJ999KR_Financialdocuments-December31%2C2024.pdf",
-  "source_pdf_path": "/Users/chenxinyu/JP_MLAI/Question_1/data/raw/lvmh_financial_documents_2024.pdf",
+  "source_pdf_path": "D:/OneDrive/Documents/Desktop/JPM/Question_1/data/raw/lvmh_financial_documents_2024.pdf",
   "statement_pages_pdf_1_based": {
     "income_statement": 24,
     "balance_sheet": 26,
@@ -54,5 +54,26 @@
     "Total debt = short-term borrowings + long-term borrowings (borrowings only, lease liabilities excluded).",
     "EBITDA proxy = operating profit + net increase in depreciation/amortization/provisions + depreciation of right-of-use assets.",
     "Interest coverage = operating profit / (abs(cost of net financial debt) + abs(interest on lease liabilities))."
-  ]
+  ],
+  "canonical_values": {
+    "assets": 149190.0,
+    "liabilities": null,
+    "equity": 69287.0,
+    "current_liabilities": 46207.0,
+    "cash": 9631.0,
+    "marketable": null,
+    "receivables": null,
+    "inventory": null,
+    "prepayments_current": null,
+    "revenue": 84683.0,
+    "operating_income": 18907.0,
+    "net_income": 12958.0,
+    "debt_current": 10851.0,
+    "debt_noncurrent": 12091.0,
+    "total_debt": 22942.0,
+    "cash_like_assets": 9631.0,
+    "liquid_assets": 9631.0,
+    "current_assets_proxy": 9631.0,
+    "is_bank_like": false
+  }
 }
